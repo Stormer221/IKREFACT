@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {
@@ -21,7 +22,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
