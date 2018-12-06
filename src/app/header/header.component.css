@@ -1,0 +1,36 @@
+nav {
+  width: 800px;
+  margin: auto;
+  color: white;
+}
+
+header {
+  background: #016b6d;
+  box-shadow: 0 0 15px #333;
+}
+
+nav ul li span.title {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+nav ul {
+  margin: 0;
+}
+
+nav ul li {
+  vertical-align:middle;
+  list-style: none;
+  display: inline-block;
+  padding: 0 10px;
+  height: 48px;
+  line-height: 48px;
+}
+
+nav ul li:hover {
+  background: #018284;
+}
+
+nav ul li.active {
+  background: #e8512e;
+}
