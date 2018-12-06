@@ -22,3 +22,8 @@ button {
   margin: 0 0 0 30px;
   width:100px;
 }
+img {
+  width: 400px;
+  length: 300px;
+  margin: 1em 0 1em 600px;
+}
