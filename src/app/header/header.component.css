@@ -9,7 +9,7 @@ header {
   box-shadow: 0 0 15px #333;
 }
 
-nav ul li span.title {
+nav ul li a.title {
   font-size: 2em;
   font-weight: bold;
 }
@@ -19,12 +19,9 @@ nav ul {
 }
 
 nav ul li {
-  vertical-align:middle;
   list-style: none;
   display: inline-block;
-  padding: 0 10px;
-  height: 48px;
-  line-height: 48px;
+  vertical-align:middle;
 }
 
 nav ul li:hover {
@@ -33,4 +30,13 @@ nav ul li:hover {
 
 nav ul li.active {
   background: #e8512e;
+}
+
+nav ul li a {
+  display: block;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 10px;
+  text-decoration: none;
+  color: white;
 }
