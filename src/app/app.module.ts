@@ -5,11 +5,12 @@ import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
+import {CardComponent} from './card/card.component';
 
 const appRoutes: Routes = [
   {
     path: 'start',
-    component: ErrorComponent
+    component: CardComponent
   },
   {
     path: '',
@@ -27,7 +28,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
-    ErrorComponent
+    ErrorComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
