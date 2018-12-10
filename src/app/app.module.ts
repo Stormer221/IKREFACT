@@ -5,6 +5,9 @@ import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
+import {CardComponent} from './card/card.component';
+import {LoginComponent} from './login/login.component';
+import {StartComponent} from './start/start.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
 import { ContactSearchBarComponent } from './contacts/contact-search-bar/contact-search-bar.component';
@@ -14,7 +17,7 @@ import { ContactItemComponent } from './contacts/contact-list/contact-item/conta
 const appRoutes: Routes = [
   {
     path: 'start',
-    component: ErrorComponent
+    component: StartComponent
   },
   {
     path: '',
@@ -32,6 +35,10 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+    ErrorComponent,
+    CardComponent,
+    LoginComponent,
+    StartComponent
     ErrorComponent,
     ContactsComponent,
     ContactFormComponent,
