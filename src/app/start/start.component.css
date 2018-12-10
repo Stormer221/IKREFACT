@@ -1,0 +1,5 @@
+div.banner {
+  background: #018284 url('/assets/img/illustratie-albert@2000x.png') center no-repeat;
+  background-size: contain;
+  height: 400px;
+}
