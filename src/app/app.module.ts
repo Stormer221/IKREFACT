@@ -25,6 +25,10 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'contacten',
+    component: ContactsComponent
+  },
+  {
     path: ':code',
     component: ErrorComponent
   }
@@ -38,13 +42,13 @@ const appRoutes: Routes = [
     ErrorComponent,
     CardComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
     ErrorComponent,
     ContactsComponent,
     ContactFormComponent,
     ContactSearchBarComponent,
     ContactListComponent,
-    ContactItemComponent
+    ContactItemComponent,
   ],
   imports: [
     BrowserModule,

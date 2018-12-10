@@ -9,7 +9,7 @@ import {Contact} from '../contact-model';
 export class ContactListComponent implements OnInit {
 
   private contacts: Contact[] = [
-    new Contact('Timmety', 'isEen', 'Baass', 1234567890, 'straat', 4,
+    new Contact('Timmety', '', 'Baass', 1234567890, 'straat', 4,
       'email@address.io', '1234AB' ),
     new Contact('voormaan', 'tussenvoegsel', 'achternaam', 1234567890, 'straat', 4,
       'email@address.io', '1234AB' )
