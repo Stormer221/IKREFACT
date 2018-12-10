@@ -11,6 +11,10 @@ import {StartComponent} from './start/start.component';
 
 const appRoutes: Routes = [
   {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
     path: 'start',
     component: StartComponent
   },
