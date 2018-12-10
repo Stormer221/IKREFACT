@@ -6,8 +6,10 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import { ContactsComponent } from './contacts/contacts.component';
-import { ContactInformationComponent } from './contacts/contact-information/contact-information.component';
+import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
 import { ContactSearchBarComponent } from './contacts/contact-search-bar/contact-search-bar.component';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
 
 const appRoutes: Routes = [
   {
@@ -32,8 +34,10 @@ const appRoutes: Routes = [
     HeaderComponent,
     ErrorComponent,
     ContactsComponent,
-    ContactInformationComponent,
-    ContactSearchBarComponent
+    ContactFormComponent,
+    ContactSearchBarComponent,
+    ContactListComponent,
+    ContactItemComponent
   ],
   imports: [
     BrowserModule,
