@@ -7,11 +7,12 @@ import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {CardComponent} from './card/card.component';
 import {LoginComponent} from './login/login.component';
+import {StartComponent} from './start/start.component';
 
 const appRoutes: Routes = [
   {
     path: 'start',
-    component: CardComponent
+    component: StartComponent
   },
   {
     path: '',
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     HeaderComponent,
     ErrorComponent,
     CardComponent,
-    LoginComponent
+    LoginComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
