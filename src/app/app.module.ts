@@ -6,6 +6,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {CardComponent} from './card/card.component';
+import { LoginComponent } from './login/login.component';
 
 const appRoutes: Routes = [
   {
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     HeaderComponent,
     ErrorComponent,
     CardComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
