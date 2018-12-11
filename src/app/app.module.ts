@@ -29,6 +29,10 @@ const appRoutes: Routes = [
     component: ContactsComponent
   },
   {
+    path: 'contact-form',
+    component: ContactFormComponent
+  },
+  {
     path: ':code',
     component: ErrorComponent
   }
