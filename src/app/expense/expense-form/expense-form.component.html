@@ -2,30 +2,30 @@
   <h1>Onkost</h1>
 </app-card>
 <app-card>
-  <div>
-    <div>
-      <label for="kostenpost">Kostenpost:</label>
-      <input type="text" id="kostenpost">
-    </div>
-    <div>
-      <label for="date">Datum:</label>
-      <input type="date" id="date">
-    </div>
-    <div>
-      <label for="company">Bedrijf:</label>
-      <input type="text" id="company">
-    </div>
-    <div>
-      <label for="price"> Prijs:</label>
-      <input type="text" id="price">
-    </div>
-    <div>
-      <label for="description">Omschrijving:</label>
-      <input type="text" id="description">
-    </div>
-    <div>
-      <button >Opslaan</button>
-      <button (click)="toExpense()">Cancel</button>
-    </div>
-  </div>
+  <ul>
+     <li>
+       <label for="kostenpost">Kostenpost:</label>
+       <input type="text" id="kostenpost" class="pull right">
+     </li>
+      <li>
+        <label for="date">Datum:</label>
+        <input type="date" id="date" class="pull right">
+      </li>
+      <li>
+        <label for="company">Bedrijf:</label>
+        <input type="text" id="company" class="pull right"></li>
+      <li>
+        <label for="price"> Prijs:</label>
+        <input type="text" id="price" class="pull right">
+      </li>
+      <li>
+        <label for="description">Omschrijving:</label>
+        <input type="text" id="description" class="pull right">
+      </li>
+      <li class="button-list">
+        <button >Opslaan</button>
+        <button (click)="toExpense()">Cancel</button>
+      </li>
+  </ul>
+
 </app-card>

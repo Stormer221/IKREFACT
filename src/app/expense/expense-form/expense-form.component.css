@@ -1,7 +1,22 @@
 input {
-  float: right;
-  width: 600px;
-  padding: 3px;
+  width: 80%;
+  padding:3px;
+}
+
+li {
+  /*padding: 0 1em 0 0 ;*/
+  margin: 1.25em 3em 0 0;
+  list-style: none;
+}
+
+.button-list{
+  text-align: center;
+  margin: 2em 0 0 0 ;
+}
+
+button {
+  margin: 0 0.5em;
+  padding:0.5em 4em;
 }
 
 
