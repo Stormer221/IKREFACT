@@ -1,0 +1,31 @@
+<app-card>
+  <h1>Onkost</h1>
+</app-card>
+<app-card>
+  <div>
+    <div>
+      <label for="kostenpost">Kostenpost:</label>
+      <input type="text" id="kostenpost">
+    </div>
+    <div>
+      <label for="date">Datum:</label>
+      <input type="date" id="date">
+    </div>
+    <div>
+      <label for="company">Bedrijf:</label>
+      <input type="text" id="company">
+    </div>
+    <div>
+      <label for="price"> Prijs:</label>
+      <input type="text" id="price">
+    </div>
+    <div>
+      <label for="description">Omschrijving:</label>
+      <input type="text" id="description">
+    </div>
+    <div>
+      <button >Opslaan</button>
+      <button (click)="toExpense()">Cancel</button>
+    </div>
+  </div>
+</app-card>
