@@ -1,0 +1,10 @@
+<app-card>
+  <button class="btn btn-success" routerLinkActive="active" routerLink="/contact-form">Nieuw Contact</button>
+</app-card>
+<app-card>
+  <ul class="list">
+    <li *ngFor="let contactEl of contacts">
+      <app-contact-item [contact]="contactEl"></app-contact-item>
+    </li>
+  </ul>
+</app-card>

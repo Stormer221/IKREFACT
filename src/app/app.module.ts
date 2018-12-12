@@ -8,6 +8,11 @@ import {ErrorComponent} from './error/error.component';
 import {CardComponent} from './card/card.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
+import { ContactSearchBarComponent } from './contacts/contact-search-bar/contact-search-bar.component';
+import { ContactListComponent } from './contacts/contact-list/contact-list.component';
+import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
 
 const appRoutes: Routes = [
   {
@@ -24,6 +29,14 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'contacten',
+    component: ContactsComponent
+  },
+  {
+    path: 'contact-form',
+    component: ContactFormComponent
+  },
+  {
     path: ':code',
     component: ErrorComponent
   }
@@ -37,7 +50,13 @@ const appRoutes: Routes = [
     ErrorComponent,
     CardComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
+    ErrorComponent,
+    ContactsComponent,
+    ContactFormComponent,
+    ContactSearchBarComponent,
+    ContactListComponent,
+    ContactItemComponent,
   ],
   imports: [
     BrowserModule,
