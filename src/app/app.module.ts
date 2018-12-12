@@ -13,6 +13,9 @@ import { ContactFormComponent } from './contacts/contact-form/contact-form.compo
 import { ContactSearchBarComponent } from './contacts/contact-search-bar/contact-search-bar.component';
 import { ContactListComponent } from './contacts/contact-list/contact-list.component';
 import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { ExpenseFormComponent } from './expense/expense-form/expense-form.component';
 
 const appRoutes: Routes = [
   {
@@ -37,6 +40,14 @@ const appRoutes: Routes = [
     component: ContactFormComponent
   },
   {
+    path: 'onkosten',
+    component: ExpenseComponent
+  },
+  {
+    path: 'onkosten-form',
+    component: ExpenseFormComponent
+  },
+  {
     path: ':code',
     component: ErrorComponent
   }
@@ -50,6 +61,10 @@ const appRoutes: Routes = [
     ErrorComponent,
     CardComponent,
     LoginComponent,
+    StartComponent,
+    ExpenseComponent,
+    ExpenseListComponent,
+    ExpenseFormComponent,
     StartComponent,
     ErrorComponent,
     ContactsComponent,
