@@ -8,12 +8,11 @@ import {ErrorComponent} from './error/error.component';
 import {CardComponent} from './card/card.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
+import { ExpenseComponent } from './expense/expense.component';
+import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
+import { ExpenseFormComponent } from './expense/expense-form/expense-form.component';
 
 const appRoutes: Routes = [
-  {
-    path: 'login',
-    component: LoginComponent
-  },
   {
     path: 'start',
     component: StartComponent
@@ -22,6 +21,14 @@ const appRoutes: Routes = [
     path: '',
     redirectTo: 'start',
     pathMatch: 'full'
+  },
+  {
+    path: 'onkosten',
+    component: ExpenseComponent
+  },
+  {
+    path: 'onkosten-form',
+    component: ExpenseFormComponent
   },
   {
     path: ':code',
@@ -37,7 +44,10 @@ const appRoutes: Routes = [
     ErrorComponent,
     CardComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
+    ExpenseComponent,
+    ExpenseListComponent,
+    ExpenseFormComponent
   ],
   imports: [
     BrowserModule,
