@@ -7,13 +7,9 @@ import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
-import {ContactsComponent} from './contacts/contacts.component';
-import {ContactFormComponent} from './contacts/contact-form/contact-form.component';
-import {ExpenseComponent} from './expense/expense.component';
-import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
-import {ExpenseFormComponent} from './expense/expense-form/expense-form.component';
 import {ContactsModule} from "./contacts/contacts.module";
 import {SharedModule} from "./shared/shared.module";
+import {ExpenseModule} from "./expense/expense.module";
 
 const appRoutes: Routes = [
   {
@@ -30,22 +26,6 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'contacten',
-    component: ContactsComponent
-  },
-  {
-    path: 'contacten/form',
-    component: ContactFormComponent
-  },
-  {
-    path: 'onkosten',
-    component: ExpenseComponent
-  },
-  {
-    path: 'onkosten-form',
-    component: ExpenseFormComponent
-  },
-  {
     path: ':code',
     component: ErrorComponent
   }
@@ -59,20 +39,15 @@ const appRoutes: Routes = [
     ErrorComponent,
     LoginComponent,
     StartComponent,
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseFormComponent,
     StartComponent,
     ErrorComponent
   ],
   imports: [
     BrowserModule,
     ContactsModule,
+    ExpenseModule,
     SharedModule,
-    RouterModule.forRoot(
-      appRoutes,
-      // {enableTracing: true} // <-- debugging purposes only
-    )
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

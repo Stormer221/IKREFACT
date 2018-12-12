@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-expense-form',
-  templateUrl: './expense-form.component.html',
-  styleUrls: ['./expense-form.component.css']
+  templateUrl: './expense-edit.component.html',
+  styleUrls: ['./expense-edit.component.css']
 })
-export class ExpenseFormComponent implements OnInit {
+export class ExpenseEditComponent implements OnInit {
 
   constructor(private router: Router) { }
 
