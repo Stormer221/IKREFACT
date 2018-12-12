@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Contact} from '../../contact';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-contact-item',
@@ -9,7 +10,9 @@ import {Contact} from '../../contact';
 export class ContactItemComponent implements OnInit {
 
   @Input() contact: Contact;
-  constructor() { }
+
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
   }

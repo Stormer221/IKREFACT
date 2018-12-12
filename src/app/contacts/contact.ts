@@ -11,9 +11,9 @@ export class Contact implements OnInit {
   public mailingAddress: string;
   public zipCode: string;
 
-  constructor( name: string,  infix: string,  surname: string,
-               phoneNr: number,  street: string,  houseNr: number,
-               mailingAddress: string,  zipCode: string) {
+  constructor(name: string, infix: string, surname: string,
+              phoneNr: number, street: string, houseNr: number,
+              mailingAddress: string, zipCode: string) {
     this.name = name;
     this.infix = infix;
     this.surname = surname;
