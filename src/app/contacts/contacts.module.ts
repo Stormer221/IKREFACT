@@ -6,6 +6,7 @@ import {ContactSearchBarComponent} from "./contact-search-bar/contact-search-bar
 import {ContactListComponent} from "./contact-list/contact-list.component";
 import {ContactItemComponent} from "./contact-list/contact-item/contact-item.component";
 import {RouterModule, Routes} from "@angular/router";
+import {SharedModule} from "../shared/shared.module";
 
 const contactRoutes: Routes = [
   {
@@ -32,6 +33,7 @@ const contactRoutes: Routes = [
   ],
   imports: [
     CommonModule,
+    SharedModule,
     RouterModule.forChild(contactRoutes)
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
