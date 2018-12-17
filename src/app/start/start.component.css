@@ -18,6 +18,8 @@ div.buttons div {
 
 div.buttons img {
   height: 100px;
+  border-radius: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 div.buttons img:hover {
