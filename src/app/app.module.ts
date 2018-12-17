@@ -5,17 +5,11 @@ import {AppComponent} from './app.component';
 import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
-import {CardComponent} from './card/card.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactFormComponent } from './contacts/contact-form/contact-form.component';
-import { ContactSearchBarComponent } from './contacts/contact-search-bar/contact-search-bar.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactItemComponent } from './contacts/contact-list/contact-item/contact-item.component';
-import { ExpenseComponent } from './expense/expense.component';
-import { ExpenseListComponent } from './expense/expense-list/expense-list.component';
-import { ExpenseFormComponent } from './expense/expense-form/expense-form.component';
+import {ContactsModule} from "./contacts/contacts.module";
+import {SharedModule} from "./shared/shared.module";
+import {ExpenseModule} from "./expense/expense.module";
 
 const appRoutes: Routes = [
   {
@@ -32,22 +26,6 @@ const appRoutes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'contacten',
-    component: ContactsComponent
-  },
-  {
-    path: 'contact-form',
-    component: ContactFormComponent
-  },
-  {
-    path: 'onkosten',
-    component: ExpenseComponent
-  },
-  {
-    path: 'onkosten-form',
-    component: ExpenseFormComponent
-  },
-  {
     path: ':code',
     component: ErrorComponent
   }
@@ -59,26 +37,16 @@ const appRoutes: Routes = [
     AppComponent,
     HeaderComponent,
     ErrorComponent,
-    CardComponent,
     LoginComponent,
     StartComponent,
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseFormComponent,
-    StartComponent,
-    ErrorComponent,
-    ContactsComponent,
-    ContactFormComponent,
-    ContactSearchBarComponent,
-    ContactListComponent,
-    ContactItemComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(
-      appRoutes,
-      {enableTracing: true} // <-- debugging purposes only
-    )
+    ContactsModule,
+    ExpenseModule,
+    SharedModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]

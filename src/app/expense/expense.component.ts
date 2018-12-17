@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
 @Component({
@@ -13,8 +13,8 @@ export class ExpenseComponent implements OnInit {
   ngOnInit() {
   }
 
-  toExpForm() {
-    this.router.navigate( ['/onkosten-form']);
+  toExpenseEdit() {
+    this.router.navigate(['/onkosten/nieuw']);
   }
 
 }
