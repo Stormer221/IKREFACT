@@ -6,7 +6,7 @@ nav {
 
 header {
   background: #016b6d;
-  box-shadow: 0 0 15px #333;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   width: 100%;
   position: relative;
 }
@@ -42,5 +42,4 @@ nav ul li a {
   padding: 0 10px;
   text-decoration: none;
   color: white;
-  font-family: "Comic Sans MS";
 }
