@@ -10,6 +10,7 @@ import {StartComponent} from './start/start.component';
 import {ContactsModule} from "./contacts/contacts.module";
 import {SharedModule} from "./shared/shared.module";
 import {ExpenseModule} from "./expense/expense.module";
+import {OverviewModule} from "./overview/overview.module";
 
 const appRoutes: Routes = [
   {
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     BrowserModule,
     ContactsModule,
     ExpenseModule,
+    OverviewModule,
     SharedModule,
     RouterModule.forRoot(appRoutes)
   ],

@@ -1,5 +1,25 @@
 div.banner {
-  background: #018284 url('/assets/img/illustratie-albert@2000x.png') center no-repeat;
+  background: #018284 url('/assets/images/illustratie-albert@2000x.png') center no-repeat;
   background-size: contain;
   height: 400px;
+}
+
+div.buttons {
+  background-color: #018284;
+  padding: 2em;
+}
+
+div.buttons div {
+  margin: auto;
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.buttons img {
+  height: 100px;
+}
+
+div.buttons img:hover {
+  transform: scale(1.2);
 }
