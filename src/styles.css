@@ -21,3 +21,17 @@ h1 {
 .btn, button{
   padding:0.5em 4em;
 }
+
+.btn-success {
+  background-color: #016b6d;
+  border: #01393b;
+}
+
+.btn-success:hover {
+  background-color: #018284;
+}
+
+/* TODO: Dit werkt niet door bootstrap, bootstrap is onhandig.*/
+.btn-success:focus, .btn-success:active {
+  background-color: #aac1be;
+}
