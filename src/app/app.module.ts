@@ -39,7 +39,6 @@ const appRoutes: Routes = [
     ErrorComponent,
     LoginComponent,
     StartComponent,
-    StartComponent,
     ErrorComponent
   ],
   imports: [
