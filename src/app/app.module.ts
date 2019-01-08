@@ -11,6 +11,7 @@ import {ContactsModule} from "./contacts/contacts.module";
 import {SharedModule} from "./shared/shared.module";
 import {ExpenseModule} from "./expense/expense.module";
 import {OverviewModule} from "./overview/overview.module";
+import {HttpClientModule} from "@angular/common/http";
 
 const appRoutes: Routes = [
   {
@@ -39,11 +40,11 @@ const appRoutes: Routes = [
     HeaderComponent,
     ErrorComponent,
     LoginComponent,
-    StartComponent,
-    ErrorComponent
+    StartComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     ContactsModule,
     ExpenseModule,
     OverviewModule,

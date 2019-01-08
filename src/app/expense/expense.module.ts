@@ -6,6 +6,7 @@ import {ExpenseEditComponent} from "./expense-edit/expense-edit.component";
 import {RouterModule, Routes} from "@angular/router";
 import {ExpenseItemComponent} from "./expense-item/expense-item.component";
 import {SharedModule} from "../shared/shared.module";
+import {ExpenseService} from "./expense.service";
 
 const onkostRoutes: Routes = [
   {
@@ -33,6 +34,9 @@ const onkostRoutes: Routes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(onkostRoutes)
+  ],
+  providers: [
+    ExpenseService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
