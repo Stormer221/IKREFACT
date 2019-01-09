@@ -10,10 +10,11 @@ export class Contact implements OnInit {
   public houseNr: number;
   public mailingAddress: string;
   public zipCode: string;
+  public id: number;
 
   constructor(name: string, infix: string, surname: string,
               phoneNr: number, street: string, houseNr: number,
-              mailingAddress: string, zipCode: string) {
+              mailingAddress: string, zipCode: string, id: number) {
     this.name = name;
     this.infix = infix;
     this.surname = surname;
@@ -22,6 +23,7 @@ export class Contact implements OnInit {
     this.houseNr = houseNr;
     this.mailingAddress = mailingAddress;
     this.zipCode = zipCode;
+    this.id = id;
   }
 
   ngOnInit() {

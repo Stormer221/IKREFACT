@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {ExpenseService} from "./expense.service";
-import {Expense} from "./expense";
+import {ExpenseService} from './expense.service';
+import {Expense} from './expense';
 
 @Component({
   selector: 'app-expense',
@@ -16,7 +16,7 @@ export class ExpenseComponent implements OnInit {
 
   ngOnInit() {
     this.getExpense();
-    console.log(this.expenses)
+    console.log(this.expenses);
   }
 
   getExpense(): void {
