@@ -1,21 +1,12 @@
 <app-card>
-  <button class="btn btn-success" (click)="onNewContact()">Nieuw Contact</button>
   <div class="row">
     <div class="col-xs-12 col-sm-4">
       <div class="list-group">
-        <a
-          href="#"
-          class="list-group-item"
-          *ngFor="let contact of contacts">
-          {{ contact.name }} {{ contact.infix }} {{contact.surname }}
-        </a>
+        <app-contact-list-item
+          *ngFor="let contact of contacts"
+          [contact]="contact">
+        </app-contact-list-item>
       </div>
-    </div>
-    <div class="col-xs-12 col-sm-4">
-      <!--<app-user></app-user>-->
-      <router-outlet></router-outlet>
     </div>
   </div>
 </app-card>
-
-<router-outlet></router-outlet>
