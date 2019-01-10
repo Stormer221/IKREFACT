@@ -11,7 +11,6 @@ import {ExpenseModule} from './expense/expense.module';
 import {OverviewModule} from './overview/overview.module';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {AuthInterceptor} from './auth.interceptor';
-import {Routes} from '@angular/router';
 import {AppRoutingModule} from './app-routing.module';
 import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
 import {ContactListItemComponent} from './contacts/contact-list/contact-list-item/contact-list-item.component';
@@ -33,7 +32,7 @@ import {ExpenseComponent} from './expense/expense.component';
     ContactListComponent,
     ContactListItemComponent,
     ContactDetailComponent,
-    ExpenseComponent
+
   ],
   imports: [
     BrowserModule,
