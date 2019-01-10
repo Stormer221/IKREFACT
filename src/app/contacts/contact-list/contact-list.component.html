@@ -1,10 +1,12 @@
 <app-card>
-  <button class="btn btn-success" routerLink="/contacten/nieuw">Nieuw Contact</button>
-</app-card>
-<app-card>
-  <ul class="list">
-    <li *ngFor="let contactEl of contacts">
-      <app-contact-item [contact]="contactEl"></app-contact-item>
-    </li>
-  </ul>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <div class="list-group">
+        <app-contact-list-item
+          *ngFor="let contact of contacts"
+          [contact]="contact">
+        </app-contact-list-item>
+      </div>
+    </div>
+  </div>
 </app-card>
