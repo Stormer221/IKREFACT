@@ -18,12 +18,13 @@ const appRoutes: Routes = [
       { path: 'nieuw', component: ContactEditComponent},
       { path: ':id', component: ContactDetailComponent},
       { path: ':id/wijzigen', component: ContactEditComponent}
+      // {path: '/offerte', component: QuotationComponent},
+      // {path: '/invoice', component: InvoiceComponent},
     ]},
   {path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
     ]},
-      // {path: '/offerte', component: QuotationComponent},
-      // {path: '/invoice', component: InvoiceComponent},
+
       // TODO queryparams erbij zetten
   {path: 'overzichten', component: OverviewComponent},
   {path: 'not-found', component: ErrorComponent},
