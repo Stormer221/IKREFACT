@@ -6,16 +6,32 @@ import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
+import {ContactsModule} from './contacts/contacts.module';
 import {SharedModule} from './shared/shared.module';
 import {ExpenseModule} from './expense/expense.module';
 import {OverviewModule} from './overview/overview.module';
-import {HttpClientModule} from '@angular/common/http';
-import {AppRoutingModule} from './app-routing.module';
-import {ContactsComponent} from './contacts/contacts.component';
-import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactListItemComponent } from './contacts/contact-list/contact-list-item/contact-list-item.component';
-import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
+
+const appRoutes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'start',
+    component: StartComponent
+  },
+  {
+    path: '',
+    redirectTo: 'start',
+    pathMatch: 'full'
+  },
+  {
+    path: ':code',
+    component: ErrorComponent
+  }
+];
 
 
 @NgModule({
@@ -39,7 +55,13 @@ import { ContactDetailComponent } from './contacts/contact-detail/contact-detail
     SharedModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
