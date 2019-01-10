@@ -18,6 +18,9 @@ import {ContactListComponent} from './contacts/contact-list/contact-list.compone
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {ExpenseComponent} from './expense/expense.component';
+import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
+import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
+import {ExpenseItemComponent} from './expense/expense-item/expense-item.component';
 
 
 @NgModule({
@@ -32,7 +35,12 @@ import {ExpenseComponent} from './expense/expense.component';
     ContactListComponent,
     ContactListItemComponent,
     ContactDetailComponent,
+    ExpenseComponent,
+    ExpenseListComponent,
+    ExpenseEditComponent,
+    ExpenseItemComponent,
 
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +48,7 @@ import {ExpenseComponent} from './expense/expense.component';
     ExpenseModule,
     OverviewModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     {

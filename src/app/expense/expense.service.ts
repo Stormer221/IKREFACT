@@ -12,7 +12,7 @@ import {Expense} from './expense';
 })
 
 export class ExpenseService {
-  expenseUrl = 'walbert/expenses';  // URL to web api
+  expenseUrl = '/walbert/expenses';  // URL to web api
 
   constructor(private http: HttpClient) {
   }

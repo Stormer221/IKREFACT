@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from './expense.service';
 import {Expense} from './expense';
 
@@ -11,7 +11,7 @@ import {Expense} from './expense';
 export class ExpenseComponent implements OnInit {
   expenses: Expense[];
 
-  constructor(private router: Router, private expenseService: ExpenseService) {
+  constructor(private router: Router, private expenseService: ExpenseService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -20,12 +20,12 @@ export class ExpenseComponent implements OnInit {
 
   getExpense(): void {
     this.expenseService.getExpense()
-      .subscribe(result => this.expenses = result);
+      .subscribe(result => console.log(result));
   }
 
 
   toExpenseEdit() {
-    this.router.navigate(['onkosten/nieuw']);
+    this.router.navigate(['nieuw'], {relativeTo: this.route});
   }
 
 }

@@ -9,10 +9,6 @@ import {ExpenseService} from './expense.service';
 
 @NgModule({
   declarations: [
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseEditComponent,
-    ExpenseItemComponent
   ],
   imports: [
     CommonModule,
