@@ -1,21 +1,8 @@
 <app-card>
-  <div class="row">
-    <div class="col-xs-12 col-sm-4">
-      <div class="list-group">
-        <app-contact-list-item
-          *ngFor="let contact of contacts"
-          [contact]="contact">
-        </app-contact-list-item>
-      </div>
-    </div>
-  </div>
-</app-card>
-<app-card>
   <h1>Contacten</h1>
   <hr>
-  <ul class="list">
-    <li *ngFor="let contactEl of contacts">
-      <app-contact-item [contact]="contactEl"></app-contact-item>
-    </li>
-  </ul>
+  <app-contact-list-item
+    *ngFor="let contact of contacts"
+    [contact]="contact">
+  </app-contact-list-item>
 </app-card>

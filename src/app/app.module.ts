@@ -6,10 +6,15 @@ import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
-import {ContactsModule} from './contacts/contacts.module';
 import {SharedModule} from './shared/shared.module';
 import {ExpenseModule} from './expense/expense.module';
 import {OverviewModule} from './overview/overview.module';
+import {AppRoutingModule} from './app-routing.module';
+import {HttpClientModule} from '@angular/common/http';
+import {ContactsComponent} from './contacts/contacts.component';
+import {ContactListComponent} from './contacts/contact-list/contact-list.component';
+import {ContactListItemComponent} from './contacts/contact-list/contact-list-item/contact-list-item.component';
+import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
 
 
 @NgModule({
@@ -20,6 +25,10 @@ import {OverviewModule} from './overview/overview.module';
     LoginComponent,
     StartComponent,
     ErrorComponent,
+    ContactsComponent,
+    ContactListComponent,
+    ContactListItemComponent,
+    ContactDetailComponent,
   ],
   imports: [
     BrowserModule,

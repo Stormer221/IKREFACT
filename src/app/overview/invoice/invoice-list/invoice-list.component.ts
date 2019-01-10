@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Invoice} from '../invoice.model';
-import {Contact} from '../../../contacts/contact';
 
 @Component({
   selector: 'app-invoice-list',
@@ -9,7 +8,16 @@ import {Contact} from '../../../contacts/contact';
 })
 export class InvoiceListComponent implements OnInit {
 
-  private invoices: Invoice[] = [];
+  private invoices: Invoice[] = [
+    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
+      10.50, 'LOL!', true, '1998-4-4'),
+    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
+      10.50, 'DROL!', true, '1998-4-4'),
+    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
+      10.50, 'BOL!', true, '1998-4-4'),
+    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
+      10.50, 'JOL!', true, '1998-4-4')
+  ];
 
   constructor() {
   }
