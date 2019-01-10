@@ -6,7 +6,6 @@ import {ExpenseEditComponent} from './expense-edit/expense-edit.component';
 import {ExpenseItemComponent} from './expense-item/expense-item.component';
 import {SharedModule} from '../shared/shared.module';
 import {ExpenseService} from './expense.service';
-import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,7 @@ import {RouterModule} from '@angular/router';
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule
+
   ],
   providers: [
     ExpenseService

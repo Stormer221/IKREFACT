@@ -16,7 +16,7 @@ export class Contact {
     this.infix = infix;
     this.surname = surname;
     this.phoneNr = phoneNr;
-    this.place = place
+    this.place = place;
     this.street = street;
     this.houseNr = houseNr;
     this.email = email;

@@ -1,13 +1,18 @@
 <app-card>
-  <div class="row">
-    <div class="col-sm-2 form-group">
-      <li>naam: {{contact.name}} {{contact.infix}} {{contact.surname}}</li>
-      <li>address: {{contact.street}} {{contact.houseNr}}</li>
-      <li>postcode: {{contact.zipCode}}</li>
-      <li>plaats: {{contact.place}}</li>
-      <li>telefoon nummer: {{contact.phoneNr}}</li>
-      <li>email address: {{contact.email}}</li>
-    </div>
-  </div>
-  <button class="btn btn-success" type="submit" (click)="onEditContact()">Gegevens Aanpassen</button>
+
+
+  <h2 for="">Naam: </h2>
+  <li> {{contact.name}} {{contact.infix}} {{contact.surname}}</li>
+  <h2 for="">Adres:</h2>
+  <li> {{contact.street}} {{contact.houseNr}}</li>
+  <h2 for="">Postcode: </h2>
+  <li>{{contact.zipCode}}</li>
+  <h2 for="">Plaats:</h2>
+  <li>{{contact.place}}</li>
+  <h2 for="">Telefoonnummer</h2>
+  <li> {{contact.phoneNr}}</li>
+  <h2 for="">E-mailadres</h2>
+  <li>{{contact.email}}</li>
+  <button (click)="toFactuur()">Factuur maken</button><button>Contact Wijzigen</button><button (click)="toOfferte()">Offerte maken</button>
+
 </app-card>
