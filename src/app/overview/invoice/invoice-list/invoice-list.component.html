@@ -1,0 +1,9 @@
+<app-card>
+  <h1>Facturen</h1>
+  <hr>
+  <ul class="list">
+    <li *ngFor="let invoiceElement of invoices">
+     <app-invoice-item [invoice]="invoiceElement"></app-invoice-item>
+    </li>
+  </ul>
+</app-card>

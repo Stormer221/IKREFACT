@@ -10,3 +10,12 @@
     </div>
   </div>
 </app-card>
+<app-card>
+  <h1>Contacten</h1>
+  <hr>
+  <ul class="list">
+    <li *ngFor="let contactEl of contacts">
+      <app-contact-item [contact]="contactEl"></app-contact-item>
+    </li>
+  </ul>
+</app-card>
