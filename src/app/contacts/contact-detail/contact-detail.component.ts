@@ -24,6 +24,16 @@ export class ContactDetailComponent implements OnInit {
     );
   }
 
+  toFactuur() {
+    this.router.navigate(['/invoice']);
+  }
+
+  toOfferte() {
+    this.router.navigate(['/offerte']);
+  }
+
+
+
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }

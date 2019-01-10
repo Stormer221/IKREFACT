@@ -22,9 +22,12 @@ const appRoutes: Routes = [
   {path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
     ]},
+      // {path: '/offerte', component: QuotationComponent},
+      // {path: '/invoice', component: InvoiceComponent},
+      // TODO queryparams erbij zetten
   {path: 'overzichten', component: OverviewComponent},
-  {path: 'not-found', component: ErrorComponent },
-  {path: '**', redirectTo: '/not-found' },
+  {path: 'not-found', component: ErrorComponent},
+  {path: '**', redirectTo: '/not-found'},
 ];
 
 

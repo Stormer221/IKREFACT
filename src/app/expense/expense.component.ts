@@ -25,7 +25,7 @@ export class ExpenseComponent implements OnInit {
 
 
   toExpenseEdit() {
-    this.router.navigate(['/onkosten/nieuw']);
+    this.router.navigate(['onkosten/nieuw']);
   }
 
 }
