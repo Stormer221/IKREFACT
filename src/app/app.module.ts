@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
-import {RouterModule, Routes} from '@angular/router';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {LoginComponent} from './login/login.component';
@@ -41,16 +40,20 @@ const appRoutes: Routes = [
     HeaderComponent,
     ErrorComponent,
     LoginComponent,
-    StartComponent
+    StartComponent,
+    ContactsComponent,
+    ContactEditComponent,
+    ContactListComponent,
+    ContactListItemComponent,
+    ContactDetailComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ContactsModule,
     ExpenseModule,
     OverviewModule,
     SharedModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [
     {

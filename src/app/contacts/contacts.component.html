@@ -1,2 +1,10 @@
-<app-contact-search-bar></app-contact-search-bar>
-<app-contact-list></app-contact-list>
+<app-card *ngIf="this.router.url === '/contacten'">
+  <div class="row">
+    <div class="col-sm-12">
+      <input class="form-control" id="searchBar" placeholder="Zoeken..." type="text">
+    </div>
+  </div>
+  <button class="btn btn-success" (click)="onNewContact()">Nieuw Contact</button>
+</app-card>
+<app-contact-list *ngIf="this.router.url === '/contacten'"></app-contact-list>
+<router-outlet></router-outlet>

@@ -8,21 +8,6 @@ import {ExpenseItemComponent} from "./expense-item/expense-item.component";
 import {SharedModule} from "../shared/shared.module";
 import {ExpenseService} from "./expense.service";
 
-const onkostRoutes: Routes = [
-  {
-    path: 'onkosten',
-    component: ExpenseComponent
-  },
-  {
-    path: 'onkosten/nieuw',
-    component: ExpenseEditComponent
-  },
-  {
-    path: 'onkosten/:onkost',
-    component: ExpenseEditComponent
-  }
-];
-
 @NgModule({
   declarations: [
     ExpenseComponent,
@@ -33,7 +18,6 @@ const onkostRoutes: Routes = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(onkostRoutes)
   ],
   providers: [
     ExpenseService
