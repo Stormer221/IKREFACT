@@ -7,11 +7,12 @@ import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
 import {LoginComponent} from './login/login.component';
 import {StartComponent} from './start/start.component';
-import {ContactsModule} from "./contacts/contacts.module";
-import {SharedModule} from "./shared/shared.module";
-import {ExpenseModule} from "./expense/expense.module";
-import {OverviewModule} from "./overview/overview.module";
-import {HttpClientModule} from "@angular/common/http";
+import {ContactsModule} from './contacts/contacts.module';
+import {SharedModule} from './shared/shared.module';
+import {ExpenseModule} from './expense/expense.module';
+import {OverviewModule} from './overview/overview.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
 
 const appRoutes: Routes = [
   {
@@ -51,7 +52,13 @@ const appRoutes: Routes = [
     SharedModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
