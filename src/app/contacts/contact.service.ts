@@ -1,6 +1,5 @@
 import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
-import {Route} from '@angular/router';
 
 @Injectable()
 export class ContactService {

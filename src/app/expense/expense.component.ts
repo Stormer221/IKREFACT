@@ -16,7 +16,6 @@ export class ExpenseComponent implements OnInit {
 
   ngOnInit() {
     this.getExpense();
-    console.log(this.expenses);
   }
 
   getExpense(): void {
