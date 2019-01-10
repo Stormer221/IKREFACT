@@ -20,7 +20,7 @@ export class ExpenseComponent implements OnInit {
 
   getExpense(): void {
     this.expenseService.getExpense()
-      .subscribe(result => this.expenses = result);
+      .subscribe(result => console.log(result));
   }
 
 

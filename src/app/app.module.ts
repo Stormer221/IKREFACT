@@ -32,8 +32,7 @@ import {ExpenseComponent} from './expense/expense.component';
     ContactEditComponent,
     ContactListComponent,
     ContactListItemComponent,
-    ContactDetailComponent,
-    ExpenseComponent
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
