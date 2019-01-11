@@ -9,12 +9,18 @@ import {StartComponent} from './start/start.component';
 import {SharedModule} from './shared/shared.module';
 import {ExpenseModule} from './expense/expense.module';
 import {OverviewModule} from './overview/overview.module';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {AuthInterceptor} from './auth.interceptor';
 import {AppRoutingModule} from './app-routing.module';
-import {HttpClientModule} from '@angular/common/http';
-import {ContactsComponent} from './contacts/contacts.component';
-import {ContactListComponent} from './contacts/contact-list/contact-list.component';
-import {ContactListItemComponent} from './contacts/contact-list/contact-list-item/contact-list-item.component';
 import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
+import {ContactListItemComponent} from './contacts/contact-list/contact-list-item/contact-list-item.component';
+import {ContactListComponent} from './contacts/contact-list/contact-list.component';
+import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
+import {ContactsComponent} from './contacts/contacts.component';
+import {ExpenseComponent} from './expense/expense.component';
+import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
+import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
+import {ExpenseItemComponent} from './expense/expense-item/expense-item.component';
 
 
 @NgModule({
@@ -29,6 +35,12 @@ import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.c
     ContactListComponent,
     ContactListItemComponent,
     ContactDetailComponent,
+    ExpenseComponent,
+    ExpenseListComponent,
+    ExpenseEditComponent,
+    ExpenseItemComponent,
+
+    ContactDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +48,15 @@ import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.c
     ExpenseModule,
     OverviewModule,
     SharedModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide : HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi   : true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

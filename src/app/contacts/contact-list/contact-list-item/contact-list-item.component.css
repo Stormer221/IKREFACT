@@ -1,1 +1,14 @@
+a {
+  color: black;
+  list-style: none;
+  text-decoration: none;
+  display: block;
+  padding: 5px 10px;
 
+}
+
+
+
+a:hover {
+  background: #d2d2d2;
+}

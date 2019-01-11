@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ContactService} from './contact.service';
-import {ActivatedRoute, Route, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-contacts',
@@ -16,6 +16,8 @@ export class ContactsComponent implements OnInit {
 
   }
 
-  onNewContact() { }
+  onNewContact() {
+    this.router.navigate(['nieuw'], {relativeTo: this.route});
+  }
 
 }

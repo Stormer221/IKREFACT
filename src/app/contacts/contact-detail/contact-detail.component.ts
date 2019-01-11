@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Contact} from '../contact.model';
 import {ContactService} from '../contact.service';
-import {ActivatedRoute, Params} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 
 @Component({
   selector: 'app-contact-detail',
@@ -13,7 +13,7 @@ export class ContactDetailComponent implements OnInit {
   id: number;
 
 
-  constructor(private contactService: ContactService, private route: ActivatedRoute) { }
+  constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -24,4 +24,17 @@ export class ContactDetailComponent implements OnInit {
     );
   }
 
+  toFactuur() {
+    this.router.navigate(['/invoice']);
+  }
+
+  toOfferte() {
+    this.router.navigate(['/offerte']);
+  }
+
+
+
+  onEditContact() {
+    this.router.navigate(['wijzigen'], {relativeTo: this.route});
+  }
 }
