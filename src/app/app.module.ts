@@ -35,6 +35,7 @@ import {ExpenseItemComponent} from './expense/expense-item/expense-item.componen
     ContactListComponent,
     ContactListItemComponent,
     ContactDetailComponent,
+    ContactEditComponent,
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
@@ -52,9 +53,9 @@ import {ExpenseItemComponent} from './expense/expense-item/expense-item.componen
   ],
   providers: [
     {
-      provide : HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi   : true,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

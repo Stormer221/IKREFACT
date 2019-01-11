@@ -3,9 +3,6 @@ ul {
   padding: 0;
 }
 
- :not(:last-child){
-  border-bottom: 1px solid #d2d2d2;
-}
 ul li {
   list-style: none;
 
