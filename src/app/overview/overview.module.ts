@@ -5,6 +5,7 @@ import {SharedModule} from '../shared/shared.module';
 import {InvoiceComponent} from './invoice/invoice.component';
 import {InvoiceEditComponent} from './invoice/invoice-edit/invoice-edit.component';
 import {InvoiceListComponent} from './invoice/invoice-list/invoice-list.component';
+import {InvoiceService} from './invoice/invoice.service';
 
 
 @NgModule({
@@ -13,7 +14,7 @@ import {InvoiceListComponent} from './invoice/invoice-list/invoice-list.componen
     CommonModule,
     SharedModule,
   ],
-
+  providers: [InvoiceService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class OverviewModule {

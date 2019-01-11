@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Invoice} from '../invoice.model';
+import {InvoiceService} from '../invoice.service';
 
 @Component({
   selector: 'app-invoice-list',
@@ -8,21 +9,13 @@ import {Invoice} from '../invoice.model';
 })
 export class InvoiceListComponent implements OnInit {
 
-  private invoices: Invoice[] = [
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, 'LOL!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, 'DROL!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, 'BOL!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, 'JOL!', true, '1998-4-4')
-  ];
+  private invoices: Invoice[] = [];
 
-  constructor() {
+  constructor(private invoiceService: InvoiceService) {
   }
 
   ngOnInit() {
+    this.invoices = this.invoiceService.getInvoices();
   }
 
 }
