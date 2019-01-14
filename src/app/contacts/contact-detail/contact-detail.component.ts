@@ -6,7 +6,8 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 @Component({
   selector: 'app-contact-detail',
   templateUrl: './contact-detail.component.html',
-  styleUrls: ['./contact-detail.component.css']
+  styleUrls: ['./contact-detail.component.css'],
+  providers: [ContactService]
 })
 export class ContactDetailComponent implements OnInit {
   contact: Contact;

@@ -1,4 +1,4 @@
-<app-card *ngIf="this.router.url === '/contacten'">
+<app-card>
   <div class="row">
     <div class="col-sm-12">
       <input class="form-control" id="searchBar" placeholder="Zoeken..." type="text">
@@ -6,5 +6,5 @@
   </div>
   <button (click)="onNewContact()">Nieuw Contact</button>
 </app-card>
-<app-contact-list *ngIf="this.router.url === '/contacten'"></app-contact-list>
-<router-outlet></router-outlet>
+<app-contact-list></app-contact-list>
+

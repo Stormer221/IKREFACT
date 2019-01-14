@@ -14,13 +14,13 @@ const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'start', component: StartComponent},
-  {path: 'contacten', component: ContactsComponent, children: [
-      { path: 'nieuw', component: ContactEditComponent},
-      { path: ':contactID', component: ContactDetailComponent},
-      { path: ':contactID/wijzigen', component: ContactEditComponent}
+  {path: 'contacten', component: ContactsComponent},
+  {path: 'contacten/nieuw', component: ContactEditComponent},
+  {path: 'contacten/:contactID', component: ContactDetailComponent},
+  {path: 'contacten/:contactID/wijzigen', component: ContactEditComponent},
       // {path: '/offerte', component: QuotationComponent},
       // {path: '/invoice', component: InvoiceComponent},
-    ]},
+
   {path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
     ]},
