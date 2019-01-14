@@ -39,6 +39,7 @@ export class ContactDetailComponent implements OnInit {
     this.contactService.getSingleContact(params['contactID'])
       .subscribe(
         (contact: Contact) => this.contact = contact);
+    // this.contact = this.contactService.getContact(this.contactID);
 
   }
   toFactuur() {
@@ -48,7 +49,6 @@ export class ContactDetailComponent implements OnInit {
   toOfferte() {
     this.router.navigate(['/offerte']);
   }
-
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});

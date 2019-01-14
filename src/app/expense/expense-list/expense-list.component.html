@@ -1,3 +1,9 @@
-<p>
-  expense-list works!
-</p>
+<app-card>
+  <h1>Expenses</h1>
+  <hr>
+  <app-expense-list-item
+    *ngFor="let expense of expenses"
+                         [expense]="expense">>
+
+  </app-expense-list-item>
+</app-card>

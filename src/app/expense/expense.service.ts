@@ -26,10 +26,17 @@ export class ExpenseService implements HttpReqInterface {
     // );
   }
 
+  getSingleContact(expenseID: number): Observable<Expense> {
+    return this.http.get<Expense>('walbert/expense/' + expenseID);
+  }
+
   deleteReq() {
   }
 
-  getReq() {
+  getReq(): Observable<Expense[]> {
+    return this.http.get<Expense[]>(this.expenseUrl)
+      ;
+
   }
 
   postReq() {

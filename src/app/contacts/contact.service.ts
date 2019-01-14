@@ -7,12 +7,8 @@ import {map} from 'rxjs/operators';
 
 @Injectable()
 export class ContactService implements HttpReqInterface {
-  private contacts: Contact[] = [
-    // new Contact('Timmety', '', 'Baass', 'Leiden', 'kerkstraat', 108, '1234567890',
-    //   'timmety@gmail.com', '2956 PD', 1),
-    // new Contact('mark', 'tussenvoegsel', 'achternaam', 'Alkmaar', 'boerhaavleaan', 28,
-    //   '0634870689', 'markmail@gmail.com', '4826 DP', 2)
-  ];
+  private contacts: Contact[] = []
+  ;
 
   contactsurl = 'walbert/contacts';
 

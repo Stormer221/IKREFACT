@@ -21,6 +21,7 @@ import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
 import {ExpenseItemComponent} from './expense/expense-item/expense-item.component';
+import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item/expense-list-item.component';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import {ExpenseItemComponent} from './expense/expense-item/expense-item.componen
     ExpenseListComponent,
     ExpenseEditComponent,
     ExpenseItemComponent,
+    ExpenseListItemComponent,
 
     ContactDetailComponent
   ],
