@@ -1,18 +1,16 @@
 <app-card>
-
-
-  <h2 for="">Naam: </h2>
-  <li> {{contact.name}} {{contact.infix}} {{contact.surname}}</li>
-  <h2 for="">Adres:</h2>
-  <li> {{contact.street}} {{contact.houseNr}}</li>
-  <h2 for="">Postcode: </h2>
-  <li>{{contact.zipCode}}</li>
-  <h2 for="">Plaats:</h2>
-  <li>{{contact.place}}</li>
-  <h2 for="">Telefoonnummer</h2>
-  <li> {{contact.phoneNr}}</li>
-  <h2 for="">E-mailadres</h2>
-  <li>{{contact.email}}</li>
+  <h2>Naam:</h2>
+  <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
+  <h2>Adres:</h2>
+  <li> {{contact?.street}} {{contact?.houseNr}}</li>
+  <h2>Postcode: </h2>
+  <li>{{contact?.zipCode}}</li>
+  <h2>Plaats:</h2>
+  <li>{{contact?.place}}</li>
+  <h2>Telefoonnummer</h2>
+  <li> {{contact?.phoneNr}}</li>
+  <h2>E-mailadres</h2>
+  <li>{{contact?.email}}</li>
   <li class="button-list">
     <button (click)="toFactuur()">Factuur maken</button>
     <button>Contact Wijzigen</button>

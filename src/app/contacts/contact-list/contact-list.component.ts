@@ -14,7 +14,9 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contacts = this.contactService.getContacts();
+    this.contactService.getReq()
+      .subscribe((contact: Contact[]) => this.contacts = contact);
+    this.contactService.getReq().subscribe(result => console.log(result));
+    // this.getContact();
   }
-
 }

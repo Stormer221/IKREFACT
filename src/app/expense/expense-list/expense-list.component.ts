@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExpenseListComponent implements OnInit {
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
   }

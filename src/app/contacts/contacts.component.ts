@@ -13,11 +13,16 @@ export class ContactsComponent implements OnInit {
   constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute ) { }
 
   ngOnInit() {
-
+    // this.getContact();
   }
 
   onNewContact() {
     this.router.navigate(['nieuw'], {relativeTo: this.route});
   }
+
+  // getContact(): void {
+  //   this.contactService.getReq()
+  //     .subscribe(result => console.log(result));
+  // }
 
 }
