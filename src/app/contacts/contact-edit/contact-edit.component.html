@@ -1,71 +1,57 @@
 <app-card>
-  <h3>dit is een testje {{contact.name}}</h3>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <h1>Contact</h1>
-      </div>
-    </div>
-    <form>
-      <div class="row">
-        <div class="col-sm-2 form-group">
-          <label for="name">voornaam</label>
-          <input type="text" id="name" class="form-control">
-        </div>
-        <div class="col-sm-2 form-group">
-          <label for="infix">tussenvoegsel</label>
-          <input type="text" id="infix" class="form-control">
-        </div>
-        <div class="col-sm-3 form-group">
-          <label for="achternaam">achternaam</label>
-          <input type="text" id="achternaam" class="form-control">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-2 form-group">
-          <label for="zipCode">post code</label>
-          <input type="text" id="zipCode" class="form-control" title="title">
-        </div>
-        <div class="col-sm-2 form-group">
-          <label for="place">plaats</label>
-          <input type="text" id="place" class="form-control" title="title">
-        </div>
-        <div class="col-sm-2 form-group">
-          <label for="street">straat</label>
-          <input type="text" id="street" class="form-control" title="title">
-        </div>
-        <div class="col-sm-1 form-group">
-          <label for="houseNumber">huisnr</label>
-          <input type="integer" id="houseNumber" class="form-control" title="title">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3 form-group">
-          <label for="phoneNumber">Telefoonnr</label>
-          <input type="text" id="phoneNumber" class="form-control">
-        </div>
-        <div class="col-sm-3 form-group">
-          <label for="phoneNumberDescription">Beschrijving</label>
-          <input type="text" id="phoneNumberDescription" class="form-control">
-        </div>
-        <button class="btn btn-info" type="button">plus</button>
-      </div>
-      <div class="row">
-        <div class="col-sm-3 form-group">
-          <label for="email">Email address</label>
-          <input type="text" id="email" class="form-control">
-        </div>
-        <div class="col-sm-3 form-group">
-          <label for="emailDescription">Beschrijving</label>
-          <input type="text" id="emailDescription" class="form-control">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-xs-12">
-          <button class="btn btn-success" type="submit">Opslaan</button>
-          <button class="btn btn-danger" routerLink="/contacten" type="button">Annuleren</button>
-        </div>
-      </div>
-    </form>
-  </div>
+  <h1>Contact</h1>
+  <form>
+    <ul>
+      <li>
+        <label for="name">Voornaam:</label>
+        <input type="text" id="name" class="pull right">
+      </li>
+      <li>
+        <label for="infix">Tussenvoegsel:</label>
+        <input type="text" id="infix" class="pull right">
+      </li>
+      <li>
+        <label for="lastname">Achternaam:</label>
+        <input type="text" id="lastname" class="pull right"></li>
+      <br>
+      <li>
+        <label for="zipCode"> Postcode:</label>
+        <input type="text" id="zipCode" class="pull right">
+      </li>
+      <li>
+        <label for="place">Plaats:</label>
+        <input type="text" id="place" class="pull right">
+      </li>
+      <li>
+        <label for="street">Straat:</label>
+        <input type="text" id="street" class="pull right">
+      </li>
+      <li>
+        <label for="housenumber">Huisnummer:</label>
+        <input type="text" id="housenumber" class="pull right">
+      </li>
+      <li>
+        <br>
+        <label for="telephone">Telefoon:</label>
+        <input type="text" id="telephone" class="pull right">
+      </li>
+      <li>
+        <label for="telephoneDescription">Beschrijving:</label>
+        <input type="text" id="telephoneDescription" class="pull right">
+      </li>
+      <br>
+      <li>
+        <label for="email">Email:</label>
+        <input type="text" id="email" class="pull right">
+      </li>
+      <li>
+        <label for="emailDescription">Beschrijving:</label>
+        <input type="text" id="emailDescription" class="pull right">
+      </li>
+      <li class="button-list">
+        <button>Opslaan</button>
+        <button>Cancel</button>
+      </li>
+    </ul>
+  </form>
 </app-card>

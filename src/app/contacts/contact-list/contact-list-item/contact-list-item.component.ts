@@ -9,7 +9,8 @@ import {Contact} from '../../contact.model';
 export class ContactListItemComponent implements OnInit {
   @Input() contact: Contact;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

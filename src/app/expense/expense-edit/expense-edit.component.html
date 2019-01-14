@@ -1,12 +1,11 @@
 <app-card>
   <h1>Onkost</h1>
-</app-card>
-<app-card>
-  <ul>
-     <li>
-       <label for="kostenpost">Kostenpost:</label>
-       <input type="text" id="kostenpost" class="pull right">
-     </li>
+  <form>
+    <ul>
+      <li>
+        <label for="kostenpost">Kostenpost:</label>
+        <input type="text" id="kostenpost" class="pull right">
+      </li>
       <li>
         <label for="date">Datum:</label>
         <input type="date" id="date" class="pull right">
@@ -23,9 +22,9 @@
         <input type="text" id="description" class="pull right">
       </li>
       <li class="button-list">
-        <button >Opslaan</button>
+        <button>Opslaan</button>
         <button (click)="toExpense()">Cancel</button>
       </li>
-  </ul>
-
+    </ul>
+  </form>
 </app-card>

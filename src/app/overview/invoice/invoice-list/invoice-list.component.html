@@ -1,0 +1,20 @@
+<app-card>
+  <h1>Facturen</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Titel</th>
+      <th>Omschrijving</th>
+      <th>Datum</th>
+      <th>Paid</th>
+    </tr>
+    <tr
+      *ngFor="let invoiceElement of invoices" >
+      <td>{{invoiceElement.invoicetitle}}</td>
+      <td>{{invoiceElement.description}}</td>
+      <td>{{invoiceElement.date}}</td>
+      <td>{{invoiceElement.paid}}</td>
+    </tr>
+
+  </table>
+</app-card>
