@@ -40,8 +40,6 @@ import {ExpenseItemComponent} from './expense/expense-item/expense-item.componen
     ExpenseListComponent,
     ExpenseEditComponent,
     ExpenseItemComponent,
-
-    ContactDetailComponent
   ],
   imports: [
     BrowserModule,

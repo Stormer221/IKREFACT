@@ -9,7 +9,6 @@ export class ContactService {
     new Contact('mark', 'tussenvoegsel', 'achternaam', 'Alkmaar', 'boerhaavleaan', 28,
       '0634870689', 'markmail@gmail.com', '4826 DP', 2)
   ];
-
   constructor() {}
 
   getContacts() {
