@@ -23,12 +23,6 @@ h1 {
   padding:0.5em 4em;
 }
 
-
-/* TODO: Dit werkt niet door bootstrap, bootstrap is onhandig.*/
-.btn-success:focus, .btn-success:active {
-  background-color: #aac1be;
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
