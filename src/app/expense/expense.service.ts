@@ -25,4 +25,20 @@ export class ExpenseService {
     // );
   }
 
+  /** GET expenses from the server */
+  getExpenseById(id: number): Observable<Expense[]> {
+    return this.http.get<Expense[]>(this.expenseUrl + '/' + id);
+    // .pipe(
+    //   catchError(this.handleError('getExpense', []))
+    // );
+  }
+
+  /** POST: add a new expense to the database */
+  addExpense (expense: Expense): Observable<Expense> {
+    return this.http.post<Expense>(this.expenseUrl, expense)
+      // .pipe(
+      //   catchError(this.handleError('addHero', expense))
+      // );
+  }
+
 }
