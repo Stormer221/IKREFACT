@@ -9,6 +9,7 @@ import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.componen
 import {OverviewComponent} from './overview/overview.component';
 import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
+import {ExpenseDetailComponent} from './expense/expense-item/expense-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const appRoutes: Routes = [
   {
     path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
+      {path: ':id', component: ExpenseDetailComponent}
     ]
   },
 

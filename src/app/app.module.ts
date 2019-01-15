@@ -20,7 +20,7 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseItemComponent} from './expense/expense-item/expense-item.component';
+import {ExpenseDetailComponent} from './expense/expense-item/expense-detail.component';
 import {FormsModule} from '@angular/forms';
 
 
@@ -39,7 +39,7 @@ import {FormsModule} from '@angular/forms';
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
-    ExpenseItemComponent,
+    ExpenseDetailComponent,
 
     ContactDetailComponent
   ],
