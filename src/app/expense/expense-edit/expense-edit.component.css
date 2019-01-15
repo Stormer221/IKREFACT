@@ -14,3 +14,7 @@ form ul li label, form ul li input {
 .button-list {
   justify-content: space-between;
 }
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948; /* green */
+}

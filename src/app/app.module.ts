@@ -20,7 +20,7 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseDetailComponent} from './expense/expense-item/expense-detail.component';
+import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {FormsModule} from '@angular/forms';
 
 

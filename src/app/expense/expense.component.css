@@ -1,11 +1,1 @@
-form ul li {
-  display: flex;
-}
 
-form ul li label {
-  flex: 1;
-}
-
-form ul li input {
-  flex: 1;
-}

@@ -35,8 +35,10 @@ export class ExpenseService {
 
   /** POST: add a new expense to the database */
   addExpense (expense: Expense): Observable<Expense> {
-    console.log(expense);
-    return this.http.post<Expense>(this.expenseUrl, expense);
+    // @ts-ignore
+    // Dit werkt en is de enige manier (zover ik weet) om de responsetype aan te geven.
+    // Toch geeft IntelliJ de error "Type '"text"' is not assignable to type '"json"'.".
+    return this.http.post<Expense>(this.expenseUrl, expense, {responseType: 'text'});
       // .pipe(
       //   catchError(this.handleError('addHero', expense))
       // );

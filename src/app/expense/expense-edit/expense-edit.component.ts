@@ -9,7 +9,7 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
-  private expense: Expense;
+  private model: Expense = new Expense('', '', '', null, '', '');
 
   constructor(private router: Router, private expenseService: ExpenseService) {
   }
@@ -18,10 +18,6 @@ export class ExpenseEditComponent implements OnInit {
   }
 
   submitExpense() {
-    this.expense = new Expense('Reis naar haarlem',
-      'Reis naar haarlem om met Tom te overleggen', 'reiskosten', 22.95, new Date().toLocaleDateString(), 'NS');
-    this.expenseService.addExpense(this.expense);
-    console.log(new Expense('Reis naar haarlem',
-      'Reis naar haarlem om met Tom te overleggen', 'reiskosten', 22.95, new Date().toLocaleDateString(), 'NS'));
+    this.expenseService.addExpense(this.model).subscribe();
   }
 }
