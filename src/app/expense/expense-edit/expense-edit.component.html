@@ -2,30 +2,31 @@
   <h1>Onkost</h1>
 </app-card>
 <app-card>
-  <ul>
-     <li>
-       <label for="kostenpost">Kostenpost:</label>
-       <input type="text" id="kostenpost" class="pull right">
-     </li>
+  <form #expenseForm="ngForm">
+    <ul>
+      <li>
+        <label for="kostenpost">Kostenpost:</label>
+        <input type="text" id="kostenpost">
+      </li>
       <li>
         <label for="date">Datum:</label>
-        <input type="date" id="date" class="pull right">
+        <input type="date" id="date">
       </li>
       <li>
         <label for="company">Bedrijf:</label>
-        <input type="text" id="company" class="pull right"></li>
+        <input type="text" id="company"></li>
       <li>
         <label for="price"> Prijs:</label>
-        <input type="text" id="price" class="pull right">
+        <input type="text" id="price">
       </li>
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" class="pull right">
+        <input type="text" id="description">
       </li>
       <li class="button-list">
-        <button >Opslaan</button>
-        <button (click)="toExpense()">Cancel</button>
+        <button (click)="submitExpense()">Opslaan</button>
+        <button routerLink="/onkosten">Cancel</button>
       </li>
-  </ul>
-
+    </ul>
+  </form>
 </app-card>
