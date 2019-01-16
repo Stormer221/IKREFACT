@@ -9,6 +9,7 @@ import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.componen
 import {OverviewComponent} from './overview/overview.component';
 import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
+import {InvoiceEditComponent} from './overview/invoice/invoice-edit/invoice-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 
 const appRoutes: Routes = [
@@ -17,16 +18,15 @@ const appRoutes: Routes = [
   {path: 'start', component: StartComponent},
   {path: 'contacten', component: ContactsComponent},
   {path: 'contacten/nieuw', component: ContactEditComponent},
-  {path: 'contacten/:id', component: ContactDetailComponent},
-  {path: 'contacten/:id/wijzig', component: ContactEditComponent},
-  {
-    path: 'onkosten', component: ExpenseComponent, children: [
+  {path: 'contacten/:contactID', component: ContactDetailComponent},
+  {path: 'contacten/:contactID/wijzigen', component: ContactEditComponent},
+      // {path: '/offerte', component: QuotationComponent},
+      {path: 'invoice', component: InvoiceEditComponent},
+
+  {path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
       {path: ':id', component: ExpenseDetailComponent}
-    ]
-  },
-
-  // TODO queryparams erbij zetten
+    ]},
   {path: 'overzichten', component: OverviewComponent},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},

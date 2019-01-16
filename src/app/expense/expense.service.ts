@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Expense} from './expense';
+import {HttpReqInterface} from '../httpReq.interface';
 
 /**
  * @author Sergi Philipsen
@@ -11,7 +12,7 @@ import {Expense} from './expense';
   providedIn: 'root'
 })
 
-export class ExpenseService {
+export class ExpenseService implements HttpReqInterface {
   expenseUrl = '/walbert/expenses';  // URL to web api
 
   constructor(private http: HttpClient) {

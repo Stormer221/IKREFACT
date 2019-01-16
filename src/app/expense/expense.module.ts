@@ -8,8 +8,6 @@ import {SharedModule} from '../shared/shared.module';
 import {ExpenseService} from './expense.service';
 
 @NgModule({
-  declarations: [
-  ],
   imports: [
     CommonModule,
     SharedModule,

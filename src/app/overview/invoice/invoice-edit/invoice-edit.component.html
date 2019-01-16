@@ -1,0 +1,43 @@
+<app-card>
+  <h1>Factuur</h1>
+  <ul>
+    <li>
+      <label for="title">Titel:</label>
+      <input type="text" id="title" class="pull right">
+    </li>
+    <li>
+      <label for="date">Datum:</label>
+      <input type="date" id="date" class="pull right">
+    </li>
+    <li>
+      <label for="deliveryDate">Afleverdatum</label>
+      <input type="date" id="deliveryDate" class="pull right"></li>
+    <li>
+      <label for="price"> Prijs:</label>
+      <input type="text" id="price" class="pull right">
+    </li>
+    <li>
+      <label>Betaald:</label>
+      <div>
+        <input type="radio" name="betaald" id="ja">Ja
+      </div>
+      <div>
+        <input type="radio" name="betaald" id="nee">Nee
+      </div>
+    </li>
+    <li>
+      <label for="payDate">Betaaldatum:</label>
+      <input type="date" id="payDate" class="pull right"></li>
+    <li>
+    <li>
+      <label for="description">Omschrijving:</label>
+      <input type="text" id="description" class="pull right">
+    </li>
+    <li class="button-list">
+      <button (click)=" saveInvoice()">Opslaan</button>
+      <button (click)="toContacts()">Cancel</button>
+    </li>
+  </ul>
+
+</app-card>
+

@@ -6,7 +6,8 @@ import {ContactService} from '../contact.service';
 @Component({
   selector: 'app-contact-edit',
   templateUrl: './contact-edit.component.html',
-  styleUrls: ['./contact-edit.component.css']
+  styleUrls: ['./contact-edit.component.css'],
+  providers: [ContactService]
 })
 export class ContactEditComponent implements OnInit {
   newContact = false;
@@ -29,4 +30,7 @@ export class ContactEditComponent implements OnInit {
   }
 
 
+  toContacts() {
+    this.router.navigate(['/contacten']);
+  }
 }

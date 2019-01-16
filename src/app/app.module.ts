@@ -31,11 +31,12 @@ import {FormsModule} from '@angular/forms';
     ErrorComponent,
     LoginComponent,
     StartComponent,
+    ErrorComponent,
     ContactsComponent,
-    ContactEditComponent,
     ContactListComponent,
     ContactListItemComponent,
     ContactDetailComponent,
+    ContactEditComponent,
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
@@ -54,9 +55,9 @@ import {FormsModule} from '@angular/forms';
   ],
   providers: [
     {
-      provide : HTTP_INTERCEPTORS,
+      provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
-      multi   : true,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

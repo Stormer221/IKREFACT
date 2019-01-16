@@ -20,4 +20,13 @@ export class ContactsComponent implements OnInit {
     this.router.navigate(['nieuw'], {relativeTo: this.route});
   }
 
+  toFactuur() {
+    this.router.navigate(['/invoice']);
+  }
+
+  toOfferte() {
+    this.router.navigate(['/offerte']);
+  }
+
+
 }
