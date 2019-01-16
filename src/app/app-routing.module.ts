@@ -20,13 +20,11 @@ const appRoutes: Routes = [
   {path: 'contacten/nieuw', component: ContactEditComponent},
   {path: 'contacten/:contactID', component: ContactDetailComponent},
   {path: 'contacten/:contactID/wijzigen', component: ContactEditComponent},
-      // {path: '/offerte', component: QuotationComponent},
-      {path: 'invoice', component: InvoiceEditComponent},
-
-  {path: 'onkosten', component: ExpenseComponent, children: [
-      {path: 'nieuw', component: ExpenseEditComponent},
-      {path: ':id', component: ExpenseDetailComponent}
-    ]},
+  // {path: '/offerte', component: QuotationComponent},
+  {path: 'invoice', component: InvoiceEditComponent},
+  {path: 'onkosten', component: ExpenseComponent},
+  {path: 'onkosten/nieuw', component: ExpenseEditComponent},
+  {path: 'onkosten/:id', component: ExpenseDetailComponent},
   {path: 'overzichten', component: OverviewComponent},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},

@@ -9,7 +9,7 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
-  private model: Expense = new Expense('', '', '', null, '', '');
+  private model: Expense = new Expense();
 
   constructor(private router: Router, private expenseService: ExpenseService) {
   }
