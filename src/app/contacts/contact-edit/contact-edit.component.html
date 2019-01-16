@@ -26,22 +26,82 @@
             class="pull right"></li>
       </div>
       <br>
-      <div class="form-group" formArrayName="emailData"
+      <div class="form-group" formArrayName="addresses"
+           *ngFor="let addressItem of contactForm.controls['addresses'].controls; let i = index">
+        <div class="address-box" formGroupName="{{i}}">
+          <li>
+            <label for="street">straat:</label>
+            <input
+              type="text"
+              id="street"
+              formControlName="street"
+              class="pull right"></li>
+          <li>
+            <label for="houseNumber">huisnummer:</label>
+            <input
+              type="number"
+              id="houseNumber"
+              formControlName="houseNumber"
+              class="pull right"></li>
+          <li>
+            <label for="zipCode">postcode:</label>
+            <input
+              type="number"
+              id="zipCode"
+              formControlName="zipCode"
+              class="pull right"></li>
+          <li>
+            <label for="place">plaats:</label>
+            <input
+              type="number"
+              id="place"
+              formControlName="place"
+              class="pull right"></li>
+        </div>
+      </div>
+      <br>
+      <button type="button" (click)="addAddress()" *ngIf="contactForm.controls['addresses'].controls.length < 3">Add Next</button>
+      <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">Remove last</button>
+      <div class="form-group" formArrayName="phoneNumbers"
+           *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
+        <div class="email-box" formGroupName="{{i}}">
+          <li>
+            <label for="phoneNumber">telefoon nummer:</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              formControlName="phoneNumber"
+              class="pull right"></li>
+          <li>
+            <label for="phoneNumberDescription">Beslchrijving:</label>
+            <input
+              type="text"
+              id="phoneNumberDescription"
+              formControlName="phoneNumberDescription"
+              class="pull right"></li>
+        </div>
+      </div>
+      <br>
+      <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length < 3">Add Next</button>
+      <button type="button" (click)="removePhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length > 1">Remove last</button>
+      <div class="form-group" formArrayName="emails"
            *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
-        <li>
-          <label for="email">email:</label>
-          <input
-            type="text"
-            id="email"
-            formControlName="email"
-            class="pull right"></li>
-        <li>
-          <label for="emailDescription">Beslchrijving:</label>
-          <input
-            type="text"
-            id="emailDescription"
-            formControlName="email"
-            class="pull right"></li>
+        <div class="email-box" formGroupName="{{i}}">
+          <li>
+            <label for="email">email:</label>
+            <input
+              type="text"
+              id="email"
+              formControlName="email"
+              class="pull right"></li>
+          <li>
+            <label for="emailDescription">Beslchrijving:</label>
+            <input
+              type="text"
+              id="emailDescription"
+              formControlName="emailDescription"
+              class="pull right"></li>
+        </div>
       </div>
       <br>
       <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next</button>

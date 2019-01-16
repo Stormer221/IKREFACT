@@ -28,8 +28,12 @@ export class ContactEditComponent implements OnInit {
         'lastname': new FormControl(null, [Validators.required])
       }),
       'emails': new FormArray([]),
+      'addresses': new FormArray([]),
+      'phoneNumbers': new FormArray([])
     });
     this.addEmail();
+    this.addAddress();
+    this.addPhoneNumber();
 
   }
 
@@ -45,16 +49,45 @@ export class ContactEditComponent implements OnInit {
   addEmail() {
     (<FormArray>this.contactForm.controls['emails']).push(
       new FormGroup({
-        'email': new FormControl(null),
+        'email': new FormControl(null, Validators.required),
         'emailDescription': new FormControl(null)
       })
     );
-    console.log('hier komt de emaildata');
-    console.log(<FormArray>this.contactForm.controls['emails']);
+    console.log(this.contactForm);
   }
 
   removeEmail() {
     (<FormArray>this.contactForm.controls['emails']).removeAt(-1);
 
   }
+
+  private addAddress() {
+    (<FormArray>this.contactForm.controls['addresses']).push(
+      new FormGroup({
+        'place': new FormControl(null, Validators.required),
+        'street': new FormControl(null),
+        'houseNumber': new FormControl(null),
+        'zipCode': new FormControl(null)
+      })
+    );
+  }
+
+  removeAddress() {
+    (<FormArray>this.contactForm.controls['addresses']).removeAt(-1);
+  }
+
+  private addPhoneNumber() {
+    (<FormArray>this.contactForm.controls['phoneNumbers']).push(
+      new FormGroup({
+        'phoneNumber': new FormControl(null, Validators.required),
+        'phoneNumberDescription': new FormControl(null)
+      })
+    );
+  }
+
+  removePhoneNumber() {
+    (<FormArray>this.contactForm.controls['phoneNumbers']).removeAt(-1);
+  }
+
+
 }
