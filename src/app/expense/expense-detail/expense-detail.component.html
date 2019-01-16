@@ -9,5 +9,6 @@
     <p>{{expense.costItem|titlecase}} van &euro; {{expense.amount}} op {{expense.date}} bij {{expense.company}}</p>
     <hr>
     <p>{{expense.description}}</p>
+    <button (click)="deleteExpence()">Verwijder</button>
   </app-card>
 </div>

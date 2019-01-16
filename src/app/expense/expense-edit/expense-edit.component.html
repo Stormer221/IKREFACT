@@ -11,23 +11,24 @@
       </li>
       <li>
         <label for="title">Titel:</label>
-        <input type="text" id="title" required  [(ngModel)]="model.title" name="title" #title="ngModel">
+        <input type="text" id="title" required [(ngModel)]="model.title" name="title" #title="ngModel">
       </li>
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" required  [(ngModel)]="model.description" name="description" #description="ngModel">
+        <input type="text" id="description" required [(ngModel)]="model.description" name="description"
+               #description="ngModel">
       </li>
       <li>
         <label for="date">Datum:</label>
-        <input type="date" id="date" required  [(ngModel)]="model.date" name="date" #date="ngModel">
+        <input type="date" id="date" required [(ngModel)]="model.date" name="date" #date="ngModel">
       </li>
       <li>
         <label for="company">Bedrijf:</label>
-        <input type="text" id="company" required  [(ngModel)]="model.company" name="company" #company="ngModel">
+        <input type="text" id="company" required [(ngModel)]="model.company" name="company" #company="ngModel">
       </li>
       <li>
         <label for="amount"> Prijs:</label>
-        <input type="text" id="amount" required  [(ngModel)]="model.amount" name="amount" #amount="ngModel">
+        <input type="text" id="amount" required [(ngModel)]="model.amount" name="amount" #amount="ngModel">
       </li>
       <li class="button-list">
         <button [disabled]="!expenseForm.valid">Opslaan</button>

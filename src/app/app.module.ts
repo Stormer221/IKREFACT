@@ -22,7 +22,10 @@ import {ExpenseListComponent} from './expense/expense-list/expense-list.componen
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {FormsModule} from '@angular/forms';
+import localeFr from '@angular/common/locales/nl';
+import {registerLocaleData} from "@angular/common";
 
+registerLocaleData(localeFr, 'nl');
 
 @NgModule({
   declarations: [

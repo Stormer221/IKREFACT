@@ -1,11 +1,17 @@
+/**
+ * The Expense model.
+ *
+ * @author Sergi Philipsen.
+ */
+
 export class Expense {
-  private title: string;
-  private description: string;
-  private costItem: string;
-  private amount: number;
-  private date: string;
-  private company: string;
-  private expenseID: number;
+  title: string;
+  description: string;
+  costItem: string;
+  amount: number;
+  date: string;
+  company: string;
+  expenseID: number;
 
   constructor(title: string = '',
               description: string = '',
