@@ -2,30 +2,36 @@
   <h1>Onkost</h1>
 </app-card>
 <app-card>
-  <ul>
-     <li>
-       <label for="kostenpost">Kostenpost:</label>
-       <input type="text" id="kostenpost" class="pull right">
-     </li>
+  <form #expenseForm="ngForm" (ngSubmit)="submitExpense(expenseForm.form)">
+    <ul>
       <li>
-        <label for="date">Datum:</label>
-        <input type="date" id="date" class="pull right">
+        <label for="costItem">Kostenpost:</label>
+        <input type="text" id="costItem" required [(ngModel)]="model.costItem" name="costItem" #costItem="ngModel">
       </li>
       <li>
-        <label for="company">Bedrijf:</label>
-        <input type="text" id="company" class="pull right"></li>
-      <li>
-        <label for="price"> Prijs:</label>
-        <input type="text" id="price" class="pull right">
+        <label for="title">Titel:</label>
+        <input type="text" id="title" required  [(ngModel)]="model.title" name="title" #title="ngModel">
       </li>
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" class="pull right">
+        <input type="text" id="description" required  [(ngModel)]="model.description" name="description" #description="ngModel">
+      </li>
+      <li>
+        <label for="date">Datum:</label>
+        <input type="date" id="date" required  [(ngModel)]="model.date" name="date" #date="ngModel">
+      </li>
+      <li>
+        <label for="company">Bedrijf:</label>
+        <input type="text" id="company" required  [(ngModel)]="model.company" name="company" #company="ngModel">
+      </li>
+      <li>
+        <label for="amount"> Prijs:</label>
+        <input type="text" id="amount" required  [(ngModel)]="model.amount" name="amount" #amount="ngModel">
       </li>
       <li class="button-list">
-        <button >Opslaan</button>
-        <button (click)="toExpense()">Cancel</button>
+        <button [disabled]="!expenseForm.valid">Opslaan</button>
+        <button routerLink="/onkosten">Cancel</button>
       </li>
-  </ul>
-
+    </ul>
+  </form>
 </app-card>

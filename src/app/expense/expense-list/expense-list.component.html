@@ -1,3 +1,5 @@
-<p>
-  expense-list works!
-</p>
+<app-card>
+  <div *ngFor="let expense of expenses">
+    <a routerLink="{{expense.expenseID}}"><strong>{{expense.title}}</strong> {{expense.description}}</a>
+  </div>
+</app-card>
