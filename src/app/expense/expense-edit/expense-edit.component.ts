@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {Expense} from '../expense';
+import {ExpenseService} from '../expense.service';
 
 @Component({
   selector: 'app-expense-form',
@@ -7,13 +9,15 @@ import {Router} from '@angular/router';
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
+  private model: Expense = new Expense('', '', '', null, '', '');
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private expenseService: ExpenseService) {
+  }
 
   ngOnInit() {
   }
 
-  toExpense() {
-    this.router.navigate(['/onkosten']);
+  submitExpense() {
+    this.expenseService.addExpense(this.model).subscribe();
   }
 }

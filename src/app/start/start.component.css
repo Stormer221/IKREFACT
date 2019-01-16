@@ -7,6 +7,7 @@ div.banner {
 div.buttons {
   background-color: #018284;
   padding: 2em;
+  text-align: center;
 }
 
 div.buttons div {
@@ -18,10 +19,18 @@ div.buttons div {
 
 div.buttons img {
   height: 100px;
+  display: block;
+  margin-bottom: 15px;
   border-radius: 100%;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
+a {
+  color: white;
+  text-decoration: none;
+}
+
 div.buttons img:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
+  transition: all 0.5s;
 }

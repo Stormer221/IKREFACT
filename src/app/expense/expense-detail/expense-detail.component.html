@@ -1,0 +1,8 @@
+<app-card *ngIf="expense">
+  <h1>{{expense.title}}</h1>
+  <p>{{expense.description}}</p>
+  <p>{{expense.date}}</p>
+  <p>Kosten: {{expense.amount}}</p>
+  <p>Leverancier: {{expense.company}}</p>
+  <p>Onkost soort: {{expense.costItem}}</p>
+</app-card>

@@ -15,14 +15,10 @@ export class ExpenseComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getExpense();
   }
 
   getExpense(): void {
-    this.expenseService.getExpense()
-      .subscribe(result => console.log(result));
   }
-
 
   toExpenseEdit() {
     this.router.navigate(['nieuw'], {relativeTo: this.route});

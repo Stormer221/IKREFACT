@@ -20,8 +20,8 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseItemComponent} from './expense/expense-item/expense-item.component';
-import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item/expense-list-item.component';
+import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -40,8 +40,7 @@ import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
-    ExpenseItemComponent,
-    ExpenseListItemComponent,
+    ExpenseDetailComponent,
 
     ContactDetailComponent
   ],
@@ -52,6 +51,7 @@ import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item
     OverviewModule,
     SharedModule,
     AppRoutingModule,
+    FormsModule
   ],
   providers: [
     {

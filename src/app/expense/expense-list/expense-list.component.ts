@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Contact} from '../../contacts/contact.model';
-import {ExpenseService} from '../expense.service';
 import {Expense} from '../expense';
+import {ExpenseService} from '../expense.service';
 
 @Component({
   selector: 'app-expense-list',
@@ -9,18 +8,13 @@ import {Expense} from '../expense';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  expenses: Expense[];
+  private expenses: Expense[];
 
-  constructor(private expenseService: ExpenseService) {}
-
-
+  constructor(private expenseService: ExpenseService) { }
 
   ngOnInit() {
-    this.expenseService.getReq()
-      .subscribe((expense: Expense[]) => this.expenses = expense);
-    this.expenseService.getReq().subscribe(result => console.log(result));
-    // this.getContact();
-
+    this.expenseService.getExpense()
+      .subscribe(result => this.expenses = result);
   }
 
 }

@@ -10,6 +10,7 @@ import {OverviewComponent} from './overview/overview.component';
 import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.component';
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {InvoiceEditComponent} from './overview/invoice/invoice-edit/invoice-edit.component';
+import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
 
   {path: 'onkosten', component: ExpenseComponent, children: [
       {path: 'nieuw', component: ExpenseEditComponent},
+      {path: ':id', component: ExpenseDetailComponent}
     ]},
   {path: 'overzichten', component: OverviewComponent},
   {path: 'not-found', component: ErrorComponent},
