@@ -1,12 +1,9 @@
 <app-card>
-  <div class="row">
-    <div class="col-sm-12">
-      <input class="form-control" id="searchBar" placeholder="Zoeken..." type="text">
-    </div>
+  <div class="titlebar">
+    <h1>Contacten</h1>
+    <button (click)="onNewContact()">Nieuw Contact</button>
   </div>
-  <button (click)="onNewContact()">Nieuw Contact</button>
-  <button (click)="toFactuur()">Factuur maken</button>
-  <button (click)="toOfferte()">Offerte maken</button>
 </app-card>
+<input class="form-control" id="searchBar" placeholder="Zoeken..." type="text">
 <app-contact-list></app-contact-list>
 
