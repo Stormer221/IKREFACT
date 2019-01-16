@@ -41,7 +41,6 @@ export class ContactService implements HttpReqInterface {
   getSingleContact(contactID: number): Observable<Contact> {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
   }
-  
 
   postReq() {
   }
