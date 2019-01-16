@@ -6,9 +6,13 @@
     </div>
   </app-card>
   <app-card>
-    <p>{{expense.costItem|titlecase}} van &euro; {{expense.amount}} op {{expense.date}} bij {{expense.company}}</p>
+    <p>{{expense.costItem|titlecase}} van &euro; {{expense.amount}} op {{expense.date | date: 'dd/MM/yyyy'}}
+      bij {{expense.company}}</p>
     <hr>
     <p>{{expense.description}}</p>
-    <button (click)="deleteExpence()">Verwijder</button>
+    <div class="button-list">
+      <button (click)="deleteExpence()">Verwijder</button>
+      <button routerLink="/onkosten/{{expense.expenseID}}/wijzigen">Wijzig</button>
+    </div>
   </app-card>
 </div>

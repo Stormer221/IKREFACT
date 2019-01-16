@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Expense} from '../expense';
 import {ExpenseService} from '../expense.service';
-import {formatDate} from "@angular/common";
 
 /***
  * The ExpenseEditComponent.
@@ -19,19 +18,37 @@ import {formatDate} from "@angular/common";
 })
 export class ExpenseEditComponent implements OnInit {
   // Create empty Expense for the form to fill in.
-  // TODO: Check if the Expense exists or not.
   private model: Expense = new Expense();
+  private id = null;
 
-  constructor(private router: Router, private expenseService: ExpenseService) {
+  constructor(
+    private router: Router,
+    private expenseService: ExpenseService,
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        if (this.id) {
+          this.expenseService.getExpenseById(this.id)
+            .subscribe(result => this.model = result);
+        }
+      }
+    );
   }
 
   submitExpense() {
     // Give the date the right format.
-    this.model.date = formatDate(this.model.date, 'dd/MM/yyyy', 'nl');
+    // this.model.date = formatDate(this.model.date, 'dd/MM/yyyy', 'nl');
     // Save
-    this.expenseService.addExpense(this.model).subscribe();
+    if (this.id) {
+      this.expenseService.putExpense(this.model).subscribe();
+    } else {
+      this.expenseService.addExpense(this.model).subscribe();
+    }
+    this.router.navigate(['/onkosten']);
   }
 }

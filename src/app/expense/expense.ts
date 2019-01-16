@@ -9,7 +9,7 @@ export class Expense {
   description: string;
   costItem: string;
   amount: number;
-  date: string;
+  date: Date;
   company: string;
   expenseID: number;
 
@@ -17,7 +17,7 @@ export class Expense {
               description: string = '',
               costItem: string = '',
               amount: number = null,
-              date: string = '',
+              date: Date = null,
               company: string = '',
               expenseID: number = null
   ) {
