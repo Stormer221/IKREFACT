@@ -21,7 +21,7 @@ import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -51,7 +51,8 @@ import {FormsModule} from '@angular/forms';
     OverviewModule,
     SharedModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
