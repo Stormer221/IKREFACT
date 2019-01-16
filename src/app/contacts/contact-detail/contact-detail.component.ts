@@ -12,6 +12,7 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class ContactDetailComponent implements OnInit {
   contact: Contact;
   contactID: number;
+  email: string[];
 
 
   constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
@@ -38,17 +39,17 @@ export class ContactDetailComponent implements OnInit {
   getContact(params: Params) {
     this.contactService.getSingleContact(params['contactID'])
       .subscribe(
-        (contact: Contact) => this.contact = contact);
+        (contact: Contact) => {
+          this.contact = contact;
+          console.log(contact);
+
+          contact.emails = JSON.stringify(contact.emails);
+
+        });
     // this.contact = this.contactService.getContact(this.contactID);
 
   }
-  toFactuur() {
-    this.router.navigate(['/invoice']);
-  }
 
-  toOfferte() {
-    this.router.navigate(['/offerte']);
-  }
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});

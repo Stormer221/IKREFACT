@@ -6,7 +6,7 @@ export class Contact {
     public houseNr: number;
     public place: string;
     public phoneNr: string;
-    public email: string;
+    public emails: string;
     public zipCode: string;
     public contactID: number;
 
@@ -19,7 +19,7 @@ export class Contact {
     this.place = place;
     this.street = street;
     this.houseNr = houseNr;
-    this.email = email;
+    this.emails = email;
     this.zipCode = zipCode;
     this.contactID = contactID;
   }

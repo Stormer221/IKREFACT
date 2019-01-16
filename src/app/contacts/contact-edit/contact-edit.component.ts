@@ -30,4 +30,7 @@ export class ContactEditComponent implements OnInit {
   }
 
 
+  toContacts() {
+    this.router.navigate(['/contacten']);
+  }
 }

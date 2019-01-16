@@ -3,12 +3,12 @@ import {Injectable} from '@angular/core';
 import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
-import {map} from 'rxjs/operators';
+import {map, subscribeOn} from 'rxjs/operators';
 
 @Injectable()
 export class ContactService implements HttpReqInterface {
-  private contacts: Contact[] = []
-  ;
+  private contacts: Contact[] = [];
+  private contact: Contact;
 
   contactsurl = 'walbert/contacts';
 
@@ -17,7 +17,7 @@ export class ContactService implements HttpReqInterface {
 
   getContacts() {
     // this.getReq();
-    return this.contacts;
+    // return this.contacts;
   }
 
   getContact(id: number) {
@@ -40,6 +40,13 @@ export class ContactService implements HttpReqInterface {
 
   getSingleContact(contactID: number): Observable<Contact> {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
+  }
+
+  getContactEmail(email: string[]) {
+    const emails = this.contact.emails.find( e => {
+      return this.contact.emails === email;
+    });
+    return email;
   }
 
   postReq() {
