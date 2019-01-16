@@ -26,74 +26,26 @@
             class="pull right"></li>
       </div>
       <br>
-      <div formGroupName="addressData">
+      <div class="form-group" formArrayName="emailData"
+           *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
         <li>
-          <label for="zipCode"> Postcode:</label>
+          <label for="email">email:</label>
           <input
             type="text"
-            id="zipCode"
-            formControlName="zipCode"
+            id="email"
+            formControlName="email"
             class="pull right"></li>
         <li>
-          <label for="place">Plaats:</label>
+          <label for="emailDescription">Beslchrijving:</label>
           <input
             type="text"
-            id="place"
-            formControlName="place"
-            class="pull right"></li>
-        <li>
-          <label for="street">Straat:</label>
-          <input
-            type="text"
-            id="street"
-            formControlName="street"
-            class="pull right"></li>
-        <li>
-          <label for="housenumber">Huisnummer:</label>
-          <input
-            type="text"
-            id="housenumber"
-            formControlName="housenumber"
+            id="emailDescription"
+            formControlName="email"
             class="pull right"></li>
       </div>
       <br>
-      <div formGroupName="telephoneData">
-        <li>
-          <label for="telephoneNumber">Telefoon:</label>
-          <input
-            type="text"
-            id="telephoneNumber"
-            formControlName="telephoneNumber"
-            class="pull right"></li>
-        <li>
-          <label for="telephoneDescription">Beschrijving:</label>
-          <input
-            type="text"
-            id="telephoneDescription"
-            formControlName="telephoneDescription"
-            class="pull right"></li>
-      </div>
-      <br>
-      <li>
-        <label for="email">email:</label>
-        <input
-          type="text"
-          id="email"
-          formControlName="emailAddresses"
-          class="pull right"></li>
-      <li>
-        <div
-          class="form-group"
-          *ngFor="let emailControl of contactForm.get('emailAdresses').controls; let i = index">
-          <input type="text" class="form-control" [formControlName]="i">
-        </div>
-        <!--<label for="emailDescription">beschrijving:</label>-->
-        <!--<input-->
-          <!--type="text"-->
-          <!--id="emailDescription"-->
-          <!--formControlName="email"-->
-          <!--class="pull right"></li>-->
-      <button type="button" (click)="addEmail()">Add Next</button>
+      <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next</button>
+      <button type="button" (click)="removeEmail()" *ngIf="contactForm.controls['emails'].controls.length > 1">Remove last</button>
       <li class="button-list">
         <button type="submit">Opslaan</button>
         <button (click)="toContacts()">Cancel</button></li>
