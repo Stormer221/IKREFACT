@@ -61,7 +61,7 @@ export class ContactEditComponent implements OnInit {
 
   }
 
-  private addAddress() {
+  addAddress() {
     (<FormArray>this.contactForm.controls['addresses']).push(
       new FormGroup({
         'place': new FormControl(null, Validators.required),
@@ -76,7 +76,7 @@ export class ContactEditComponent implements OnInit {
     (<FormArray>this.contactForm.controls['addresses']).removeAt(-1);
   }
 
-  private addPhoneNumber() {
+  addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
         'phoneNumber': new FormControl(null, Validators.required),
