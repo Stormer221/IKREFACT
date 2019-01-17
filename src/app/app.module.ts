@@ -40,9 +40,7 @@ import {FormsModule} from '@angular/forms';
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
-    ExpenseDetailComponent,
-
-    ContactDetailComponent
+    ExpenseItemComponent,
   ],
   imports: [
     BrowserModule,
