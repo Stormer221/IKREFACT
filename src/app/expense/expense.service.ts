@@ -12,7 +12,7 @@ import {HttpReqInterface} from '../httpReq.interface';
   providedIn: 'root'
 })
 
-export class ExpenseService implements HttpReqInterface {
+export class ExpenseService {
   expenseUrl = '/walbert/expenses';  // URL to web api
 
   constructor(private http: HttpClient) {
