@@ -57,14 +57,21 @@
               id="place"
               formControlName="place"
               class="pull right"></li>
+          <li>
+            <label for="country">Land:</label>
+            <input
+              type="text"
+              id="country"
+              formControlName="country"
+              class="pull right"></li>
+          </div>
         </div>
-      </div>
       <br>
       <button type="button" (click)="addAddress()" *ngIf="contactForm.controls['addresses'].controls.length < 3">Add Next</button>
       <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">Remove last</button>
       <div class="form-group" formArrayName="phoneNumbers"
            *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
-        <div class="email-box" formGroupName="{{i}}">
+        <div class="phoneNumber-box" formGroupName="{{i}}">
           <li>
             <label for="phoneNumber">telefoon nummer:</label>
             <input
@@ -106,6 +113,25 @@
       <br>
       <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next</button>
       <button type="button" (click)="removeEmail()" *ngIf="contactForm.controls['emails'].controls.length > 1">Remove last</button>
+      <br>
+      <br>
+      <span class="radio" *ngFor="let cfOption of companyFreelancerOptions">
+        <label class="radio">
+          <input
+            type="radio"
+            class="radio-buttons"
+            formControlName="cfOption"
+            [value]="cfOption">{{ cfOption }}
+        </label>
+      </span>
+      <li>
+        <label for="cfDescription" >bedrijfjlka:</label>
+        <label for="cfDescription" >Omschrijving:</label>
+        <input
+          type="text"
+          id="cfDescription"
+          formControlName="cfDescription"
+          class="pull right"></li>
       <li class="button-list">
         <button type="submit">Opslaan</button>
         <button (click)="toContacts()">Cancel</button></li>
