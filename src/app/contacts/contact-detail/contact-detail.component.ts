@@ -56,6 +56,10 @@ export class ContactDetailComponent implements OnInit {
   }
 
   toFactuur() {
-      this.router.navigate(['/factuur']);
-    }
+    this.router.navigate(['/factuur']);
+  }
+
+  toQuotation() {
+    this.router.navigate(['/offerte']);
+  }
 }

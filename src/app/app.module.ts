@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
@@ -20,8 +19,9 @@ import {ContactsComponent} from './contacts/contacts.component';
 import {ExpenseComponent} from './expense/expense.component';
 import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
 import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {FormsModule} from '@angular/forms';
+import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item/expense-list-item.component';
+import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 
 
 @NgModule({
@@ -40,7 +40,8 @@ import {FormsModule} from '@angular/forms';
     ExpenseComponent,
     ExpenseListComponent,
     ExpenseEditComponent,
-    ExpenseItemComponent,
+    ExpenseListItemComponent,
+    ExpenseDetailComponent,
   ],
   imports: [
     BrowserModule,

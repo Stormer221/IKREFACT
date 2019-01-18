@@ -12,6 +12,7 @@ import {ContactEditComponent} from './contacts/contact-edit/contact-edit.compone
 import {InvoiceEditComponent} from './overview/invoice/invoice-edit/invoice-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {InvoiceListComponent} from './overview/invoice/invoice-list/invoice-list.component';
+import {QuotationEditComponent} from './overview/quotation/quotation-edit/quotation-edit.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const appRoutes: Routes = [
   {path: 'contacten/:contactID/wijzigen', component: ContactEditComponent},
   {path: 'facturen', component: InvoiceListComponent},
   {path: 'factuur', component: InvoiceEditComponent},
+  {path: 'offerte', component: QuotationEditComponent},
   {path: 'onkosten', component: ExpenseComponent},
   {path: 'onkosten/nieuw', component: ExpenseEditComponent},
   {path: 'onkosten/:id', component: ExpenseDetailComponent},
