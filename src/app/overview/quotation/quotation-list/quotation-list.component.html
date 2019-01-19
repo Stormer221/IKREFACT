@@ -1,0 +1,18 @@
+<app-card>
+  <h1>Offerte</h1>
+  <hr>
+  <table>
+    <tr>
+      <th>Titel</th>
+      <th>Omschrijving</th>
+      <th>Datum</th>
+    </tr>
+    <tr
+      *ngFor="let q of quotations">
+      <td>{{q.quoationtitle}}</td>
+      <td>{{q.description}}</td>
+      <td>{{q.date}}</td>
+    </tr>
+
+  </table>
+</app-card>
