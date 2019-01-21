@@ -17,9 +17,8 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
-  // Create empty Expense for the form to fill in.
   private model: Expense = new Expense();
-  private id = null;
+  private id: number = null;
 
   constructor(
     private router: Router,
@@ -34,16 +33,15 @@ export class ExpenseEditComponent implements OnInit {
         this.id = +params['id'];
         if (this.id) {
           this.expenseService.getExpenseById(this.id)
-            .subscribe(result => this.model = result);
+            .subscribe(result => {
+              this.model = result;
+            });
         }
       }
     );
   }
 
   submitExpense() {
-    // Give the date the right format.
-    // this.model.date = formatDate(this.model.date, 'dd/MM/yyyy', 'nl');
-    // Save
     if (this.id) {
       this.expenseService.putExpense(this.model).subscribe();
     } else {

@@ -18,7 +18,7 @@ import {Expense} from '../expense';
 })
 export class ExpenseDetailComponent implements OnInit {
   private id: number;
-  private expense: Expense;
+  public expense: Expense;
 
   constructor(private expenseService: ExpenseService, private router: Router, private route: ActivatedRoute) {
   }
@@ -33,7 +33,7 @@ export class ExpenseDetailComponent implements OnInit {
     );
   }
 
-  deleteExpence() {
+  deleteExpense() {
     if (confirm('Weet je zeker dat je "' + this.expense.title + '" wilt verwijderen?')) {
       this.expenseService.deleteExpense(this.expense.expenseID).subscribe();
       this.router.navigate(['/onkosten']);
