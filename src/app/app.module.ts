@@ -17,12 +17,7 @@ import {ContactListItemComponent} from './contacts/contact-list/contact-list-ite
 import {ContactListComponent} from './contacts/contact-list/contact-list.component';
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {ContactsComponent} from './contacts/contacts.component';
-import {ExpenseComponent} from './expense/expense.component';
-import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
-import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {FormsModule} from '@angular/forms';
-
 
 @NgModule({
   declarations: [
@@ -37,21 +32,16 @@ import {FormsModule} from '@angular/forms';
     ContactListItemComponent,
     ContactDetailComponent,
     ContactEditComponent,
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseEditComponent,
-    ExpenseDetailComponent,
-
     ContactDetailComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ExpenseModule,
-    OverviewModule,
     SharedModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ExpenseModule,
+    OverviewModule
   ],
   providers: [
     {
