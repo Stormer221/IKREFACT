@@ -10,9 +10,11 @@ export class Contact {
     public emails: EmailModel[];
     public phoneNumbers: PhoneNumberModel[];
     public contactID: number;
+    public companyFreelancer: ['bedrijf', 'freelancer']
+    public cfDescription: string
 
   constructor(firstName: string, infix: string, surname: string, addresses: AddressModel[], emails: EmailModel[],
-              phoneNumbers: PhoneNumberModel[], contactID: number) {
+              phoneNumbers: PhoneNumberModel[], contactID: number, companyFreelancer: ['bedrijf', 'freelancer'], cfDescription: string) {
     this.firstName = firstName
     this.infix = infix
     this.surname = surname
@@ -20,6 +22,7 @@ export class Contact {
     this.emails = emails;
     this.phoneNumbers = phoneNumbers;
     this.contactID = contactID;
-
+    this.companyFreelancer = companyFreelancer;
+    this.cfDescription = cfDescription;
   }
 }

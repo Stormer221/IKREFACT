@@ -4,13 +4,15 @@ import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
 import {Observable, pipe} from 'rxjs';
 import {map, subscribeOn} from 'rxjs/operators';
+import {Expense} from '../expense/expense';
+import {FormGroup} from '@angular/forms';
 
 @Injectable()
 export class ContactService implements HttpReqInterface {
   private contacts: Contact[] = [];
   private contact: Contact;
 
-  contactsurl = 'walbert/contacts';
+  contactsUrl = 'walbert/contacts';
 
   constructor(private http: HttpClient) {
   }
@@ -33,7 +35,7 @@ export class ContactService implements HttpReqInterface {
   }
 
   getReq(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactsurl)
+    return this.http.get<Contact[]>(this.contactsUrl)
       ;
 
   }
@@ -46,5 +48,21 @@ export class ContactService implements HttpReqInterface {
   }
 
   putReq() {
+  }
+
+  addContact(contact: Contact): Observable<Contact>  {
+    // copy van expense
+    // @ts-ignore
+    // Dit werkt en is de enige manier (zover ik weet) om de responsetype aan te geven.
+    // Toch geeft IntelliJ de error "Type '"text"' is not assignable to type '"json"'.".
+    return this.http.post<Contact>(this.contactsUrl, contact, {responseType: 'text'});
+    // .pipe(
+    //   catchError(this.handleError('addHero', expense))
+    // );
+    
+  }
+
+  addContactTest(contactForm: FormGroup) {
+    return this.http.post<FormGroup>(this.contactsUrl, contactForm, {responseType: 'json'});
   }
 }

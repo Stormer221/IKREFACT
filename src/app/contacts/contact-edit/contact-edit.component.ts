@@ -15,7 +15,7 @@ export class ContactEditComponent implements OnInit {
   id: number;
   contact: Contact;
   contactForm: FormGroup;
-  companyFreelancerOptions = ['company', 'freelancer'];
+  companyFreelancerOptions = ['bedrijf', 'freelancer'];
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
@@ -23,9 +23,9 @@ export class ContactEditComponent implements OnInit {
   ngOnInit() {
     this.contactForm = new FormGroup({
       'contactData': new FormGroup({
-        'name': new FormControl(null, [Validators.required]),
-        'infix': new FormControl(null),
-        'lastname': new FormControl(null, [Validators.required])
+        'firstName': new FormControl(),
+        'infix': new FormControl(),
+        'lastname': new FormControl()
       }),
       'emails': new FormArray([]),
       'addresses': new FormArray([]),
@@ -36,22 +36,18 @@ export class ContactEditComponent implements OnInit {
     this.addEmail();
     this.addAddress();
     this.addPhoneNumber();
+
   }
 
   toContacts() {
     this.router.navigate(['/contacten']);
   }
 
-  onSubmit() {
-    console.log(this.contactForm);
-    this.contactForm.reset();
-  }
-
   addEmail() {
     (<FormArray>this.contactForm.controls['emails']).push(
       new FormGroup({
-        'email': new FormControl(null, Validators.required),
-        'emailDescription': new FormControl(null)
+        'email': new FormControl(),
+        'emailDescription': new FormControl()
       })
     );
     console.log(this.contactForm);
@@ -64,11 +60,11 @@ export class ContactEditComponent implements OnInit {
   addAddress() {
     (<FormArray>this.contactForm.controls['addresses']).push(
       new FormGroup({
-        'place': new FormControl(null, Validators.required),
-        'street': new FormControl(null),
-        'houseNumber': new FormControl(null),
-        'zipCode': new FormControl(null),
-        'country': new FormControl(null)
+        'place': new FormControl(),
+        'street': new FormControl(),
+        'houseNumber': new FormControl(),
+        'zipCode': new FormControl(),
+        'country': new FormControl()
       })
     );
   }
@@ -90,5 +86,18 @@ export class ContactEditComponent implements OnInit {
     (<FormArray>this.contactForm.controls['phoneNumbers']).removeAt(-1);
   }
 
-
+  onSubmit() {
+    // this.contact.firstName = this.contactForm.get('firstName').value;
+    // this.contact.infix = this.contactForm.get('infix').value;
+    // this.contact.surname = this.contactForm.get('lastname').value;
+    // this.contact.addresses = this.contactForm.get('addresses').value;
+    // this.contact.emails = this.contactForm.get('emails').value;
+    // this.contact.phoneNumbers = this.contactForm.get('phoneNumbers').value;
+    // this.contact.companyFreelancer = this.contactForm.get('cfOption').value;
+    // this.contact.cfDescription = this.contactForm.get('cfDescription').value;
+    console.log(this.contactForm);
+    this.contactService.addContactTest(this.contactForm);
+    // this.contactService.addContact(this.contact).subscribe();
+    // this.contactForm.reset();
+  }
 }

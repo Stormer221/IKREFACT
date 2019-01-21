@@ -4,11 +4,11 @@
     <ul>
       <div formGroupName="contactData">
         <li>
-          <label for="name">Voornaam:</label>
+          <label for="firstName">Voornaam:</label>
           <input
             type="text"
-            id="name"
-            formControlName="name"
+            id="firstName"
+            formControlName="firstName"
             class=" pull right"></li>
         <li>
           <label for="infix">Tussenvoegsel:</label>
@@ -125,9 +125,10 @@
         </label>
       </span>
       <li>
-        <label for="cfDescription" >bedrijfjlka:</label>
-        <label for="cfDescription" >Omschrijving:</label>
+        <label *ngIf="contactForm.get('cfOption').value == 'bedrijf'">bedrijfsnaam</label>
+        <label *ngIf="contactForm.get('cfOption').value == 'freelancer'">omschrijving</label>
         <input
+          *ngIf="contactForm.get('cfOption').value"
           type="text"
           id="cfDescription"
           formControlName="cfDescription"
