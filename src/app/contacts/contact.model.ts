@@ -12,17 +12,21 @@ export class Contact {
     public contactID: number;
     public companyFreelancer: ['bedrijf', 'freelancer']
     public cfDescription: string
+  //
+  // constructor(firstName: string, infix: string, surname: string, addresses: AddressModel[], emails: EmailModel[],
+  //             phoneNumbers: PhoneNumberModel[], contactID: number, companyFreelancer: ['bedrijf', 'freelancer'], cfDescription: string) {
+  //   this.firstName = firstName
+  //   this.infix = infix
+  //   this.surname = surname
+  //   this.addresses = addresses;
+  //   this.emails = emails;
+  //   this.phoneNumbers = phoneNumbers;
+  //   this.contactID = contactID;
+  //   this.companyFreelancer = companyFreelancer;
+  //   this.cfDescription = cfDescription;
+  // }
 
-  constructor(firstName: string, infix: string, surname: string, addresses: AddressModel[], emails: EmailModel[],
-              phoneNumbers: PhoneNumberModel[], contactID: number, companyFreelancer: ['bedrijf', 'freelancer'], cfDescription: string) {
-    this.firstName = firstName
-    this.infix = infix
-    this.surname = surname
-    this.addresses = addresses;
-    this.emails = emails;
-    this.phoneNumbers = phoneNumbers;
-    this.contactID = contactID;
-    this.companyFreelancer = companyFreelancer;
-    this.cfDescription = cfDescription;
+  public constructor(init?: Partial<Contact >) {
+    Object.assign(this, init);
   }
 }

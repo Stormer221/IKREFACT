@@ -11,9 +11,8 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
   providers: [ContactService]
 })
 export class ContactEditComponent implements OnInit {
-  newContact = true;
   id: number;
-  contact: Contact;
+  newContact: Contact;
   contactForm: FormGroup;
   companyFreelancerOptions = ['bedrijf', 'freelancer'];
 
@@ -87,17 +86,19 @@ export class ContactEditComponent implements OnInit {
   }
 
   onSubmit() {
-    // this.contact.firstName = this.contactForm.get('firstName').value;
-    // this.contact.infix = this.contactForm.get('infix').value;
-    // this.contact.surname = this.contactForm.get('lastname').value;
-    // this.contact.addresses = this.contactForm.get('addresses').value;
-    // this.contact.emails = this.contactForm.get('emails').value;
-    // this.contact.phoneNumbers = this.contactForm.get('phoneNumbers').value;
-    // this.contact.companyFreelancer = this.contactForm.get('cfOption').value;
-    // this.contact.cfDescription = this.contactForm.get('cfDescription').value;
+    this.newContact = new Contact(this.contactForm.value);
+    // this.newContact.firstName = this.contactForm.get('firstName').value;
+    // this.newContact.infix = this.contactForm.get('infix').value;
+    // this.newContact.surname = this.contactForm.get('lastname').value;
+    // this.newContact.addresses = this.contactForm.get('addresses').value;
+    // this.newContact.emails = this.contactForm.get('emails').value;
+    // this.newContact.phoneNumbers = this.contactForm.get('phoneNumbers').value;
+    // this.newContact.companyFreelancer = this.contactForm.get('cfOption').value;
+    // this.newContact.cfDescription = this.contactForm.get('cfDescription').value;
     console.log(this.contactForm);
-    this.contactService.addContactTest(this.contactForm);
-    // this.contactService.addContact(this.contact).subscribe();
+    // console.log('submit dit form')
+    // console.log('submit dit newContact')
+    this.contactService.addContact(this.newContact);
     // this.contactForm.reset();
   }
 }
