@@ -40,6 +40,7 @@ export class ExpenseService {
     // Dit werkt en is de enige manier (zover ik weet) om de responsetype aan te geven.
     // Toch geeft IntelliJ de error "Type '"text"' is not assignable to type '"json"'.".
     return this.http.post<Expense>(this.expenseUrl, expense, {responseType: 'text'});
+    console.log('en op naar de database');
       // .pipe(
       //   catchError(this.handleError('addHero', expense))
       // );

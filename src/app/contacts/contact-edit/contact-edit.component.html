@@ -1,6 +1,6 @@
 <app-card>
   <h1>Contact</h1>
-  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
     <ul>
       <div formGroupName="contactData">
         <li>
@@ -134,7 +134,7 @@
           formControlName="cfDescription"
           class="pull right"></li>
       <li class="button-list">
-        <button type="submit" (click)="onSubmit()">Opslaan</button>
+        <button type="submit">Opslaan</button>
         <button (click)="toContacts()">Cancel</button></li>
     </ul>
   </form>

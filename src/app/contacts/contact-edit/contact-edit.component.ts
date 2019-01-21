@@ -87,18 +87,11 @@ export class ContactEditComponent implements OnInit {
 
   onSubmit() {
     this.newContact = new Contact(this.contactForm.value);
-    // this.newContact.firstName = this.contactForm.get('firstName').value;
-    // this.newContact.infix = this.contactForm.get('infix').value;
-    // this.newContact.surname = this.contactForm.get('lastname').value;
-    // this.newContact.addresses = this.contactForm.get('addresses').value;
-    // this.newContact.emails = this.contactForm.get('emails').value;
-    // this.newContact.phoneNumbers = this.contactForm.get('phoneNumbers').value;
-    // this.newContact.companyFreelancer = this.contactForm.get('cfOption').value;
-    // this.newContact.cfDescription = this.contactForm.get('cfDescription').value;
+    console.log('nieuw Contact: ');
+    console.log(this.newContact);
+    console.log('contact Form: ');
     console.log(this.contactForm);
-    // console.log('submit dit form')
-    // console.log('submit dit newContact')
-    this.contactService.addContact(this.newContact);
+    this.contactService.addContact(this.newContact).subscribe();
     // this.contactForm.reset();
   }
 }
