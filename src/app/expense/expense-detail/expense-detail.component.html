@@ -10,7 +10,7 @@
   <hr>
   <p>{{expense?.description}}</p>
   <div class="button-list">
-    <button (click)="deleteExpense()">Verwijder</button>
-    <button routerLink="/onkosten/{{expense?.expenseID}}/wijzigen">Wijzig</button>
+    <button class="btn danger" (click)="deleteExpense()">Verwijder</button>
+    <button class="btn" routerLink="/onkosten/{{expense?.expenseID}}/wijzigen">Wijzig</button>
   </div>
 </app-card>

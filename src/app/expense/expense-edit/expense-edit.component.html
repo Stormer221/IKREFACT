@@ -31,8 +31,8 @@
         <input type="text" id="amount" required [(ngModel)]="model.amount" name="amount">
       </li>
       <li class="button-list">
-        <button [disabled]="!expenseForm.valid">Opslaan</button>
-        <button routerLink="/onkosten">Cancel</button>
+        <button class="btn success" [disabled]="!expenseForm.valid">Opslaan</button>
+        <button class="btn warning" routerLink="/onkosten">Cancel</button>
       </li>
     </ul>
   </form>
