@@ -59,7 +59,6 @@ export class ContactEditComponent implements OnInit {
 
   removeEmail() {
     (<FormArray>this.contactForm.controls['emails']).removeAt(-1);
-
   }
 
   addAddress() {
