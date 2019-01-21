@@ -8,17 +8,17 @@ export class Contact {
     public surname: string;
     public addresses: AddressModel[];
     public emails: EmailModel[];
-    public phoneNumbers: PhoneNumberModel[];
+    public phonenumbers: PhoneNumberModel[];
     public contactID: number;
 
   constructor(firstName: string, infix: string, surname: string, addresses: AddressModel[], emails: EmailModel[],
               phoneNumbers: PhoneNumberModel[], contactID: number) {
-    this.firstName = firstName
-    this.infix = infix
-    this.surname = surname
+    this.firstName = firstName;
+    this.infix = infix;
+    this.surname = surname;
     this.addresses = addresses;
     this.emails = emails;
-    this.phoneNumbers = phoneNumbers;
+    this.phonenumbers = phoneNumbers;
     this.contactID = contactID;
 
   }

@@ -43,7 +43,6 @@ export class ContactDetailComponent implements OnInit {
           this.contact = contact;
           console.log(contact);
 
-          contact.emails = JSON.stringify(contact.emails);
 
         });
     // this.contact = this.contactService.getContact(this.contactID);
