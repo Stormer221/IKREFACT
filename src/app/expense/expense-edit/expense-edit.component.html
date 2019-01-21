@@ -32,7 +32,7 @@
       </li>
       <li class="button-list">
         <button class="btn success" [disabled]="!expenseForm.valid">Opslaan</button>
-        <button class="btn warning" routerLink="/onkosten">Annuleer</button>
+        <button class="btn warning" (click)="onCancel()">Annuleer</button>
       </li>
     </ul>
   </form>
