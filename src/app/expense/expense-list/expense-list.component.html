@@ -1,5 +1,16 @@
 <app-card>
-  <div *ngFor="let expense of expenses">
-    <a routerLink="{{expense.expenseID}}"><strong>{{expense.title}}</strong> {{expense.description}}</a>
-  </div>
+  <table>
+    <thead>
+    <tr>
+      <th>Soort</th>
+      <th>Titel</th>
+      <th>Beschrijving</th>
+      <th>Datum</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let expense of expenses" [expense]="expense" app-expense-list-item routerLink="{{expense.expenseID}}">
+    </tr>
+    </tbody>
+  </table>
 </app-card>

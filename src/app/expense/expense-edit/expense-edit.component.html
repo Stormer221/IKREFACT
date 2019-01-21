@@ -19,7 +19,7 @@
       </li>
       <li>
         <label for="date">Datum:</label>
-        <input type="date" [ngModel]="model.date | date:'yyyy-MM-dd'" (ngModelChange)="model.date = $event"
+        <input type="date" required [ngModel]="model.date | date:'yyyy-MM-dd'" (ngModelChange)="model.date = $event"
                [value]="model.date | date:'yyyy-MM-dd'" name="date" id="date">
       </li>
       <li>
@@ -32,7 +32,7 @@
       </li>
       <li class="button-list">
         <button class="btn success" [disabled]="!expenseForm.valid">Opslaan</button>
-        <button class="btn warning" routerLink="/onkosten">Cancel</button>
+        <button class="btn warning" routerLink="/onkosten">Annuleer</button>
       </li>
     </ul>
   </form>

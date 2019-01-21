@@ -8,11 +8,13 @@ import {SharedModule} from '../shared/shared.module';
 import {ExpenseService} from './expense.service';
 import {AppRoutingModule} from "../app-routing.module";
 import {FormsModule} from "@angular/forms";
+import {ExpenseListItemComponent} from "./expense-list/expense-list-item/expense-list-item.component";
 
 @NgModule({
   declarations: [
     ExpenseComponent,
     ExpenseListComponent,
+    ExpenseListItemComponent,
     ExpenseEditComponent,
     ExpenseDetailComponent
   ],

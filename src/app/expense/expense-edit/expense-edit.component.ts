@@ -33,9 +33,7 @@ export class ExpenseEditComponent implements OnInit {
         this.id = +params['id'];
         if (this.id) {
           this.expenseService.getExpenseById(this.id)
-            .subscribe(result => {
-              this.model = result;
-            });
+            .subscribe(result => this.model = result);
         }
       }
     );
