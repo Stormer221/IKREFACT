@@ -6,7 +6,7 @@ import {Observable, pipe} from 'rxjs';
 import {map, subscribeOn} from 'rxjs/operators';
 
 @Injectable()
-export class ContactService implements HttpReqInterface {
+export class ContactService {
   private contacts: Contact[] = [];
   private contact: Contact;
 
@@ -29,7 +29,8 @@ export class ContactService implements HttpReqInterface {
     return contact;
   }
 
-  deleteReq() {
+  deleteContact(contactID: number): Observable<{}> {
+    return this.http.delete<Contact>('walbert/contacts/' + contactID);
   }
 
   getReq(): Observable<Contact[]> {
@@ -42,8 +43,10 @@ export class ContactService implements HttpReqInterface {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
   }
 
-  postReq() {
+  addContact(contact: Contact): Observable<Contact> {
+    return this.http.post<Contact>(this.contactsurl, contact);
   }
+
 
   putReq() {
   }
