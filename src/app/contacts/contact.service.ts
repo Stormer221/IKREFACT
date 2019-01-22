@@ -17,11 +17,6 @@ export class ContactService {
   constructor(private http: HttpClient) {
   }
 
-  getContacts() {
-    // this.getReq();
-    // return this.contacts;
-  }
-
   getContact(id: number) {
     const contact = this.contacts.find(
       (c) => {

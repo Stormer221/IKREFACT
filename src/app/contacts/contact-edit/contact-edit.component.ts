@@ -1,8 +1,10 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {Contact} from '../contact.model';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {EmailModel} from '../email.model';
+import {Observable, of} from 'rxjs';
 
 @Component({
   selector: 'app-contact-edit',
@@ -10,8 +12,10 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
   styleUrls: ['./contact-edit.component.css'],
   providers: [ContactService]
 })
-export class ContactEditComponent implements OnInit {
+export class ContactEditComponent implements OnInit, AfterContentInit {
   id: number;
+  index: number;
+  oldContact: Contact;
   newContact: Contact;
   contactForm: FormGroup;
   companyFreelancerOptions = ['bedrijf', 'freelancer'];
@@ -20,6 +24,13 @@ export class ContactEditComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.route.params
+      .subscribe(
+        (params: Params) => {
+          this.getContact(params);
+        }
+      );
+
     this.contactForm = new FormGroup({
       'firstName': new FormControl(),
       'infix': new FormControl(),
@@ -34,6 +45,17 @@ export class ContactEditComponent implements OnInit {
     this.addAddress();
     this.addPhoneNumber();
 
+    if (this.oldContact) {
+      this.contactForm.controls['firstName'].setValue(this.oldContact.firstName);
+      this.contactForm.controls['infix'].setValue(this.oldContact.infix);
+      this.contactForm.controls['surname'].setValue(this.oldContact.surname);
+    }
+
+  }
+
+  ngAfterContentInit() {
+    console.log('afterInit')
+    console.log(this.oldContact);
   }
 
   toContacts() {
@@ -47,7 +69,7 @@ export class ContactEditComponent implements OnInit {
         'emailDescription': new FormControl()
       })
     );
-    console.log(this.contactForm);
+    console.log(this.oldContact);
   }
 
   removeEmail() {
@@ -74,7 +96,7 @@ export class ContactEditComponent implements OnInit {
   addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'phoneNumber': new FormControl(, Validators.required),
+        'phoneNumber': new FormControl(),
         'phoneNumberDescription': new FormControl()
       })
     );
@@ -91,5 +113,30 @@ export class ContactEditComponent implements OnInit {
       this.contactForm.reset();
       this.toContacts();
     }
+  }
+
+  getContact(params: Params) {
+    this.contactService.getSingleContact(params['contactID'])
+      .subscribe(
+        (contact: Contact) => {
+          this.oldContact = contact;
+          this.fillForm(this.oldContact);
+        });
+  }
+
+  private fillForm(contact: Contact) {
+    this.contactForm.controls['firstName'].setValue(contact.firstName);
+    this.contactForm.controls['infix'].setValue(contact.infix);
+    this.contactForm.controls['surname'].setValue(contact.surname);
+
+    for ( this.index = -1; this.index < contact.emails.length ; this.index++ ) {
+      (<FormArray>this.contactForm.controls['emails']).push(
+        new FormGroup({
+          'phoneNumber': new FormControl(),
+          'phoneNumberDescription': new FormControl()
+        })
+      );
+    }
+    // let email of contact.emails {}
   }
 }

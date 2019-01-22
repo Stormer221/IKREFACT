@@ -28,8 +28,6 @@ export class ContactDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.contact = this.route.snapshot.data.params;
-          console.log(params);
           this.getContact(params);
         }
       );
@@ -42,11 +40,8 @@ export class ContactDetailComponent implements OnInit {
         (contact: Contact) => {
           this.contact = contact;
           console.log(contact);
-
-
         });
     // this.newContact = this.contactService.getContact(this.contactID);
-
   }
 
   deleteContact() {

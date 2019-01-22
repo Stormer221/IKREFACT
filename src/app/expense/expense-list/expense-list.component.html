@@ -10,11 +10,11 @@
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let expense of expenses | paginate: { itemsPerPage: 10, currentPage: page }" [expense]="expense"
-        app-expense-list-item routerLink="{{expense.expenseID}}">
-    </tr>
-    </tbody>
+    <body>
+      <tr *ngFor="let expense of expenses | paginate: { itemsPerPage: 10, currentPage: page }" [expense]="expense"
+          app-expense-list-item routerLink="{{expense.expenseID}}">
+      </tr>
+    </body>
   </table>
   <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
 </app-card>
