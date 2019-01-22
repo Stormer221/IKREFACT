@@ -22,7 +22,7 @@ export class ContactDetailComponent implements OnInit {
     // this.route.params.subscribe(
     //   (params: Params) => {
     //     this.contactID = +params['contactID'];
-    //     this.contact = this.contactService.getContact(this.contactID);
+    //     this.newContact = this.contactService.getContact(this.contactID);
     //   }
     // );
     this.route.params
@@ -45,7 +45,7 @@ export class ContactDetailComponent implements OnInit {
 
 
         });
-    // this.contact = this.contactService.getContact(this.contactID);
+    // this.newContact = this.contactService.getContact(this.contactID);
 
   }
 
@@ -62,6 +62,15 @@ export class ContactDetailComponent implements OnInit {
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
+
+  }
+
+  toFactuur() {
+    this.router.navigate(['/factuur']);
+  }
+
+  toQuotation() {
+    this.router.navigate(['/offerte']);
   }
 
 

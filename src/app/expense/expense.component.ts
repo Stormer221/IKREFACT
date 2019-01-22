@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from './expense.service';
-import {Expense} from './expense';
+import {ExpenseModel} from './expense.model';
 
 @Component({
   selector: 'app-expense',
@@ -9,7 +9,7 @@ import {Expense} from './expense';
   styleUrls: ['./expense.component.css']
 })
 export class ExpenseComponent implements OnInit {
-  expenses: Expense[];
+  expenses: ExpenseModel[];
 
   constructor(private router: Router, private expenseService: ExpenseService, private route: ActivatedRoute) {
   }

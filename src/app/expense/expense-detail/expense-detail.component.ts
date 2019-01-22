@@ -1,7 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ExpenseService} from '../expense.service';
-import {Expense} from '../expense';
+import {ExpenseModel} from '../expense.model';
+
+/**
+ * The ExpenseDetailComponent.
+ *
+ * This shows the details of the ExpenseModel and gives options to edit or delete it.
+ *
+ * @author Sergi Philipsen.
+ */
 
 @Component({
   selector: 'app-expenseitem',
@@ -10,7 +18,7 @@ import {Expense} from '../expense';
 })
 export class ExpenseDetailComponent implements OnInit {
   private id: number;
-  private expense: Expense;
+  public expense: ExpenseModel;
 
   constructor(private expenseService: ExpenseService, private router: Router, private route: ActivatedRoute) {
   }
@@ -25,4 +33,10 @@ export class ExpenseDetailComponent implements OnInit {
     );
   }
 
+  deleteExpense() {
+    if (confirm('Weet je zeker dat je "' + this.expense.title + '" wilt verwijderen?')) {
+      this.expenseService.deleteExpense(this.expense.expenseID).subscribe();
+      this.router.navigate(['/onkosten']);
+    }
+  }
 }

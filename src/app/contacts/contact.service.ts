@@ -1,16 +1,13 @@
 import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
-import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
-import {map, subscribeOn} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService {
+  contactsUrl = 'walbert/contacts';
   private contacts: Contact[] = [];
   private contact: Contact;
-
-  contactsurl = 'walbert/contacts';
 
   constructor(private http: HttpClient) {
   }
@@ -34,20 +31,22 @@ export class ContactService {
   }
 
   getReq(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactsurl)
-      ;
-
+    return this.http.get<Contact[]>(this.contactsUrl);
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
   }
 
-  addContact(contact: Contact): Observable<Contact> {
-    return this.http.post<Contact>(this.contactsurl, contact);
+  putReq() {
   }
 
+  addContact(contact: Contact): Observable<Contact> {
+    // @ts-ignore
+    return this.http.post(this.contactsUrl, contact, {responseType: 'json'});
+    // .pipe(
+    //   catchError(this.handleError('addHero', expense))
+    // );
 
-  putReq() {
   }
 }

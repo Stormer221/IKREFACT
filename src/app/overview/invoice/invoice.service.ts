@@ -1,35 +1,35 @@
-import {Invoice} from './invoice.model';
+
 import {Injectable} from '@angular/core';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+import {InvoiceModel} from './invoice.model';
 
 @Injectable()
 export class InvoiceService {
-  private invoices: Invoice[] = [
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '1!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '2!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '3!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '4!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '5!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '6!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '7!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '8!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '9!', true, '1998-4-4'),
-    new Invoice('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '10!', true, '1998-4-4')
-  ];
+  invoiceURL = '/walbert/invoices';
 
-
-  getInvoices() {
-    return this.invoices;
+  constructor(private http: HttpClient) {
   }
 
+  getInvoices(): Observable<InvoiceModel[]> {
+    return this.http.get<InvoiceModel[]>(this.invoiceURL);
+  }
+
+  getPDF(invoiceID: number): void {
+    const downloadString = this.invoiceURL + '/pdf/' + invoiceID;
+
+    this.http.get(downloadString, { responseType: 'blob'}).subscribe((response) => {
+      const blob = new Blob([response], {type: 'application/pdf'});
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'factuur' + invoiceID + '.pdf';
+      link.click();
+    });
+  }
+
+  addInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
+    // @ts-ignore
+    return this.http.post<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
+  }
 }
 

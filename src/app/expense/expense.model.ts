@@ -1,17 +1,23 @@
-export class Expense {
-  private title: string;
-  private description: string;
-  private costItem: string;
-  private amount: number;
-  private date: string;
-  private company: string;
-  private expenseID: number;
+/**
+ * The ExpenseModel model.
+ *
+ * @author Sergi Philipsen.
+ */
+
+export class ExpenseModel {
+  title: string;
+  description: string;
+  costItem: string;
+  amount: number;
+  date: Date;
+  company: string;
+  expenseID: number;
 
   constructor(title: string = '',
               description: string = '',
               costItem: string = '',
               amount: number = null,
-              date: string = '',
+              date: Date = null,
               company: string = '',
               expenseID: number = null
   ) {

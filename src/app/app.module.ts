@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {ErrorComponent} from './error/error.component';
@@ -17,13 +16,8 @@ import {ContactListItemComponent} from './contacts/contact-list/contact-list-ite
 import {ContactListComponent} from './contacts/contact-list/contact-list.component';
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {ContactsComponent} from './contacts/contacts.component';
-import {ExpenseComponent} from './expense/expense.component';
-import {ExpenseListComponent} from './expense/expense-list/expense-list.component';
-import {ExpenseEditComponent} from './expense/expense-edit/expense-edit.component';
-import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterPipe } from './contacts/contact-list/filter.pipe';
-
 
 @NgModule({
   declarations: [
@@ -38,22 +32,18 @@ import { FilterPipe } from './contacts/contact-list/filter.pipe';
     ContactListItemComponent,
     ContactDetailComponent,
     ContactEditComponent,
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseEditComponent,
-    ExpenseDetailComponent,
     ContactDetailComponent,
     FilterPipe
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    ExpenseModule,
-    OverviewModule,
     SharedModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ExpenseModule,
+    OverviewModule
   ],
   providers: [
     {

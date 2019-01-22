@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact.model';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
@@ -11,22 +11,19 @@ import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angul
   providers: [ContactService]
 })
 export class ContactEditComponent implements OnInit {
-  newContact = true;
   id: number;
-  contact: Contact;
+  newContact: Contact;
   contactForm: FormGroup;
-  companyFreelancerOptions = ['company', 'freelancer'];
+  companyFreelancerOptions = ['bedrijf', 'freelancer'];
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
     this.contactForm = new FormGroup({
-      'contactData': new FormGroup({
-        'name': new FormControl(null, [Validators.required]),
-        'infix': new FormControl(null),
-        'lastname': new FormControl(null, [Validators.required])
-      }),
+      'firstName': new FormControl('Tom'),
+      'infix': new FormControl('de'),
+      'surname': new FormControl('Jong'),
       'emails': new FormArray([]),
       'addresses': new FormArray([]),
       'phoneNumbers': new FormArray([]),
@@ -36,22 +33,18 @@ export class ContactEditComponent implements OnInit {
     this.addEmail();
     this.addAddress();
     this.addPhoneNumber();
+
   }
 
   toContacts() {
     this.router.navigate(['/contacten']);
   }
 
-  onSubmit() {
-    console.log(this.contactForm);
-    this.contactForm.reset();
-  }
-
   addEmail() {
     (<FormArray>this.contactForm.controls['emails']).push(
       new FormGroup({
-        'email': new FormControl(null, Validators.required),
-        'emailDescription': new FormControl(null)
+        'email': new FormControl('dejongtom01@gmail.com'),
+        'emailDescription': new FormControl('privemail')
       })
     );
     console.log(this.contactForm);
@@ -64,11 +57,12 @@ export class ContactEditComponent implements OnInit {
   addAddress() {
     (<FormArray>this.contactForm.controls['addresses']).push(
       new FormGroup({
-        'place': new FormControl(null, Validators.required),
-        'street': new FormControl(null),
-        'houseNumber': new FormControl(null),
-        'zipCode': new FormControl(null),
-        'country': new FormControl(null)
+        'residence': new FormControl('Leiden'),
+        'street': new FormControl('Boerhaavelaan'),
+        'houseNumber': new FormControl('28'),
+        'zipCode': new FormControl('2334 EP'),
+        'country': new FormControl('NL'),
+        'addressDescription': new FormControl('thuis')
       })
     );
   }
@@ -80,8 +74,8 @@ export class ContactEditComponent implements OnInit {
   addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'phoneNumber': new FormControl(null, Validators.required),
-        'phoneNumberDescription': new FormControl(null)
+        'phoneNumber': new FormControl('634870687', Validators.required),
+        'phoneNumberDescription': new FormControl('mobiel nummer')
       })
     );
   }
@@ -90,5 +84,21 @@ export class ContactEditComponent implements OnInit {
     (<FormArray>this.contactForm.controls['phoneNumbers']).removeAt(-1);
   }
 
-
+  onSubmit() {
+    this.newContact = new Contact(this.contactForm.value);
+    // if (this.contactForm.get('cfOption').value === 'freelancer') {
+    //   this.newContact.freelancer = new FreelancerModel(this.contactForm.get('cfDescription').value);
+    // }
+    // if (this.contactForm.get('cfOption').value === 'bedrijf') {
+    //   this.newContact.company = new CompanyModel(this.contactForm.get('cfDescription').value);
+    // }
+    // this.contactForm.setControl('cfOption', null);
+    // this.contactForm.setControl('cfDescription', null);
+    console.log('nieuw Contact: ');
+    console.log(this.newContact);
+    // console.log('contact Form: ');
+    // console.log(this.contactForm);
+    this.contactService.addContact(this.newContact).subscribe();
+    // this.contactForm.reset();
+  }
 }
