@@ -7,31 +7,32 @@
     <ul>
       <li>
         <label for="costItem">Kostenpost:</label>
-        <input type="text" id="costItem" required [(ngModel)]="model.costItem" name="costItem" #costItem="ngModel">
+        <input type="text" id="costItem" required [(ngModel)]="model.costItem" name="costItem">
       </li>
       <li>
         <label for="title">Titel:</label>
-        <input type="text" id="title" required  [(ngModel)]="model.title" name="title" #title="ngModel">
+        <input type="text" id="title" required [(ngModel)]="model.title" name="title">
       </li>
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" required  [(ngModel)]="model.description" name="description" #description="ngModel">
+        <input type="text" id="description" required [(ngModel)]="model.description" name="description">
       </li>
       <li>
         <label for="date">Datum:</label>
-        <input type="date" id="date" required  [(ngModel)]="model.date" name="date" #date="ngModel">
+        <input type="date" required [ngModel]="model.date | date:'yyyy-MM-dd'" (ngModelChange)="model.date = $event"
+               [value]="model.date | date:'yyyy-MM-dd'" name="date" id="date">
       </li>
       <li>
         <label for="company">Bedrijf:</label>
-        <input type="text" id="company" required  [(ngModel)]="model.company" name="company" #company="ngModel">
+        <input type="text" id="company" required [(ngModel)]="model.company" name="company">
       </li>
       <li>
         <label for="amount"> Prijs:</label>
-        <input type="text" id="amount" required  [(ngModel)]="model.amount" name="amount" #amount="ngModel">
+        <input type="text" id="amount" required [(ngModel)]="model.amount" name="amount">
       </li>
       <li class="button-list">
-        <button [disabled]="!expenseForm.valid">Opslaan</button>
-        <button routerLink="/onkosten">Cancel</button>
+        <button class="btn success" [disabled]="!expenseForm.valid">Opslaan</button>
+        <button class="btn warning" routerLink="/onkosten">Annuleer</button>
       </li>
     </ul>
   </form>

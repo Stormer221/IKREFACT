@@ -1,13 +1,16 @@
-<div *ngIf="expense">
-  <app-card>
-    <div class="titlebar">
-      <h1>{{expense.title}}</h1>
-      <button routerLink="/onkosten">Terug</button>
-    </div>
-  </app-card>
-  <app-card>
-    <p>{{expense.costItem|titlecase}} van &euro; {{expense.amount}} op {{expense.date}} bij {{expense.company}}</p>
-    <hr>
-    <p>{{expense.description}}</p>
-  </app-card>
-</div>
+<app-card>
+  <div class="titlebar">
+    <h1>{{expense?.title}}</h1>
+    <button routerLink="/onkosten">Terug</button>
+  </div>
+</app-card>
+<app-card>
+  <p>{{expense?.costItem|titlecase}} van &euro; {{expense?.amount}} op {{expense?.date | date: 'd MMMM yyyy'}}
+    bij {{expense?.company}}</p>
+  <hr>
+  <p>{{expense?.description}}</p>
+  <div class="button-list">
+    <button class="btn danger" (click)="deleteExpense()">Verwijder</button>
+    <button class="btn" routerLink="/onkosten/{{expense?.expenseID}}/wijzigen">Wijzig</button>
+  </div>
+</app-card>

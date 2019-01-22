@@ -28,6 +28,7 @@ const appRoutes: Routes = [
   {path: 'onkosten', component: ExpenseComponent},
   {path: 'onkosten/nieuw', component: ExpenseEditComponent},
   {path: 'onkosten/:id', component: ExpenseDetailComponent},
+  {path: 'onkosten/:id/wijzigen', component: ExpenseEditComponent},
   {path: 'overzichten', component: OverviewComponent},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},

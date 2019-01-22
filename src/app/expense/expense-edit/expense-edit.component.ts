@@ -1,7 +1,15 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {Expense} from '../expense';
 import {ExpenseService} from '../expense.service';
+
+/***
+ * The ExpenseEditComponent.
+ *
+ * This Component will edit and save new or existing Expenses.
+ *
+ * @author Sergi Philipsen.
+ */
 
 @Component({
   selector: 'app-expense-form',
@@ -10,14 +18,33 @@ import {ExpenseService} from '../expense.service';
 })
 export class ExpenseEditComponent implements OnInit {
   private model: Expense = new Expense();
+  private id: number = null;
 
-  constructor(private router: Router, private expenseService: ExpenseService) {
+  constructor(
+    private router: Router,
+    private expenseService: ExpenseService,
+    private route: ActivatedRoute
+  ) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['id'];
+        if (this.id) {
+          this.expenseService.getExpenseById(this.id)
+            .subscribe(result => this.model = result);
+        }
+      }
+    );
   }
 
   submitExpense() {
-    this.expenseService.addExpense(this.model).subscribe();
+    if (this.id) {
+      this.expenseService.putExpense(this.model).subscribe();
+    } else {
+      this.expenseService.addExpense(this.model).subscribe();
+    }
+    this.router.navigate(['/onkosten']);
   }
 }
