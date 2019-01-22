@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ExpenseService} from '../expense.service';
-import {Expense} from '../expense';
+import {ExpenseModel} from '../expense.model';
 
 /**
  * The ExpenseDetailComponent.
  *
- * This shows the details of the Expense and gives options to edit or delete it.
+ * This shows the details of the ExpenseModel and gives options to edit or delete it.
  *
  * @author Sergi Philipsen.
  */
@@ -18,7 +18,7 @@ import {Expense} from '../expense';
 })
 export class ExpenseDetailComponent implements OnInit {
   private id: number;
-  public expense: Expense;
+  public expense: ExpenseModel;
 
   constructor(private expenseService: ExpenseService, private router: Router, private route: ActivatedRoute) {
   }

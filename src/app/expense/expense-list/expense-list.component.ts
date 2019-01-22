@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Expense} from '../expense';
+import {ExpenseModel} from '../expense.model';
 import {ExpenseService} from '../expense.service';
 
 @Component({
@@ -8,7 +8,7 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  private expenses: Expense[];
+  private expenses: ExpenseModel[];
   private page: number = 1;
   private sort: string;
   private desc: boolean;
