@@ -3,6 +3,7 @@ input {
   padding: 3px;
 }
 
+
 li {
   margin: 1.25em 3em 0 0;
   list-style: none;
@@ -18,13 +19,6 @@ button {
   padding: 0.5em 4em;
 }
 
-div {
-  display: inline-block;
-  padding: 0 0 0 12em;
-}
-
-div input {
-  width: 1em;
-  height: 1em;
-  display: block;
+.radio-buttons {
+  width: 5%
 }

@@ -9,17 +9,25 @@ import {ExpenseService} from '../expense.service';
 })
 export class ExpenseListComponent implements OnInit {
   private expenses: Expense[];
+  private page: number = 1;
+  private sort: string;
+  private desc: boolean;
 
   constructor(private expenseService: ExpenseService) {
   }
 
+  sortBy(field: string) {
+    if (field == this.sort && !this.desc) {
+      this.desc = true;
+      this.expenses = this.expenses.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
+    } else {
+      this.sort = field;
+      this.desc = false;
+      this.expenses = this.expenses.sort((a, b) => (a[field] < b[field]) ? 1 : ((b[field] < a[field]) ? -1 : 0));
+    }
+  }
+
   ngOnInit() {
-    this.expenseService.getExpense()
-      .subscribe(result => {
-        // @ts-ignore
-        this.expenses = result.sort(function (a, b) {
-          return -1 ? (a.date < b.date) : 1 ? (a.date > b.date) : 0
-        });
-      });
+    this.expenseService.getExpense().subscribe(result => this.expenses = result);
   }
 }

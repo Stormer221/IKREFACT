@@ -9,6 +9,7 @@ import {ExpenseService} from './expense.service';
 import {AppRoutingModule} from "../app-routing.module";
 import {FormsModule} from "@angular/forms";
 import {ExpenseListItemComponent} from "./expense-list/expense-list-item/expense-list-item.component";
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {ExpenseListItemComponent} from "./expense-list/expense-list-item/expense
     CommonModule,
     AppRoutingModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   providers: [
     ExpenseService
