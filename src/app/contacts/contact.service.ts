@@ -49,11 +49,7 @@ export class ContactService {
   }
 
   addContact(contact: Contact): Observable<Contact> {
-    // copy van expense
     // @ts-ignore
-    // Dit werkt en is de enige manier (zover ik weet) om de responsetype aan te geven.
-    // Toch geeft IntelliJ de error "Type '"text"' is not assignable to type '"json"'.".
-    // console.log(this.contact.emails);
     return this.http.post(this.contactsUrl, contact, {responseType: 'json'});
     // .pipe(
     //   catchError(this.handleError('addHero', expense))

@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact.model';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {FreelancerModel} from '../freelancer.model';
-import {CompanyModel} from '../company.model';
 
 @Component({
   selector: 'app-contact-edit',
