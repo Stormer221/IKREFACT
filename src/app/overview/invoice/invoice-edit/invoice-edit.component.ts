@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Contact} from '../../../contacts/contact.model';
-import {Router} from '@angular/router';
 import {InvoiceService} from '../invoice.service';
 import {InvoiceModel} from '../invoice.model';
 
