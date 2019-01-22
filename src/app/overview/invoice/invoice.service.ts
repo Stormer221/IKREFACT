@@ -1,7 +1,8 @@
-import {Invoice} from './invoice.model';
+
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
+import {Invoice} from '../invoice';
 
 @Injectable()
 export class InvoiceService {
@@ -24,6 +25,11 @@ export class InvoiceService {
       link.download = 'factuur' + invoiceID + '.pdf';
       link.click();
     });
+  }
+
+  addInvoice(invoice: Invoice): Observable<Invoice> {
+    // @ts-ignore
+    return this.http.post<Invoice>(this.invoiceURL, invoice, {responseType: 'text'});
   }
 }
 
