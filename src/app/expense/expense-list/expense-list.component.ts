@@ -18,7 +18,7 @@ export class ExpenseListComponent implements OnInit {
       .subscribe(result => {
         // @ts-ignore
         this.expenses = result.sort(function (a, b) {
-          return -1 ? (a.date < b.date) : 1 ? (a.date > b.date) : 0
+          return -1 ? (a.date < b.date) : 1 ? (a.date > b.date) : 0;
         });
       });
   }

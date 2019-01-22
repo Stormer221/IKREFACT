@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Invoice} from '../invoice.model';
 import {InvoiceService} from '../invoice.service';
 
@@ -9,13 +9,18 @@ import {InvoiceService} from '../invoice.service';
 })
 export class InvoiceListComponent implements OnInit {
 
-  private invoices: Invoice[] = [];
+  private invoices: Invoice[];
 
-  constructor(private invoiceService: InvoiceService) {
-  }
+  constructor(private invoiceService: InvoiceService) {}
 
   ngOnInit() {
-    this.invoices = this.invoiceService.getInvoices();
+    this.invoiceService.getInvoices()
+      .subscribe(result => console.log(result));
+    this.invoiceService.getInvoices()
+      .subscribe((invoices: Invoice[]) => this.invoices = invoices);
   }
 
+  downloadPDF(invoiceID: number) {
+    this.invoiceService.getPDF(invoiceID);
+  }
 }

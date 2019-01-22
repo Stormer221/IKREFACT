@@ -2,8 +2,7 @@ import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
 import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
-import {map, subscribeOn} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService implements HttpReqInterface {
@@ -33,9 +32,7 @@ export class ContactService implements HttpReqInterface {
   }
 
   getReq(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactsurl)
-      ;
-
+    return this.http.get<Contact[]>(this.contactsurl);
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
