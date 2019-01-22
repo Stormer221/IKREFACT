@@ -14,7 +14,7 @@ export class ContactEditComponent implements OnInit {
   id: number;
   newContact: Contact;
   contactForm: FormGroup;
-  companyFreelancerOptions = ['bedrijf', 'freelancer'];
+  companyFreelancerOptions = ['Bedrijf', 'Freelancer'];
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
