@@ -8,7 +8,7 @@ import {FormGroup} from '@angular/forms';
 import {Expense} from '../expense/expense';
 
 @Injectable()
-export class ContactService implements HttpReqInterface {
+export class ContactService {
   private contacts: Contact[] = [];
   private contact: Contact;
 
@@ -31,7 +31,8 @@ export class ContactService implements HttpReqInterface {
     return contact;
   }
 
-  deleteReq() {
+  deleteContact(contactID: number): Observable<{}> {
+    return this.http.delete<Contact>('walbert/contacts/' + contactID);
   }
 
   getReq(): Observable<Contact[]> {
@@ -44,9 +45,6 @@ export class ContactService implements HttpReqInterface {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
   }
 
-  postReq() {
-  }
-
   putReq() {
   }
 
@@ -55,7 +53,8 @@ export class ContactService implements HttpReqInterface {
     // @ts-ignore
     // Dit werkt en is de enige manier (zover ik weet) om de responsetype aan te geven.
     // Toch geeft IntelliJ de error "Type '"text"' is not assignable to type '"json"'.".
-    return this.http.post<Contact>(this.contactsUrl, contact, {responseType: 'json'});
+    // console.log(this.contact.emails);
+    return this.http.post(this.contactsUrl, contact, {responseType: 'json'});
     // .pipe(
     //   catchError(this.handleError('addHero', expense))
     // );

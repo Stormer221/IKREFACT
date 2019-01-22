@@ -1,6 +1,8 @@
 import {AddressModel} from './address.model';
 import {EmailModel} from './email.model';
 import {PhoneNumberModel} from './phoneNumber.model';
+import {CompanyModel} from './company.model';
+import {FreelancerModel} from './freelancer.model';
 
 export class Contact {
     public firstName: string;
@@ -8,10 +10,10 @@ export class Contact {
     public surname: string;
     public addresses: AddressModel[];
     public emails: EmailModel[];
-    public phoneNumbers: PhoneNumberModel[];
+    public phonenumbers: PhoneNumberModel[];
     public contactID: number;
-    public companyFreelancer: ['bedrijf', 'freelancer']
-    public cfDescription: string
+    public company: CompanyModel;
+    public freelancer: FreelancerModel;
   //
   // constructor(firstName: string, infix: string, surname: string, addresses: AddressModel[], emails: EmailModel[],
   //             phoneNumbers: PhoneNumberModel[], contactID: number, companyFreelancer: ['bedrijf', 'freelancer'], cfDescription: string) {
@@ -26,7 +28,7 @@ export class Contact {
   //   this.cfDescription = cfDescription;
   // }
 
-  public constructor(init?: Partial<Contact >) {
+  public constructor(init?: Partial<Contact>) {
     Object.assign(this, init);
   }
 }

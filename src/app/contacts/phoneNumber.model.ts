@@ -1,4 +1,4 @@
 export class PhoneNumberModel {
-  public phoneNr: string;
+  public phoneNumber: string;
   public phoneNrDescription: string;
 }

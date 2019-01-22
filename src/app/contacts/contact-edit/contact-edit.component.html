@@ -2,29 +2,27 @@
   <h1>Contact</h1>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
     <ul>
-      <div formGroupName="contactData">
-        <li>
-          <label for="firstName">Voornaam:</label>
-          <input
-            type="text"
-            id="firstName"
-            formControlName="firstName"
-            class=" pull right"></li>
-        <li>
-          <label for="infix">Tussenvoegsel:</label>
-          <input
-            type="text"
-            id="infix"
-            fromControlName="infix"
-            class="pull right"></li>
-        <li>
-          <label for="lastname">Achternaam:</label>
-          <input
-            type="text"
-            id="lastname"
-            formControlName="lastname"
-            class="pull right"></li>
-      </div>
+      <li>
+        <label for="firstName">Voornaam:</label>
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          class=" pull right"></li>
+      <li>
+        <label for="infix">Tussenvoegsel:</label>
+        <input
+          type="text"
+          id="infix"
+          formControlName="infix"
+          class="pull right"></li>
+      <li>
+        <label for="surname">Achternaam:</label>
+        <input
+          type="text"
+          id="surname"
+          formControlName="surname"
+          class="pull right"></li>
       <br>
       <div class="form-group" formArrayName="addresses"
            *ngFor="let addressItem of contactForm.controls['addresses'].controls; let i = index">
@@ -46,16 +44,16 @@
           <li>
             <label for="zipCode">postcode:</label>
             <input
-              type="number"
+              type="text"
               id="zipCode"
               formControlName="zipCode"
               class="pull right"></li>
           <li>
-            <label for="place">plaats:</label>
+            <label for="residence">plaats:</label>
             <input
-              type="number"
-              id="place"
-              formControlName="place"
+              type="text"
+              id="residence"
+              formControlName="residence"
               class="pull right"></li>
           <li>
             <label for="country">Land:</label>
@@ -63,6 +61,13 @@
               type="text"
               id="country"
               formControlName="country"
+              class="pull right"></li>
+          <li>
+            <label for="addressDescription">Beschrijving</label>
+            <input
+              type="text"
+              id="addressDescription"
+              formControlName="addressDescription"
               class="pull right"></li>
           </div>
         </div>
@@ -73,7 +78,7 @@
            *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
         <div class="phoneNumber-box" formGroupName="{{i}}">
           <li>
-            <label for="phoneNumber">telefoon nummer:</label>
+            <label for="phoneNumber">telefoon nummer: </label>
             <input
               type="text"
               id="phoneNumber"

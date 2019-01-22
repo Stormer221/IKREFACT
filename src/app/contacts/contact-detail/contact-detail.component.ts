@@ -43,15 +43,22 @@ export class ContactDetailComponent implements OnInit {
           this.contact = contact;
           console.log(contact);
 
-          contact.emails = JSON.stringify(contact.emails);
 
         });
     // this.newContact = this.contactService.getContact(this.contactID);
 
   }
 
+  deleteContact() {
+    this.contactService.deleteContact(this.contact.contactID).subscribe();
+    setTimeout(() => {
+      this.router.navigate(['/contacten']);
+    }, 500);
+
+  }
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
+
   }
 }
