@@ -42,9 +42,18 @@ export class ExpenseEditComponent implements OnInit {
   submitExpense() {
     if (this.id) {
       this.expenseService.putExpense(this.model).subscribe();
+      this.router.navigate(['/onkosten/' + this.id]);
     } else {
       this.expenseService.addExpense(this.model).subscribe();
+      this.router.navigate(['/onkosten']);
     }
-    this.router.navigate(['/onkosten']);
+  }
+
+  onCancel() {
+    if (this.id) {
+      this.router.navigate(['/onkosten/' + this.id]);
+    } else {
+      this.router.navigate(['/onkosten']);
+    }
   }
 }

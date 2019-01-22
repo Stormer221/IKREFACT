@@ -2,15 +2,19 @@
   <table>
     <thead>
     <tr>
-      <th>Soort</th>
-      <th>Titel</th>
-      <th>Beschrijving</th>
-      <th>Datum</th>
+      <th (click)="sortBy('costItem')">Soort <span *ngIf="this.sort == 'costItem'; then arrow"></span></th>
+      <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
+      <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let expense of expenses" [expense]="expense" app-expense-list-item routerLink="{{expense.expenseID}}">
+    <tr *ngFor="let expense of expenses | paginate: { itemsPerPage: 10, currentPage: page }" [expense]="expense"
+        app-expense-list-item routerLink="{{expense.expenseID}}">
     </tr>
     </tbody>
   </table>
+  <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
 </app-card>
