@@ -17,8 +17,6 @@ import {ContactListComponent} from './contacts/contact-list/contact-list.compone
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {FormsModule} from '@angular/forms';
-import {ExpenseListItemComponent} from './expense/expense-list/expense-list-item/expense-list-item.component';
-import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +31,6 @@ import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.co
     ContactListItemComponent,
     ContactDetailComponent,
     ContactEditComponent,
-    ExpenseComponent,
-    ExpenseListComponent,
-    ExpenseEditComponent,
-    ExpenseDetailComponent,
-
     ContactDetailComponent
   ],
   imports: [

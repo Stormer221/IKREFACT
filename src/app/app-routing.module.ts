@@ -22,7 +22,6 @@ const appRoutes: Routes = [
   {path: 'contacten/nieuw', component: ContactEditComponent},
   {path: 'contacten/:contactID', component: ContactDetailComponent},
   {path: 'contacten/:contactID/wijzigen', component: ContactEditComponent},
-  {path: 'facturen', component: InvoiceListComponent},
   {path: 'factuur', component: InvoiceEditComponent},
   {path: 'offerte', component: QuotationEditComponent},
   {path: 'onkosten', component: ExpenseComponent},
