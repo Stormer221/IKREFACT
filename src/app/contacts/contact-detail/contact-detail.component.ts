@@ -22,7 +22,7 @@ export class ContactDetailComponent implements OnInit {
     // this.route.params.subscribe(
     //   (params: Params) => {
     //     this.contactID = +params['contactID'];
-    //     this.contact = this.contactService.getContact(this.contactID);
+    //     this.newContact = this.contactService.getContact(this.contactID);
     //   }
     // );
     this.route.params
@@ -43,15 +43,30 @@ export class ContactDetailComponent implements OnInit {
           this.contact = contact;
           console.log(contact);
 
-          contact.emails = JSON.stringify(contact.emails);
 
         });
-    // this.contact = this.contactService.getContact(this.contactID);
+    // this.newContact = this.contactService.getContact(this.contactID);
 
   }
 
+  deleteContact() {
+    this.contactService.deleteContact(this.contact.contactID).subscribe();
+    setTimeout(() => {
+      this.router.navigate(['/contacten']);
+    }, 500);
+
+  }
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
+
+  }
+
+  toFactuur() {
+    this.router.navigate(['/factuur']);
+  }
+
+  toQuotation() {
+    this.router.navigate(['/offerte']);
   }
 }

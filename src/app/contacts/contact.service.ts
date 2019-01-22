@@ -2,14 +2,17 @@ import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
 import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, pipe} from 'rxjs';
+import {map, subscribeOn} from 'rxjs/operators';
+import {FormGroup} from '@angular/forms';
+import {Expense} from '../expense/expense';
 
 @Injectable()
-export class ContactService implements HttpReqInterface {
+export class ContactService {
   private contacts: Contact[] = [];
   private contact: Contact;
 
-  contactsurl = 'walbert/contacts';
+  contactsUrl = 'walbert/contacts';
 
   constructor(private http: HttpClient) {
   }
@@ -28,7 +31,8 @@ export class ContactService implements HttpReqInterface {
     return contact;
   }
 
-  deleteReq() {
+  deleteContact(contactID: number): Observable<{}> {
+    return this.http.delete<Contact>('walbert/contacts/' + contactID);
   }
 
   getReq(): Observable<Contact[]> {
@@ -39,9 +43,15 @@ export class ContactService implements HttpReqInterface {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
   }
 
-  postReq() {
+  putReq() {
   }
 
-  putReq() {
+  addContact(contact: Contact): Observable<Contact> {
+    // @ts-ignore
+    return this.http.post(this.contactsUrl, contact, {responseType: 'json'});
+    // .pipe(
+    //   catchError(this.handleError('addHero', expense))
+    // );
+    
   }
 }
