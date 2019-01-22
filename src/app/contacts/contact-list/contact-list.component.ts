@@ -9,7 +9,9 @@ import {ContactService} from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
+  filteredContacts: Contact[];
   private contact: Contact;
+  searchTerm: string;
 
   constructor(private contactService: ContactService) {
   }
