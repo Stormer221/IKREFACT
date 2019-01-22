@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Contact} from '../../../contacts/contact.model';
 import {Router} from '@angular/router';
 import {InvoiceService} from '../invoice.service';
 import {InvoiceModel} from '../invoice.model';
@@ -11,15 +13,18 @@ import {InvoiceModel} from '../invoice.model';
 export class InvoiceEditComponent implements OnInit {
   private invoice: InvoiceModel = new InvoiceModel;
 
-  constructor(private router: Router,
-              private invoiceService: InvoiceService) {
+  constructor(private router: Router, private route: ActivatedRoute, private invoiceService: InvoiceService) {
   }
 
+  contact: Contact;
+
   ngOnInit() {
+
   }
 
   toContacts() {
-    this.router.navigate(['/contacten']);
+    this.router.navigate(['/contacten', this.route.snapshot.params['contactID']]);
+    console.log(this.route.snapshot.params['contactID']);
   }
 
   submitInvoice() {

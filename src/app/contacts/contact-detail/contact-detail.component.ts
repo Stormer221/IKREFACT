@@ -50,10 +50,13 @@ export class ContactDetailComponent implements OnInit {
   }
 
   deleteContact() {
-    this.contactService.deleteContact(this.contact.contactID).subscribe();
-    setTimeout(() => {
+    if (window.confirm('Weet je zeker dat je dit contact wilt verwijderen?')) {
+      this.contactService.deleteContact(this.contact.contactID).subscribe();
+
+      // setTimeout(() => {
       this.router.navigate(['/contacten']);
-    }, 500);
+    }
+      // }, 500);
 
   }
 
@@ -69,4 +72,6 @@ export class ContactDetailComponent implements OnInit {
   toQuotation() {
     this.router.navigate(['/offerte']);
   }
+
+
 }
