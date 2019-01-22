@@ -1,10 +1,10 @@
 /**
- * The Expense model.
+ * The ExpenseModel model.
  *
  * @author Sergi Philipsen.
  */
 
-export class Expense {
+export class ExpenseModel {
   title: string;
   description: string;
   costItem: string;

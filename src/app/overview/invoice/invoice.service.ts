@@ -2,7 +2,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
-import {Invoice} from '../invoice';
+import {InvoiceModel} from './invoice.model';
 
 @Injectable()
 export class InvoiceService {
@@ -11,8 +11,8 @@ export class InvoiceService {
   constructor(private http: HttpClient) {
   }
 
-  getInvoices(): Observable<Invoice[]> {
-    return this.http.get<Invoice[]>(this.invoiceURL);
+  getInvoices(): Observable<InvoiceModel[]> {
+    return this.http.get<InvoiceModel[]>(this.invoiceURL);
   }
 
   getPDF(invoiceID: number): void {
@@ -27,9 +27,9 @@ export class InvoiceService {
     });
   }
 
-  addInvoice(invoice: Invoice): Observable<Invoice> {
+  addInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
     // @ts-ignore
-    return this.http.post<Invoice>(this.invoiceURL, invoice, {responseType: 'text'});
+    return this.http.post<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
   }
 }
 

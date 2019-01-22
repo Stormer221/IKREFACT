@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Expense} from '../../expense';
+import {ExpenseModel} from '../../expense.model';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./expense-list-item.component.css']
 })
 export class ExpenseListItemComponent implements OnInit {
-  @Input() expense: Expense;
+  @Input() expense: ExpenseModel;
 
   constructor(private router: Router) {
   }

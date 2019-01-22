@@ -1,18 +1,13 @@
 import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
-import {HttpReqInterface} from '../httpReq.interface';
 import {HttpClient} from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
-import {map, subscribeOn} from 'rxjs/operators';
-import {FormGroup} from '@angular/forms';
-import {Expense} from '../expense/expense';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService {
+  contactsUrl = 'walbert/contacts';
   private contacts: Contact[] = [];
   private contact: Contact;
-
-  contactsUrl = 'walbert/contacts';
 
   constructor(private http: HttpClient) {
   }
@@ -36,7 +31,7 @@ export class ContactService {
   }
 
   getReq(): Observable<Contact[]> {
-    return this.http.get<Contact[]>(this.contactsurl);
+    return this.http.get<Contact[]>(this.contactsUrl);
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
@@ -52,6 +47,6 @@ export class ContactService {
     // .pipe(
     //   catchError(this.handleError('addHero', expense))
     // );
-    
+
   }
 }

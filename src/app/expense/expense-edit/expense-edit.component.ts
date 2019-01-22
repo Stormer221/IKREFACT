@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
-import {Expense} from '../expense';
+import {ExpenseModel} from '../expense.model';
 import {ExpenseService} from '../expense.service';
 
 /***
@@ -17,7 +17,7 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
-  private model: Expense = new Expense();
+  private model: ExpenseModel = new ExpenseModel();
   private id: number = null;
 
   constructor(

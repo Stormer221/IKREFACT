@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Invoice} from '../../invoice';
 import {InvoiceService} from '../invoice.service';
+import {InvoiceModel} from '../invoice.model';
 
 @Component({
   selector: 'app-invoice-edit',
@@ -9,7 +9,7 @@ import {InvoiceService} from '../invoice.service';
   styleUrls: ['./invoice-edit.component.css']
 })
 export class InvoiceEditComponent implements OnInit {
-  private invoice: Invoice = new Invoice;
+  private invoice: InvoiceModel = new InvoiceModel;
 
   constructor(private router: Router,
               private invoiceService: InvoiceService) {
@@ -24,6 +24,5 @@ export class InvoiceEditComponent implements OnInit {
 
   submitInvoice() {
     this.invoiceService.addInvoice(this.invoice).subscribe();
-    console.log('hallo');
   }
 }

@@ -1,4 +1,4 @@
-export class Invoice {
+export class InvoiceModel {
   public title: string;
   public date: string;
   public deliveryDate: string;
@@ -9,8 +9,8 @@ export class Invoice {
   public invoiceID: number;
 
 
-  constructor(title: string, date: string, deliveryDate: string, price: number, paid: boolean, payDate: string,
-              description: string, invoiceID: number) {
+  constructor(title: string = '', date: string = '', deliveryDate: string = '', price: number = 0, paid: boolean = false,
+              payDate: string = '', description: string = '', invoiceID: number = null) {
     this.title = title;
     this.date = date;
     this.deliveryDate = deliveryDate;

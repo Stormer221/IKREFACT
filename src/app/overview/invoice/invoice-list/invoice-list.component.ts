@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Invoice} from '../invoice.model';
+import {InvoiceModel} from '../invoice.model';
 import {InvoiceService} from '../invoice.service';
 
 @Component({
@@ -9,7 +9,7 @@ import {InvoiceService} from '../invoice.service';
 })
 export class InvoiceListComponent implements OnInit {
 
-  private invoices: Invoice[];
+  private invoices: InvoiceModel[];
 
   constructor(private invoiceService: InvoiceService) {}
 
@@ -17,7 +17,7 @@ export class InvoiceListComponent implements OnInit {
     this.invoiceService.getInvoices()
       .subscribe(result => console.log(result));
     this.invoiceService.getInvoices()
-      .subscribe((invoices: Invoice[]) => this.invoices = invoices);
+      .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
   }
 
   downloadPDF(invoiceID: number) {
