@@ -60,4 +60,6 @@ export class ContactDetailComponent implements OnInit {
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
+
+
 }

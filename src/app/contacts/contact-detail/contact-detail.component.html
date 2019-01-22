@@ -12,9 +12,9 @@
   <h2>E-mailadres</h2>
   <li>{{ contact?.emails[0].email}}</li>
   <li class="button-list">
-    <button [routerLink]="['/factuur']">Factuur maken</button>
+    <button [routerLink]="['factuur']">Factuur maken</button>
     <button>Contact Wijzigen</button>
     <button (click)="deleteContact()">Contact Verwijderen</button>
-    <button (click)="toOfferte()">Offerte maken</button>
+    <button>Offerte maken</button>
   </li>
 </app-card>
