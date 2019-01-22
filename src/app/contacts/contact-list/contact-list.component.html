@@ -1,7 +1,7 @@
 <input [(ngModel)]="searchText" id="searchBar" placeholder="Zoeken..." type="text">
 <app-card>
   <app-contact-list-item
-    *ngFor="let contact of filteredContacts | filter: searchText"
+    *ngFor="let contact of contacts | filter: searchText"
     [contact]="contact">
   </app-contact-list-item>
 </app-card>
