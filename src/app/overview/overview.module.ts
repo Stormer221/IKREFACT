@@ -11,6 +11,7 @@ import {QuotationComponent} from './quotation/quotation.component';
 import {QuotationEditComponent} from './quotation/quotation-edit/quotation-edit.component';
 import {QuotationListComponent} from './quotation/quotation-list/quotation-list.component';
 import {QuotationService} from './quotation/quotation.service';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {QuotationService} from './quotation/quotation.service';
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [InvoiceService, QuotationService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

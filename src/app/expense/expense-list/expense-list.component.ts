@@ -9,7 +9,7 @@ import {ExpenseService} from '../expense.service';
 })
 export class ExpenseListComponent implements OnInit {
   private expenses: ExpenseModel[];
-  private page: number = 1;
+  private page = 1;
   private sort: string;
   private desc: boolean;
 
@@ -17,7 +17,7 @@ export class ExpenseListComponent implements OnInit {
   }
 
   sortBy(field: string) {
-    if (field == this.sort && !this.desc) {
+    if (field === this.sort && !this.desc) {
       this.desc = true;
       this.expenses = this.expenses.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
     } else {

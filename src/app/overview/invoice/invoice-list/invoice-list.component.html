@@ -1,22 +1,28 @@
 <app-card>
   <h1>Facturen</h1>
-  <hr>
   <table>
+    <thead>
     <tr>
-      <th>Titel</th>
-      <th>Omschrijving</th>
-      <th>Datum</th>
-      <th>Paid</th>
-      <th>Download</th>
+      <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <th (click)="sortBy('paid')">Betaald <span *ngIf="this.sort == 'paid'; then arrow"></span></th>
+      <th (click)="sortBy('download')">Download <span *ngIf="this.sort == 'download'; then arrow"></span></th>
+      <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
+      <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
+    </thead>
     <tr
-      *ngFor="let invoiceElement of invoices">
+      *ngFor="let invoiceElement of invoices | paginate: { itemsPerPage: 10, currentPage: page }">
       <td>{{invoiceElement.title}}</td>
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>
-      <td>{{invoiceElement.paid}}</td>
-      <td><button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button></td>
+      <td>{{invoiceElement.payed}}</td>
+      <td>
+        <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
+      </td>
     </tr>
 
   </table>
+  <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
 </app-card>
