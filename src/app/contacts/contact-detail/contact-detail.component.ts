@@ -49,6 +49,13 @@ export class ContactDetailComponent implements OnInit {
 
   }
 
+  deleteContact() {
+    this.contactService.deleteContact(this.contact.contactID).subscribe();
+    setTimeout(() => {
+      this.router.navigate(['/contacten']);
+    }, 500);
+
+  }
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
