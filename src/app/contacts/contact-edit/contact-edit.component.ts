@@ -3,10 +3,6 @@ import {Contact} from '../contact.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {EmailModel} from '../email.model';
-import {Observable, of} from 'rxjs';
-import {Phonenumbers} from '../phonenumbers';
-import index from '@angular/cli/lib/cli';
 
 @Component({
   selector: 'app-contact-edit',
@@ -19,7 +15,6 @@ export class ContactEditComponent implements OnInit {
   contact: Contact;
   contactForm: FormGroup;
   companyFreelancerOptions = ['bedrijf', 'freelancer'];
-  emailModel: EmailModel;
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
@@ -55,6 +50,7 @@ export class ContactEditComponent implements OnInit {
           this.contactForm.controls['firstName'].setValue(this.contact.firstName);
           this.contactForm.controls['infix'].setValue(this.contact.infix);
           this.contactForm.controls['surname'].setValue(this.contact.surname);
+
           for (const index in this.contact.addresses) {
             if (!(<FormArray>this.contactForm.controls['addresses']).at(+index)) {
               this.addAddress();
@@ -130,11 +126,15 @@ export class ContactEditComponent implements OnInit {
   onSubmit() {
     if ( this.contactForm.valid ) {
       if (!this.contact) {
-      this.contact = new Contact(this.contactForm.value);
-      this.contactService.addContact(this.contact).subscribe();
-      this.contactForm.reset();
-      this.toContacts();
+        console.log('add new contact');
+        this.contact = new Contact(this.contactForm.value);
+        this.contactService.addContact(this.contact).subscribe();
+        this.contactForm.reset();
+        this.toContacts();
       } else {
+        this.contact = new Contact(this.contactForm.value);
+        console.log('edit contact');
+        console.log(this.contact);
         this.contactService.editContact(this.contact).subscribe();
         this.router.navigate(['../'], {relativeTo: this.route});
       }
