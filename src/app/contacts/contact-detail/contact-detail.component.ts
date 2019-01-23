@@ -53,10 +53,11 @@ export class ContactDetailComponent implements OnInit {
     if (window.confirm('Weet je zeker dat je dit contact wilt verwijderen?')) {
       this.contactService.deleteContact(this.contact.contactID).subscribe();
 
-      // setTimeout(() => {
-      this.router.navigate(['/contacten']);
+      setTimeout(() => {
+          this.router.navigate(['/contacten']);
+        }
+        , 500);
     }
-      // }, 500);
 
   }
 
