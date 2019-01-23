@@ -3,20 +3,19 @@
   <hr>
   <table>
     <tr>
-      <th>Titel</th>
-      <th>Omschrijving</th>
-      <th>Datum</th>
-      <th>Paid</th>
-      <th>Download</th>
+      <th class="title">Titel</th>
+      <th class="description">Omschrijving</th>
+      <th class="date">Datum</th>
+      <th class="paid">Betaald</th>
+      <th class="download">Download</th>
     </tr>
     <tr
       *ngFor="let invoiceElement of invoices">
-      <td>{{invoiceElement.title}}</td>
-      <td>{{invoiceElement.description}}</td>
-      <td>{{invoiceElement.date}}</td>
-      <td>{{invoiceElement.paid}}</td>
-      <td><button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button></td>
+      <td class="title">{{invoiceElement.title}}</td>
+      <td class="description">{{invoiceElement.description}}</td>
+      <td class="date">{{invoiceElement.date | date:'dd-MM-yyyy'}}</td>
+      <td class="paid">{{true == invoiceElement.paid ? '&#10004;' : '&#10006;'}}</td>
+      <td class="download"><button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button></td>
     </tr>
-
   </table>
 </app-card>
