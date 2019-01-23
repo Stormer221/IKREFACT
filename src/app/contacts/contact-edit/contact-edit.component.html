@@ -100,11 +100,11 @@
            *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
         <div class="email-box" formGroupName="{{i}}">
           <li>
-            <label for="email">email:</label>
+            <label for="emailAddress">email:</label>
             <input
               type="text"
-              id="email"
-              formControlName="email"
+              id="emailAddress"
+              formControlName="emailAddress"
               class="pull right"></li>
           <li>
             <label for="emailDescription">Beslchrijving:</label>

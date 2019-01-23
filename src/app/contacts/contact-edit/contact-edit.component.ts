@@ -79,7 +79,7 @@ export class ContactEditComponent implements OnInit {
   addEmail() {
     (<FormArray>this.contactForm.controls['emails']).push(
       new FormGroup({
-        'email': new FormControl(),
+        'emailAddress': new FormControl(),
         'emailDescription': new FormControl()
       })
     );
