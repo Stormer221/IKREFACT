@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Quotation} from '../quotation-edit/quotation.model';
+import {Quotation} from '../quotation.model';
 import {QuotationService} from '../quotation.service';
+import {InvoiceModel} from '../../invoice/invoice.model';
 
 @Component({
   selector: 'app-quotation-list',
@@ -15,7 +16,9 @@ export class QuotationListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quotations = this.quotationService.getQuotations();
+    this.quotationService.getQuotation()
+      .subscribe(result => console.log(result));
+    this.quotationService.getQuotation()
+      .subscribe((quotations: Quotation[]) => this.quotations = quotations);
   }
-
 }

@@ -49,6 +49,6 @@ export class ExpenseService {
 
   /** POST: delete an expense from the database */
   deleteExpense(id: number): Observable<any> {
-    return this.http.delete<any>(this.expenseUrl + '/' + id)
+    return this.http.delete<any>(this.expenseUrl + '/' + id);
   }
 }

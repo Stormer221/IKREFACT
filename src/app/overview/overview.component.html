@@ -1,19 +1,13 @@
 <app-card>
-  <h1>Onkostenrapport genereren</h1>
+  <h1>Onkostenrapport Genereren</h1>
   <div>
-  <select>
-    <option>onkost</option>
-    <option>onkost</option>
-    <option>onkost</option>
-    <option>onkost</option>
-    <option>onkost</option>
-    <option>onkost</option>
-    <option>onkost</option>
-  </select>
-  <input type="date">
-  <input type="date">
-  <button>Genereer</button>
-
+    <select class="wrapper">
+      <option *ngFor="let expenseElement of expenses">{{expenseElement.title}}</option>
+    </select>
+    <input type="date">
+    <i class="fa fa-minus"></i>
+    <input type="date">
+    <button>Genereer</button>
   </div>
 
 </app-card>
