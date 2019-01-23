@@ -1,10 +1,12 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Contact} from '../contact.model';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ContactService} from '../contact.service';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {EmailModel} from '../email.model';
 import {Observable, of} from 'rxjs';
+import {Phonenumbers} from '../phonenumbers';
+import index from '@angular/cli/lib/cli';
 
 @Component({
   selector: 'app-contact-edit',
@@ -12,54 +14,70 @@ import {Observable, of} from 'rxjs';
   styleUrls: ['./contact-edit.component.css'],
   providers: [ContactService]
 })
-export class ContactEditComponent implements OnInit, AfterContentInit {
+export class ContactEditComponent implements OnInit {
   id: number;
-  index: number;
-  oldContact: Contact;
-  newContact: Contact;
+  contact: Contact;
   contactForm: FormGroup;
   companyFreelancerOptions = ['bedrijf', 'freelancer'];
+  emailModel: EmailModel;
 
   constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.getContact(params);
-        }
-      );
-
     this.contactForm = new FormGroup({
       'firstName': new FormControl(),
       'infix': new FormControl(),
       'surname': new FormControl(),
       'emails': new FormArray([]),
       'addresses': new FormArray([]),
-      'phoneNumbers': new FormArray([]),
+      'phonenumbers': new FormArray([]),
       'cfOption': new FormControl(),
       'cfDescription': new FormControl()
     });
     this.addEmail();
     this.addAddress();
     this.addPhoneNumber();
-
-    if (this.oldContact) {
-      this.contactForm.controls['firstName'].setValue(this.oldContact.firstName);
-      this.contactForm.controls['infix'].setValue(this.oldContact.infix);
-      this.contactForm.controls['surname'].setValue(this.oldContact.surname);
+    if (this.route.snapshot.params['contactID'] > '0') {
+      this.route.params
+        .subscribe(
+          (params: Params) => {
+            this.fillContactInformation(params);
+          });
     }
-
   }
 
-  ngAfterContentInit() {
-    console.log('afterInit')
-    console.log(this.oldContact);
-  }
-
-  toContacts() {
-    this.router.navigate(['/contacten']);
+  private fillContactInformation(params: Params) {
+    this.contactService.getSingleContact(params['contactID'])
+      .subscribe(
+        (contact: Contact) => {
+          this.contact = contact;
+          this.contactForm.controls['firstName'].setValue(this.contact.firstName);
+          this.contactForm.controls['infix'].setValue(this.contact.infix);
+          this.contactForm.controls['surname'].setValue(this.contact.surname);
+          for (const index in this.contact.addresses) {
+            if (!(<FormArray>this.contactForm.controls['addresses']).at(+index)) {
+              this.addAddress();
+            }
+            (<FormArray>this.contactForm.controls['addresses']).at(+index).patchValue(
+              this.contact.addresses[index]);
+          }
+          for (const index in this.contact.phoneNumbers) {
+            if (!(<FormArray>this.contactForm.controls['phonenumbers']).at(+index)) {
+              this.addPhoneNumber();
+            }
+            (<FormArray>this.contactForm.controls['phonenumbers']).at(+index).patchValue(
+              this.contact.phoneNumbers[index]);
+          }
+          for (const index in this.contact.emails) {
+            if (!(<FormArray>this.contactForm.controls['emails']).at(+index)) {
+              this.addEmail();
+            }
+            (<FormArray>this.contactForm.controls['emails']).at(+index).patchValue(
+              this.contact.emails[index]);
+          }
+        }
+      );
   }
 
   addEmail() {
@@ -69,7 +87,6 @@ export class ContactEditComponent implements OnInit, AfterContentInit {
         'emailDescription': new FormControl()
       })
     );
-    console.log(this.oldContact);
   }
 
   removeEmail() {
@@ -94,7 +111,7 @@ export class ContactEditComponent implements OnInit, AfterContentInit {
   }
 
   addPhoneNumber() {
-    (<FormArray>this.contactForm.controls['phoneNumbers']).push(
+    (<FormArray>this.contactForm.controls['phonenumbers']).push(
       new FormGroup({
         'phoneNumber': new FormControl(),
         'phoneNumberDescription': new FormControl()
@@ -103,40 +120,24 @@ export class ContactEditComponent implements OnInit, AfterContentInit {
   }
 
   removePhoneNumber() {
-    (<FormArray>this.contactForm.controls['phoneNumbers']).removeAt(-1);
+    (<FormArray>this.contactForm.controls['phonenumbers']).removeAt(-1);
+  }
+
+  toContacts() {
+    this.router.navigate(['/contacten']);
   }
 
   onSubmit() {
     if ( this.contactForm.valid ) {
-      this.newContact = new Contact(this.contactForm.value);
-      this.contactService.addContact(this.newContact).subscribe();
+      if (!this.contact) {
+      this.contact = new Contact(this.contactForm.value);
+      this.contactService.addContact(this.contact).subscribe();
       this.contactForm.reset();
       this.toContacts();
+      } else {
+        this.contactService.editContact(this.contact).subscribe();
+        this.router.navigate(['../'], {relativeTo: this.route});
+      }
     }
-  }
-
-  getContact(params: Params) {
-    this.contactService.getSingleContact(params['contactID'])
-      .subscribe(
-        (contact: Contact) => {
-          this.oldContact = contact;
-          this.fillForm(this.oldContact);
-        });
-  }
-
-  private fillForm(contact: Contact) {
-    this.contactForm.controls['firstName'].setValue(contact.firstName);
-    this.contactForm.controls['infix'].setValue(contact.infix);
-    this.contactForm.controls['surname'].setValue(contact.surname);
-
-    for ( this.index = -1; this.index < contact.emails.length ; this.index++ ) {
-      (<FormArray>this.contactForm.controls['emails']).push(
-        new FormGroup({
-          'phoneNumber': new FormControl(),
-          'phoneNumberDescription': new FormControl()
-        })
-      );
-    }
-    // let email of contact.emails {}
   }
 }

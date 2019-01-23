@@ -33,7 +33,6 @@ export class ContactService {
   getReq(): Observable<Contact[]> {
     return this.http.get<Contact[]>(this.contactsUrl)
       ;
-
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
@@ -49,6 +48,13 @@ export class ContactService {
     // .pipe(
     //   catchError(this.handleError('addHero', expense))
     // );
-    
+  }
+
+  editContact(contact: Contact) {
+    // @ts-ignore
+    return this.http.put(this.contactsUrl, contact, {responseType: 'json'});
+    // .pipe(
+    //   catchError(this.handleError('addHero', expense))
+    // );
   }
 }

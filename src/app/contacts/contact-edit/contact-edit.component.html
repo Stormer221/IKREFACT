@@ -74,8 +74,8 @@
       <br>
       <button type="button" (click)="addAddress()" *ngIf="contactForm.controls['addresses'].controls.length < 3">Add Next</button>
       <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">Remove last</button>
-      <div class="form-group" formArrayName="phoneNumbers"
-           *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
+      <div class="form-group" formArrayName="phonenumbers"
+           *ngFor="let phoneNumberItem of contactForm.controls['phonenumbers'].controls; let i = index">
         <div class="phoneNumber-box" formGroupName="{{i}}">
           <li>
             <label for="phoneNumber">telefoon nummer: </label>
@@ -94,8 +94,8 @@
         </div>
       </div>
       <br>
-      <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length < 3">Add Next</button>
-      <button type="button" (click)="removePhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length > 1">Remove last</button>
+      <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phonenumbers'].controls.length < 3">Add Next</button>
+      <button type="button" (click)="removePhoneNumber()" *ngIf="contactForm.controls['phonenumbers'].controls.length > 1">Remove last</button>
       <div class="form-group" formArrayName="emails"
            *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
         <div class="email-box" formGroupName="{{i}}">

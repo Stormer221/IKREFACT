@@ -1,6 +1,6 @@
 import {AddressModel} from './address.model';
 import {EmailModel} from './email.model';
-import {PhoneNumberModel} from './phoneNumber.model';
+import {Phonenumbers} from './phonenumbers';
 import {CompanyModel} from './company.model';
 import {FreelancerModel} from './freelancer.model';
 
@@ -10,7 +10,7 @@ export class Contact {
     public surname: string;
     public addresses: AddressModel[];
     public emails: EmailModel[];
-    public phonenumbers: PhoneNumberModel[];
+    public phoneNumbers: Phonenumbers[];
     public contactID: number;
     public company: CompanyModel;
     public freelancer: FreelancerModel;
