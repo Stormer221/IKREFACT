@@ -11,6 +11,9 @@ import {InvoiceModel} from '../../invoice/invoice.model';
 export class QuotationListComponent implements OnInit {
 
   quotations: Quotation[] = [];
+  private page = 1;
+  private sort: string;
+  private desc: boolean;
 
   constructor(private quotationService: QuotationService) {
   }
@@ -20,5 +23,17 @@ export class QuotationListComponent implements OnInit {
       .subscribe(result => console.log(result));
     this.quotationService.getQuotation()
       .subscribe((quotations: Quotation[]) => this.quotations = quotations);
+  }
+
+  sortBy(field: string) {
+    if (field === this.sort && !this.desc) {
+      this.desc = true;
+      this.quotations = this.quotations.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
+    } else {
+      this.sort = field;
+      this.desc = false;
+      this.quotations = this.quotations.sort((a, b) => (a[field] < b[field]) ? 1 : ((b[field] < a[field]) ? -1 : 0));
+    }
+
   }
 }

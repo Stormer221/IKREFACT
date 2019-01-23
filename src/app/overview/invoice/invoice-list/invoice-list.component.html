@@ -1,7 +1,6 @@
 <app-card>
   <h1>Facturen</h1>
   <br>
-  <br>
   <table>
     <thead>
     <tr>
@@ -15,7 +14,7 @@
     </tr>
     </thead>
     <tr
-      *ngFor="let invoiceElement of invoices | paginate: { itemsPerPage: 10, currentPage: page }">
+      *ngFor="let invoiceElement of invoices | paginate: { itemsPerPage: 5, currentPage: page }">
       <td>{{invoiceElement.title}}</td>
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>

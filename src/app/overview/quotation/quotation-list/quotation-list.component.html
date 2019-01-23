@@ -1,18 +1,21 @@
 <app-card>
   <h1>Offerte</h1>
-  <hr>
+  <br>
   <table>
     <tr>
-      <th>Titel</th>
-      <th>Omschrijving</th>
-      <th>Datum</th>
+      <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
+      <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
     <tr
-      *ngFor="let q of quotations">
+      *ngFor="let q of quotations | paginate: { itemsPerPage: 5, currentPage: page }">
       <td>{{q.title}}</td>
       <td>{{q.description}}</td>
       <td>{{q.date}}</td>
     </tr>
 
   </table>
+  <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
 </app-card>
