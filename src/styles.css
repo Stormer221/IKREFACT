@@ -144,7 +144,7 @@ table tr:not(:last-child) {
 
 .titlebar, .button-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 hr {
