@@ -14,7 +14,7 @@
     </tr>
     </thead>
     <tr
-      *ngFor="let invoiceElement of invoices | paginate: { itemsPerPage: 5, currentPage: page }">
+      *ngFor="let invoiceElement of invoices | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
       <td>{{invoiceElement.title}}</td>
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>
@@ -25,5 +25,5 @@
     </tr>
 
   </table>
-  <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
+  <pagination-controls id="invoice" (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
 </app-card>

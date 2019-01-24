@@ -10,12 +10,14 @@
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
     <tr
-      *ngFor="let q of quotations | paginate: { itemsPerPage: 5, currentPage: page }">
+      *ngFor="let q of quotations | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
       <td>{{q.title}}</td>
       <td>{{q.description}}</td>
       <td>{{q.date}}</td>
     </tr>
 
   </table>
-  <pagination-controls (pageChange)="page = $event" autoHide="true" class="pagination"></pagination-controls>
+  <div class="quotation-pagination">
+    <pagination-controls id="quotation" (pageChange)="quotation_page = $event" autoHide="true" class="pagination"></pagination-controls>
+  </div>
 </app-card>

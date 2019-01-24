@@ -11,7 +11,7 @@ import {InvoiceModel} from '../../invoice/invoice.model';
 export class QuotationListComponent implements OnInit {
 
   quotations: Quotation[] = [];
-  private page = 1;
+  private quotation_page = 1;
   private sort: string;
   private desc: boolean;
 
