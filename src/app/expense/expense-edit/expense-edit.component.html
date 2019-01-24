@@ -7,7 +7,10 @@
     <ul>
       <li>
         <label for="costItem">Kostenpost:</label>
-        <input type="text" id="costItem" required [(ngModel)]="model.costItem" name="costItem">
+        <input list="costItems" id="costItem" name="costItem" required [(ngModel)]="model.costItem"/>
+        <datalist type="text" id="costItems">
+          <option *ngFor="let costItem of costItems">{{costItem.itemType}}</option>
+        </datalist>
       </li>
       <li>
         <label for="title">Titel:</label>

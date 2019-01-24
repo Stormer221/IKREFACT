@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ExpenseModel} from './expense.model';
+import {CostItemModel} from "./costItem.model";
 
 /**
  * The ExpenseService.
@@ -17,7 +18,9 @@ import {ExpenseModel} from './expense.model';
 
 export class ExpenseService {
   /** Base url for the expense API */
-  expenseUrl = '/walbert/expenses';
+  private expenseUrl = '/walbert/expenses';
+  /** Base url for the costItem API */
+  private costItemUrl = '/walbert/costItems';
 
   constructor(private http: HttpClient) {
   }
@@ -44,11 +47,24 @@ export class ExpenseService {
 
   /** PUT: update an existing expense in the database */
   putExpense(expense: ExpenseModel): Observable<ExpenseModel> {
-    return this.http.put<ExpenseModel>(this.expenseUrl, expense);
+    // @ts-ignore
+    return this.http.put<ExpenseModel>(this.expenseUrl, expense, {responseType: 'text'});
   }
 
   /** POST: delete an expense from the database */
   deleteExpense(id: number): Observable<any> {
-    return this.http.delete<any>(this.expenseUrl + '/' + id)
+    // @ts-ignore
+    return this.http.delete<any>(this.expenseUrl + '/' + id, {responseType: 'text'})
+  }
+
+  /** GET constItems from the server **/
+  getCostItem(): Observable<CostItemModel[]> {
+    return this.http.get<CostItemModel[]>(this.costItemUrl);
+  }
+
+  /** POST: add a new expense to the database */
+  addCostItem(costItem: CostItemModel): Observable<CostItemModel> {
+    // @ts-ignore
+    return this.http.post<CostItemModel>(this.costItemUrl, costItem, {responseType: 'text'});
   }
 }
