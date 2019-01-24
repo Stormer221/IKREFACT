@@ -31,7 +31,7 @@
       </li>
       <li>
         <label for="amount"> Prijs:</label>
-        <input type="text" id="amount" required [(ngModel)]="model.amount" name="amount">
+        <input type="number" id="amount" required [(ngModel)]="model.amount" name="amount">
       </li>
       <li class="button-list">
         <button class="btn success" [disabled]="!expenseForm.valid"><i class="fa fa-save"></i> Opslaan</button>
