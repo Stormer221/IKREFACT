@@ -1,4 +1,4 @@
-export class Phonenumbers {
-  public phoneNumber: string;
+export class PhoneNumber {
+  public telephoneNumber: string;
   public phoneNumberDescription: string;
 }

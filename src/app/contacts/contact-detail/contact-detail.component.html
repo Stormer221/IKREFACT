@@ -1,16 +1,30 @@
 <app-card>
   <h2>Naam:</h2>
   <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
-  <h2>Adres:</h2>
-  <li> {{contact?.addresses[0].street}} {{contact?.addresses[0].houseNumber}}</li>
-  <h2>Postcode: </h2>
-  <li>{{contact?.addresses[0].zipCode}} {{contact?.addresses[0].residence}}</li>
-  <h2>Plaats:</h2>
-  <li>{{contact?.addresses[0].description}}</li>
-  <h2>Telefoonnummer</h2>
-  <li> {{contact?.phonenumbers[0].phoneNumber}}</li>
-  <h2>E-mailadres</h2>
-  <li>{{ contact?.emails[0].emailAddress}}</li>
+  <div *ngFor="let addressItem of contact.addresses; let i = index">
+    <h2 *ngIf="contact.addresses.length == 1">Adres:</h2>
+    <h2 *ngIf="contact.addresses.length > 1">Adres {{+i+1}}:</h2>
+    <li>{{addressItem.street}} {{addressItem.houseNumber}}</li>
+    <li>{{addressItem.zipCode}} {{addressItem.residence}} {{addressItem.country}}</li>
+    <li>Beschrijving: {{addressItem.addressDescription}}</li>
+  </div>
+  <div *ngFor="let phoneNumberItem of contact.phoneNumbers; let i = index">
+    <h2 *ngIf="contact.phoneNumbers.length == 1">Telefoonnummer:</h2>
+    <h2 *ngIf="contact.phoneNumbers.length > 1">Telefoonnummer {{+i+1}}:</h2>
+    <li> {{phoneNumberItem.telephoneNumber}}    {{phoneNumberItem.phoneNumberDescription}}</li>
+  </div>
+  <div *ngFor="let emailItem of contact.emails; let i = index">
+    <h2 *ngIf="contact.emails.length == 1">E-mailadres:</h2>
+    <h2 *ngIf="contact.emails.length > 1">E-mailadres {{+i+1}}:</h2>
+    <li>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</li>
+  </div>
+  <h2 *ngIf="contact.c"></h2>
+  <div class="company-box" *ngIf="contact.company">
+    <h2>Bedrijf {{contact.company}}</h2>
+  </div>
+  <div class="freelancer-box" *ngIf="contact.freelancer">
+    <h2>Freelancer {{contact.freelancer}}</h2>
+  </div>
   <li class="button-list">
     <button [routerLink]="['/factuur']">Factuur maken</button>
     <button (click)="onEditContact()">Contact Wijzigen</button>

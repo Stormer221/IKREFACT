@@ -26,7 +26,7 @@ export class ContactEditComponent implements OnInit {
       'surname': new FormControl(),
       'emails': new FormArray([]),
       'addresses': new FormArray([]),
-      'phonenumbers': new FormArray([]),
+      'phoneNumbers': new FormArray([]),
       'cfOption': new FormControl(),
       'cfDescription': new FormControl()
     });
@@ -59,10 +59,10 @@ export class ContactEditComponent implements OnInit {
               this.contact.addresses[index]);
           }
           for (const index in this.contact.phoneNumbers) {
-            if (!(<FormArray>this.contactForm.controls['phonenumbers']).at(+index)) {
+            if (!(<FormArray>this.contactForm.controls['phoneNumbers']).at(+index)) {
               this.addPhoneNumber();
             }
-            (<FormArray>this.contactForm.controls['phonenumbers']).at(+index).patchValue(
+            (<FormArray>this.contactForm.controls['phoneNumbers']).at(+index).patchValue(
               this.contact.phoneNumbers[index]);
           }
           for (const index in this.contact.emails) {
@@ -79,7 +79,7 @@ export class ContactEditComponent implements OnInit {
   addEmail() {
     (<FormArray>this.contactForm.controls['emails']).push(
       new FormGroup({
-        'emailAddress': new FormControl(),
+        'emailAddress': new FormControl(null, [Validators.required, Validators.email]),
         'emailDescription': new FormControl()
       })
     );
@@ -107,16 +107,16 @@ export class ContactEditComponent implements OnInit {
   }
 
   addPhoneNumber() {
-    (<FormArray>this.contactForm.controls['phonenumbers']).push(
+    (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'phoneNumber': new FormControl(),
+        'telephoneNumber': new FormControl(),
         'phoneNumberDescription': new FormControl()
       })
     );
   }
 
   removePhoneNumber() {
-    (<FormArray>this.contactForm.controls['phonenumbers']).removeAt(-1);
+    (<FormArray>this.contactForm.controls['phoneNumbers']).removeAt(-1);
   }
 
   toContacts() {
