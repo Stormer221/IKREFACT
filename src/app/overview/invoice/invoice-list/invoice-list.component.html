@@ -19,9 +19,13 @@
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>
       <td>{{invoiceElement.payed}}</td>
-      <td>
+      <td *ngIf="invoiceElement.title != ''; else disabledbutton">
         <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
       </td>
+      <ng-template #disabledbutton>
+        <td>
+        <button disabled>Download PDF</button>
+      </ng-template>
     </tr>
   </table>
   <pagination-controls id="invoice" (pageChange)="page = $event" autoHide="true"
