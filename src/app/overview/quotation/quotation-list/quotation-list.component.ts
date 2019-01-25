@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Quotation} from '../quotation.model';
 import {QuotationService} from '../quotation.service';
-import {InvoiceModel} from '../../invoice/invoice.model';
 
 @Component({
   selector: 'app-quotation-list',
@@ -11,9 +10,14 @@ import {InvoiceModel} from '../../invoice/invoice.model';
 export class QuotationListComponent implements OnInit {
 
   quotations: Quotation[] = [];
+  quotation: Quotation = new Quotation('', '', '', null, '', null);
   private quotation_page = 1;
   private sort: string;
   private desc: boolean;
+  private rest: number;
+  private i = 0;
+  private amount_rows: number;
+  private items_per_page = 5;
 
   constructor(private quotationService: QuotationService) {
   }
@@ -22,7 +26,8 @@ export class QuotationListComponent implements OnInit {
     this.quotationService.getQuotation()
       .subscribe(result => console.log(result));
     this.quotationService.getQuotation()
-      .subscribe((quotations: Quotation[]) => this.quotations = quotations);
+      .subscribe((quotations: Quotation[]) =>
+        this.quotations = quotations);
   }
 
   sortBy(field: string) {
@@ -35,5 +40,19 @@ export class QuotationListComponent implements OnInit {
       this.quotations = this.quotations.sort((a, b) => (a[field] < b[field]) ? 1 : ((b[field] < a[field]) ? -1 : 0));
     }
 
+  }
+
+  blankRows() {
+    if (this.quotations.length !== 0 && this.quotations.length % 5 !== 0) {
+      this.rest = this.quotations.length % this.items_per_page;
+      this.amount_rows = this.items_per_page - this.rest;
+      while (this.i < this.amount_rows) {
+        this.quotations.push(this.quotation);
+        this.i = this.i + 1;
+      }
+      return this.quotations;
+    } else {
+      return this.quotations;
+    }
   }
 }
