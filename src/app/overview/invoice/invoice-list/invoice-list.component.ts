@@ -48,7 +48,7 @@ export class InvoiceListComponent implements OnInit {
   }
 
   blankRows() {
-    if (this.invoices.length !== 0 && this.invoices.length % 5 !== 0) {
+    if (this.invoices.length !== 0 && this.invoices.length % this.items_per_page !== 0) {
       this.rest = this.invoices.length % this.items_per_page;
       this.amount_rows = this.items_per_page - this.rest;
       while (this.i < this.amount_rows) {
