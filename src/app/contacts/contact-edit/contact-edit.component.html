@@ -71,6 +71,7 @@
               id="addressDescription"
               formControlName="addressDescription"
               class="pull right"></li>
+          <br>
         </div>
       </div>
       <br>
@@ -83,6 +84,7 @@
       <div class="form-group" formArrayName="phoneNumbers"
            *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
         <div class="phoneNumber-box" formGroupName="{{i}}">
+          <br>
           <li>
             <label for="phoneNumber">Telefoon:</label>
             <input
@@ -100,6 +102,7 @@
         </div>
       </div>
       <br>
+      <br>
       <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length < 3">
         Add Next
       </button>
@@ -109,6 +112,7 @@
       <div class="form-group" formArrayName="emails"
            *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
         <div class="email-box" formGroupName="{{i}}">
+          <br>
           <li>
             <label for="email">Email:</label>
             <input
@@ -126,11 +130,13 @@
         </div>
       </div>
       <br>
+      <br>
       <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next
       </button>
       <button type="button" (click)="removeEmail()" *ngIf="contactForm.controls['emails'].controls.length > 1">Remove
         last
       </button>
+      <br>
       <br>
       <br>
       <span class="radio" *ngFor="let cfOption of companyFreelancerOptions">
