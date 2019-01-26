@@ -8,7 +8,7 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  private expenses: ExpenseModel[];
+  private expenses: ExpenseModel[] = [];
   private empty_expense: ExpenseModel = new ExpenseModel('', '', '', null, null, '', null);
   private page = 1;
   private sort: string;
