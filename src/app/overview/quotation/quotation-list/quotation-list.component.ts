@@ -18,7 +18,7 @@ export class QuotationListComponent implements OnInit {
   private i = 0;
   private j = 0;
   private g = 0;
-  private amount_rows: number;
+  private amount_rows = 0;
   private items_per_page = 5;
 
   constructor(private quotationService: QuotationService) {

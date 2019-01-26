@@ -12,7 +12,7 @@ import {Quotation} from '../../quotation/quotation.model';
 export class InvoiceListComponent implements OnInit {
 
   invoices: InvoiceModel[] = [];
-  invoice: InvoiceModel = new InvoiceModel('', '', '', null, null,
+  empty_invoice: InvoiceModel = new InvoiceModel('', '', '', null, null,
     '', '', null);
   private page = 1;
   private sort: string;
@@ -21,7 +21,7 @@ export class InvoiceListComponent implements OnInit {
   private i = 0;
   private j = 0;
   private g = 0;
-  private amount_rows: number;
+  private amount_rows = 0;
   private items_per_page = 5;
 
   constructor(private invoiceService: InvoiceService) {
@@ -37,7 +37,7 @@ export class InvoiceListComponent implements OnInit {
       this.j = 0;
       this.invoices = this.invoices.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
       while (this.g < this.amount_rows) {
-        this.invoices.push(this.invoice);
+        this.invoices.push(this.empty_invoice);
         this.g = this.g + 1;
       }
       this.g = 0;
@@ -64,7 +64,7 @@ export class InvoiceListComponent implements OnInit {
       this.rest = this.invoices.length % this.items_per_page;
       this.amount_rows = this.items_per_page - this.rest;
       while (this.i < this.amount_rows) {
-        this.invoices.push(this.invoice);
+        this.invoices.push(this.empty_invoice);
         this.i = this.i + 1;
       }
       return this.invoices;

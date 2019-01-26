@@ -56,3 +56,11 @@ tbody tr, thead tr th {
 /deep/ .ngx-pagination .pagination-previous.disabled:hover, /deep/ .ngx-pagination .pagination-next.disabled:hover {
   background: #bac1b8;
 }
+
+th {
+  width: 100px;
+}
+
+table {
+  table-layout: fixed;
+}
