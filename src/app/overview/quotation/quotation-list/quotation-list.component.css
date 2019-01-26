@@ -58,5 +58,17 @@ tbody tr, thead tr th {
 }
 
 td{
-  height: 60px;
+  height: 70px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+th{
+  width: 100px;
+}
+
+table{
+  table-layout: fixed;
 }

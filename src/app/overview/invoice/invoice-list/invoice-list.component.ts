@@ -19,6 +19,8 @@ export class InvoiceListComponent implements OnInit {
   private desc: boolean;
   private rest: number;
   private i = 0;
+  private j = 0;
+  private g = 0;
   private amount_rows: number;
   private items_per_page = 5;
 
@@ -28,7 +30,17 @@ export class InvoiceListComponent implements OnInit {
   sortBy(field: string) {
     if (field === this.sort && !this.desc) {
       this.desc = true;
+      while (this.j < this.amount_rows) {
+        this.invoices.splice(-1, 1);
+        this.j = this.j + 1;
+      }
+      this.j = 0;
       this.invoices = this.invoices.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
+      while (this.g < this.amount_rows) {
+        this.invoices.push(this.invoice);
+        this.g = this.g + 1;
+      }
+      this.g = 0;
     } else {
       this.sort = field;
       this.desc = false;
