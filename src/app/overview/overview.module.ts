@@ -30,7 +30,7 @@ import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
     QuotationEditComponent,
     QuotationListComponent,
     ReportComponent,
-    ReportGeneratorComponent
+    ReportGeneratorComponent,
     QuotationFilterPipe,
     InvoiceFilterPipe
   ],
@@ -38,7 +38,7 @@ import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
     CommonModule,
     SharedModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
     FormsModule,
     NgxPaginationModule
   ],

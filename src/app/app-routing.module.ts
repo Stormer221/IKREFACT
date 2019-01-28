@@ -12,6 +12,7 @@ import {ContactEditComponent} from './contacts/contact-edit/contact-edit.compone
 import {InvoiceEditComponent} from './overview/invoice/invoice-edit/invoice-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
 import {ReportComponent} from "./overview/report/report.component";
+import {QuotationEditComponent} from "./overview/quotation/quotation-edit/quotation-edit.component";
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
