@@ -46,7 +46,7 @@ export class ContactService {
     // );
   }
 
-  editContact(contact: Contact) {
+  editContact(contact: Contact): Observable<Contact> {
     // @ts-ignore
     return this.http.put(this.contactsUrl, contact, {responseType: 'json'});
     // .pipe(

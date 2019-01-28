@@ -18,11 +18,11 @@
     <h2 *ngIf="contact?.emails.length > 1">E-mailadres {{+i+1}}:</h2>
     <li>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</li>
   </div>
-  <div class="company-box" *ngIf="contact?.company">
-    <h2>Bedrijf {{contact?.company.companyName}}</h2>
+  <div class="company-box" *ngIf="contact?.company.companyName">
+    <h2>Bedrijf:   {{contact?.company.companyName}}</h2>
   </div>
-  <div class="freelancer-box" *ngIf="contact?.freelancer">
-    <h2>Freelancer {{contact?.freelancer.relation}}</h2>
+  <div class="freelancer-box" *ngIf="contact?.freelancer.relation">
+    <h2>Freelancer:   {{contact?.freelancer.relation}}</h2>
   </div>
   <li class="button-list">
     <button [routerLink]="['/factuur']">Factuur maken</button>
