@@ -11,11 +11,22 @@ import {QuotationComponent} from './quotation/quotation.component';
 import {QuotationEditComponent} from './quotation/quotation-edit/quotation-edit.component';
 import {QuotationListComponent} from './quotation/quotation-list/quotation-list.component';
 import {QuotationService} from './quotation/quotation.service';
+import {ReportComponent} from './report/report.component';
+import {ReportGeneratorComponent} from './report/report-generator/report-generator.component';
 
 
 @NgModule({
-  declarations: [OverviewComponent, InvoiceComponent, InvoiceEditComponent, InvoiceListComponent, QuotationComponent,
-    QuotationEditComponent, QuotationListComponent],
+  declarations: [
+    OverviewComponent,
+    InvoiceComponent,
+    InvoiceEditComponent,
+    InvoiceListComponent,
+    QuotationComponent,
+    QuotationEditComponent,
+    QuotationListComponent,
+    ReportComponent,
+    ReportGeneratorComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
