@@ -1,0 +1,8 @@
+input, label {
+  display: block;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+}

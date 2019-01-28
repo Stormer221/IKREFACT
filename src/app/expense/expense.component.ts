@@ -3,6 +3,14 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {ExpenseService} from './expense.service';
 import {ExpenseModel} from './expense.model';
 
+/**
+ * The Expense Component.
+ *
+ * Wrapper for the list and buttons.
+ *
+ * @author Sergi Philipsen
+ */
+
 @Component({
   selector: 'app-expense',
   templateUrl: './expense.component.html',
@@ -15,9 +23,6 @@ export class ExpenseComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  getExpense(): void {
   }
 
   toExpenseEdit() {
