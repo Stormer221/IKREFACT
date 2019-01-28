@@ -13,6 +13,8 @@ import {QuotationListComponent} from './quotation/quotation-list/quotation-list.
 import {QuotationService} from './quotation/quotation.service';
 import {ReportComponent} from './report/report.component';
 import {ReportGeneratorComponent} from './report/report-generator/report-generator.component';
+import {ExpenseService} from "../expense/expense.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -30,9 +32,14 @@ import {ReportGeneratorComponent} from './report/report-generator/report-generat
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [InvoiceService, QuotationService],
+  providers: [
+    InvoiceService,
+    QuotationService,
+    ExpenseService
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class OverviewModule {
