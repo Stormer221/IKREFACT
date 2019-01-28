@@ -1,6 +1,13 @@
 <app-card>
   <h1>Offerte</h1>
   <br>
+  <br>
+  <span>
+    <i class="fa fa-search"></i>
+    <input [(ngModel)]="searchTerm" placeholder="Zoeken..." type="text">
+  </span>
+  <br>
+  <br>
   <table>
     <tr>
       <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
@@ -11,7 +18,7 @@
     </tr>
     <tr
 
-      *ngFor="let q of blankRows() | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
+      *ngFor="let q of blankRows() | quotationfilter: searchTerm | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
       <td>{{q.title}}</td>
       <td>{{q.description}}</td>
       <td>{{q.date}}</td>

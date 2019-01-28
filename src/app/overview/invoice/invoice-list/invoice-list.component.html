@@ -1,6 +1,10 @@
 <app-card>
   <h1>Facturen</h1>
   <br>
+  <br>
+  <input [(ngModel)]="searchTerm" id="searchBar" placeholder="Zoeken..." type="text">
+  <br>
+  <br>
   <table>
     <thead>
     <tr>
@@ -18,7 +22,7 @@
       <td>{{invoiceElement.title}}</td>
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>
-      <td>{{invoiceElement.payed}}</td>
+      <td>{{invoiceElement.paid}}</td>
       <td *ngIf="invoiceElement.title != ''; else disabledbutton">
         <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
       </td>

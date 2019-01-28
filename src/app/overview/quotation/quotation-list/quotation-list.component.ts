@@ -11,6 +11,7 @@ export class QuotationListComponent implements OnInit {
 
   quotations: Quotation[] = [];
   quotation: Quotation = new Quotation('', '', '', null, '', null);
+  private searchTerm: string;
   private quotation_page = 1;
   private sort: string;
   private desc: boolean;

@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 
 @Pipe({
-  name: 'offertefilter'
+  name: 'quotationfilter'
 })
 export class QuotationFilterPipe implements PipeTransform {
 

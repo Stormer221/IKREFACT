@@ -17,7 +17,6 @@ import {ContactListComponent} from './contacts/contact-list/contact-list.compone
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {ContactsComponent} from './contacts/contacts.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { FilterPipe } from './contacts/contact-list/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -33,7 +32,6 @@ import { FilterPipe } from './contacts/contact-list/filter.pipe';
     ContactDetailComponent,
     ContactEditComponent,
     ContactDetailComponent,
-    FilterPipe
   ],
   imports: [
     BrowserModule,
