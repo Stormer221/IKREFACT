@@ -1,8 +1,10 @@
 <div class="title">Walbert</div>
 <app-card>
-  <label for="username"> Username:</label>
-  <input type="text" id="username">
-  <label for="password">Password:</label>
-  <input type="password" id="password">
-  <button id="submit" (click)="onSubmit()">Inloggen</button>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+    <label for="username"> Username:</label>
+    <input type="text" id="username" formControlName="username">
+    <label for="password">Password:</label>
+    <input type="password" id="password" formControlName="password">
+    <button id="submit" [disabled]="!loginForm.valid" (click)="onSubmit()">Inloggen</button>
+  </form>
 </app-card>
