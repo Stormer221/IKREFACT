@@ -21,9 +21,9 @@ export class ContactEditComponent implements OnInit {
 
   ngOnInit() {
     this.contactForm = new FormGroup({
-      'firstName': new FormControl(),
+      'firstName': new FormControl('', Validators.required),
       'infix': new FormControl(),
-      'surname': new FormControl(),
+      'surname': new FormControl('', Validators.required),
       'emails': new FormArray([]),
       'addresses': new FormArray([]),
       'phoneNumbers': new FormArray([]),
@@ -93,15 +93,16 @@ export class ContactEditComponent implements OnInit {
   addAddress() {
     (<FormArray>this.contactForm.controls['addresses']).push(
       new FormGroup({
-        'residence': new FormControl(),
-        'street': new FormControl(),
-        'houseNumber': new FormControl(),
+        'residence': new FormControl('', Validators.required),
+        'street': new FormControl('', Validators.required),
+        'houseNumber': new FormControl('', Validators.pattern(/^[1-9+[0-9]*$/)),
         'zipCode': new FormControl(),
         'country': new FormControl(),
         'addressDescription': new FormControl()
       })
     );
   }
+
 
   removeAddress() {
     (<FormArray>this.contactForm.controls['addresses']).removeAt(-1);
@@ -110,7 +111,10 @@ export class ContactEditComponent implements OnInit {
   addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'telephoneNumber': new FormControl(),
+        'telephoneNumber': new FormControl('',   [
+          Validators.required, Validators.min(1000000000),
+          Validators.max(99999999999)
+        ]),
         'phoneNumberDescription': new FormControl()
       })
     );
