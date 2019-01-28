@@ -1,29 +1,33 @@
 <app-card>
-
-  <div class="titlebar">
-    <button routerLink="/contacten"><i class="fa fa-arrow-left"></i></button>
-    <h1>{{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</h1>
-    <button [routerLink]="['factuur']">Factuur maken</button>
-    <button>Offerte maken</button>
-  </div>
-</app-card>
-<app-card>
   <h2>Naam:</h2>
   <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
-  <h2>Adres:</h2>
-  <li> {{contact?.addresses[0].street}} {{contact?.addresses[0].streetNumber}}</li>
-  <h2>Postcode: </h2>
-  <li>{{contact?.addresses[0].zipcode}}</li>
-  <h2>Plaats:</h2>
-  <li>{{contact?.addresses[0].description}}</li>
-  <h2>Telefoonnummer</h2>
-  <li> {{contact?.phonenumbers[0].phonenumber}}</li>
-  <h2>E-mailadres</h2>
-  <li>{{ contact?.emails[0].email}}</li>
+  <div *ngFor="let addressItem of contact?.addresses; let i = index">
+    <h2 *ngIf="contact?.addresses.length == 1">Adres:</h2>
+    <h2 *ngIf="contact?.addresses.length > 1">Adres {{+i+1}}:</h2>
+    <li>{{addressItem.street}} {{addressItem.houseNumber}}</li>
+    <li>{{addressItem.zipcode}} {{addressItem.residence}} {{addressItem.country}}</li>
+    <li>Beschrijving: {{addressItem.addressDescription}}</li>
+  </div>
+  <div *ngFor="let phoneNumberItem of contact?.phoneNumbers; let i = index">
+    <h2 *ngIf="contact?.phoneNumbers.length == 1">Telefoonnummer:</h2>
+    <h2 *ngIf="contact?.phoneNumbers.length > 1">Telefoonnummer {{+i+1}}:</h2>
+    <li> {{phoneNumberItem.telephoneNumber}}    {{phoneNumberItem.phoneNumberDescription}}</li>
+  </div>
+  <div *ngFor="let emailItem of contact?.emails; let i = index">
+    <h2 *ngIf="contact?.emails.length == 1">E-mailadres:</h2>
+    <h2 *ngIf="contact?.emails.length > 1">E-mailadres {{+i+1}}:</h2>
+    <li>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</li>
+  </div>
+  <div class="company-box" *ngIf="contact?.company.companyName">
+    <h2>Bedrijf:   {{contact?.company.companyName}}</h2>
+  </div>
+  <div class="freelancer-box" *ngIf="contact?.freelancer.relation">
+    <h2>Freelancer:   {{contact?.freelancer.relation}}</h2>
+  </div>
   <li class="button-list">
-    <button [routerLink]="['factuur']">Factuur maken</button>
-    <button>Contact Wijzigen</button>
+    <button [routerLink]="['/factuur']">Factuur maken</button>
+    <button (click)="onEditContact()">Contact Wijzigen</button>
     <button (click)="deleteContact()">Contact Verwijderen</button>
-    <button [routerLink]="['offerte']">Offerte maken</button>
+    <button (click)="toOfferte()">Offerte maken</button>
   </li>
 </app-card>
