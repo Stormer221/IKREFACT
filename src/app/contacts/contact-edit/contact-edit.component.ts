@@ -129,12 +129,11 @@ export class ContactEditComponent implements OnInit {
         console.log('add new contact');
         this.contact = new Contact(this.contactForm.value);
         this.contactService.addContact(this.contact).subscribe();
-        this.contactForm.reset();
-        this.toContacts();
+        console.log(this.contact);
+        // this.contactForm.reset();
+        // this.toContacts();
       } else {
         this.contact = new Contact(this.contactForm.value);
-        console.log('edit contact');
-        console.log(this.contact);
         this.contactService.editContact(this.contact).subscribe();
         this.router.navigate(['../'], {relativeTo: this.route});
       }

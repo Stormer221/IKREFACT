@@ -39,6 +39,7 @@ export class ContactDetailComponent implements OnInit {
       .subscribe(
         (contact: Contact) => {
           this.contact = contact;
+          console.log(contact);
         });
     // this.contact = this.contactService.getContact(this.contactID);
   }
@@ -53,6 +54,5 @@ export class ContactDetailComponent implements OnInit {
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
-
   }
 }
