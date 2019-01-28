@@ -16,7 +16,7 @@
       <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
-    <tr
+    <tr class="items"
 
       *ngFor="let q of blankRows() | quotationfilter: searchTerm | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
       <td>{{q.title}}</td>
