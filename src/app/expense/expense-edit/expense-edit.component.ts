@@ -18,9 +18,9 @@ import {CostItemModel} from "../costItem.model";
   styleUrls: ['./expense-edit.component.css']
 })
 export class ExpenseEditComponent implements OnInit {
-  private model: ExpenseModel = new ExpenseModel();
-  private id: number = null;
-  private costItems: CostItemModel[];
+  public model: ExpenseModel = new ExpenseModel();
+  public id: number = null;
+  public costItems: CostItemModel[];
 
   constructor(
     private router: Router,
