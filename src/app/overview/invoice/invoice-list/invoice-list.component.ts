@@ -15,8 +15,6 @@ export class InvoiceListComponent implements OnInit {
 
   ngOnInit() {
     this.invoiceService.getInvoices()
-      .subscribe(result => console.log(result));
-    this.invoiceService.getInvoices()
       .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
   }
 

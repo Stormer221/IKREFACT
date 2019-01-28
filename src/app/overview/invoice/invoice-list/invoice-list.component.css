@@ -1,0 +1,20 @@
+.title {
+  width: 15%;
+}
+
+.description {
+  width: 42%;
+}
+
+.date {
+  width: 13%;
+}
+
+.paid {
+  width: 5%;
+  text-align: center;
+}
+
+.download {
+  width: 20%;
+}
