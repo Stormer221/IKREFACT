@@ -10,6 +10,7 @@ import {AppRoutingModule} from '../app-routing.module';
 import {FormsModule} from '@angular/forms';
 import {ExpenseListItemComponent} from './expense-list/expense-list-item/expense-list-item.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
   imports: [
     CommonModule,
     AppRoutingModule,
+    HttpClientModule,
     FormsModule,
     SharedModule,
     NgxPaginationModule
