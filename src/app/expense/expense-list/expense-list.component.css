@@ -10,7 +10,6 @@ tbody tr, thead tr th {
 
 .pagination /deep/ .ngx-pagination a:hover {
   border-radius: 3px;
-  height: 32px;
 }
 
 /deep/ .ngx-pagination {

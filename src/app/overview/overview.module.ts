@@ -11,17 +11,35 @@ import {QuotationComponent} from './quotation/quotation.component';
 import {QuotationEditComponent} from './quotation/quotation-edit/quotation-edit.component';
 import {QuotationListComponent} from './quotation/quotation-list/quotation-list.component';
 import {QuotationService} from './quotation/quotation.service';
+import {ReportComponent} from './report/report.component';
+import {ReportGeneratorComponent} from './report/report-generator/report-generator.component';
+import {ExpenseService} from "../expense/expense.service";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
-  declarations: [OverviewComponent, InvoiceComponent, InvoiceEditComponent, InvoiceListComponent, QuotationComponent,
-    QuotationEditComponent, QuotationListComponent],
+  declarations: [
+    OverviewComponent,
+    InvoiceComponent,
+    InvoiceEditComponent,
+    InvoiceListComponent,
+    QuotationComponent,
+    QuotationEditComponent,
+    QuotationListComponent,
+    ReportComponent,
+    ReportGeneratorComponent
+  ],
   imports: [
     CommonModule,
     SharedModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [InvoiceService, QuotationService],
+  providers: [
+    InvoiceService,
+    QuotationService,
+    ExpenseService
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class OverviewModule {

@@ -8,6 +8,10 @@ export class AuthService {
   constructor() { }
 
   public getToken() {
-    return btoa('admin:admin');
+    return btoa('Jann:wachtwoord');
+  }
+
+  public setAuth() {
+
   }
 }

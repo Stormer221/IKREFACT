@@ -142,7 +142,12 @@ table tr:not(:last-child) {
   border-bottom: 1px solid #aac1be;
 }
 
-.titlebar, .button-list {
+.titlebar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-list {
   display: flex;
   justify-content: space-around;
 }

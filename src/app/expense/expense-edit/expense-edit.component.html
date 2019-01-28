@@ -7,15 +7,18 @@
     <ul>
       <li>
         <label for="costItem">Kostenpost:</label>
-        <input type="text" id="costItem" required [(ngModel)]="model.costItem" name="costItem">
+        <input list="costItems" id="costItem" name="costItem" required maxlength="50" [(ngModel)]="model.costItem"/>
+        <datalist type="text" id="costItems">
+          <option *ngFor="let costItem of costItems">{{costItem.itemType}}</option>
+        </datalist>
       </li>
       <li>
         <label for="title">Titel:</label>
-        <input type="text" id="title" required [(ngModel)]="model.title" name="title">
+        <input type="text" id="title" required maxlength="50" [(ngModel)]="model.title" name="title">
       </li>
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" required [(ngModel)]="model.description" name="description">
+        <input type="text" id="description" required maxlength="255" [(ngModel)]="model.description" name="description">
       </li>
       <li>
         <label for="date">Datum:</label>
@@ -24,11 +27,11 @@
       </li>
       <li>
         <label for="company">Bedrijf:</label>
-        <input type="text" id="company" required [(ngModel)]="model.company" name="company">
+        <input type="text" id="company" required maxlength="50" [(ngModel)]="model.company" name="company">
       </li>
       <li>
         <label for="amount"> Prijs:</label>
-        <input type="text" id="amount" required [(ngModel)]="model.amount" name="amount">
+        <input type="number" id="amount" required [(ngModel)]="model.amount" name="amount">
       </li>
       <li class="button-list">
         <button class="btn success" [disabled]="!expenseForm.valid"><i class="fa fa-save"></i> Opslaan</button>

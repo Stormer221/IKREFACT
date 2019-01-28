@@ -1,5 +1,5 @@
 /**
- * The ExpenseModel model.
+ * The Expense Model.
  *
  * @author Sergi Philipsen.
  */
