@@ -2,6 +2,14 @@ import {Component, OnInit} from '@angular/core';
 import {ExpenseModel} from '../expense.model';
 import {ExpenseService} from '../expense.service';
 
+/**
+ * The Expense List Component.
+ *
+ * Makes request for Expenses and passes that to Expense List Item Component.
+ *
+ * @author Sergi Philipsen
+ */
+
 @Component({
   selector: 'app-expense-list',
   templateUrl: './expense-list.component.html',

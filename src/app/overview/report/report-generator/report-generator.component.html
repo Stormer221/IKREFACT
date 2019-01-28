@@ -1,0 +1,19 @@
+<app-card>
+  <h1>Genereer Rapport</h1>
+  <hr/>
+  <form #generateForm="ngForm" (ngSubmit)="submitGenerateForm(generateForm.form)">
+    <div>
+      <label for="startDate">Startdatum</label><input [(ngModel)]="startDate" id="startDate" name="startDate" required
+                                                      type="date">
+    </div>
+    <div>
+      <label for="endDate">Einddatum</label><input [(ngModel)]="endDate" id="endDate" name="endDate" required
+                                                   type="date">
+    </div>
+    <div>
+      <label for="costItem">Kostenpost</label><input [(ngModel)]="costItem" id="costItem" name="costItem" required
+                                                     type="text">
+    </div>
+    <button [disabled]="!generateForm.valid" class="btn">Genereer Rapport</button>
+  </form>
+</app-card>
