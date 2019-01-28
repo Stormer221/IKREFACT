@@ -1,34 +1,18 @@
 import {Injectable} from '@angular/core';
-import {Quotation} from './quotation-edit/quotation.model';
+import {Quotation} from './quotation.model';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class QuotationService {
-  private quotations: Quotation[] = [
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '1!', 1),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '2!', 2),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '3!', 3),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '4!', 4),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '5!', 5),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '6!', 6),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '7!', 7),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '8!', 8),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '9!', 9),
-    new Quotation('Dit is een description', '1998-4-4', '1998-4-4',
-      10.50, '10!', 10),
-  ];
+  quotationURL = 'walbert/quotations';
+
+  constructor(private http: HttpClient) {
+  }
 
 
-  getQuotations() {
-    return this.quotations;
+  getQuotation(): Observable<Quotation[]> {
+    return this.http.get<Quotation[]>(this.quotationURL);
   }
 
 }

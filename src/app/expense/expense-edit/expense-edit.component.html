@@ -1,6 +1,6 @@
 <app-card>
   <h1 *ngIf="model.title; else new_expense">{{model.title}}</h1>
-  <ng-template #new_expense><h1>Nieuwe kosten</h1></ng-template>
+  <ng-template #new_expense><h1>Nieuwe Kosten</h1></ng-template>
 </app-card>
 <app-card>
   <form #expenseForm="ngForm" (ngSubmit)="submitExpense(expenseForm.form)">

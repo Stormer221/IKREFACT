@@ -1,0 +1,91 @@
+tbody tr, thead tr th {
+  cursor: pointer;
+}
+
+.pagination /deep/ .ngx-pagination .current {
+  background-color: #018284;
+  border-radius: 3px;
+  border-bottom: 3px solid #016b6d;
+}
+
+/deep/ .ngx-pagination {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+}
+
+/deep/ .ngx-pagination .pagination-next a, /deep/ .ngx-pagination .pagination-previous a {
+  background-color: #018284;
+  border: none;
+  border-bottom: 3px solid #016b6d;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 0 1px 2px #d2d2d2;
+  transition: all 0.3s;
+}
+
+/deep/ .ngx-pagination .pagination-next a:hover, /deep/ .ngx-pagination .pagination-previous a:hover {
+  background-color: #016b6d;
+  border-color: #185b5b;
+}
+
+/deep/ .ngx-pagination .pagination-next a:active, /deep/ .ngx-pagination .pagination-previous a:active {
+  background-color: #185b5b;
+  transition: all 0s;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+/deep/ .ngx-pagination .pagination-next.disabled, /deep/ .ngx-pagination .pagination-previous.disabled {
+  background-color: #bac1b8;
+  border: none;
+  border-bottom: 3px solid #a2a8a0;
+  border-radius: 3px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  box-shadow: 0 1px 2px #d2d2d2;
+}
+
+/deep/ .ngx-pagination .pagination-previous.disabled:hover, /deep/ .ngx-pagination .pagination-next.disabled:hover {
+  background: #bac1b8;
+}
+
+td {
+  height: 70px;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap
+}
+
+th {
+  width: 100px;
+}
+
+table {
+  table-layout: fixed;
+}
+
+input {
+  width: 720px;
+  border-bottom-left-radius: 0%;
+  border-top-left-radius: 0%;
+}
+
+.fa-search {
+  background-color: lightgray;
+  padding: 0.38em 0.75em 0.6em;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+.items:hover {
+  background: lightgray;
+}

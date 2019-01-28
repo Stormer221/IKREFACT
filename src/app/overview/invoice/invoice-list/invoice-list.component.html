@@ -1,21 +1,40 @@
 <app-card>
   <h1>Facturen</h1>
-  <hr>
+  <br>
+  <br>
+  <span>
+    <i class="fa fa-search"></i>
+    <input [(ngModel)]="searchTerm" placeholder="Zoeken..." type="text">
+  </span>
+  <br>
+  <br>
   <table>
+    <thead>
     <tr>
-      <th class="title">Titel</th>
-      <th class="description">Omschrijving</th>
-      <th class="date">Datum</th>
-      <th class="paid">Betaald</th>
-      <th class="download">Download</th>
+      <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <th (click)="sortBy('paid')">Betaald <span *ngIf="this.sort == 'paid'; then arrow"></span></th>
+      <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
+      <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
+      <th>Download</th>
     </tr>
-    <tr
-      *ngFor="let invoiceElement of invoices">
-      <td class="title">{{invoiceElement.title}}</td>
-      <td class="description">{{invoiceElement.description}}</td>
-      <td class="date">{{invoiceElement.date | date:'dd-MM-yyyy'}}</td>
-      <td class="paid">{{true == invoiceElement.paid ? '&#10004;' : '&#10006;'}}</td>
-      <td class="download"><button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button></td>
+    </thead>
+    <tr class="items"
+        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+      <td>{{invoiceElement.title}}</td>
+      <td>{{invoiceElement.description}}</td>
+      <td>{{invoiceElement.date}}</td>
+      <td>{{invoiceElement.paid}}</td>
+      <td *ngIf="invoiceElement.title != ''; else disabledbutton">
+        <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
+      </td>
+      <ng-template #disabledbutton>
+        <td>
+          <button disabled>Download PDF</button>
+      </ng-template>
     </tr>
   </table>
+  <pagination-controls id="invoice" (pageChange)="page = $event" autoHide="true"
+                       class="pagination"></pagination-controls>
 </app-card>

@@ -21,7 +21,9 @@
   <h2>E-mailadres</h2>
   <li>{{ contact?.emails[0].email}}</li>
   <li class="button-list">
-    <button><i class="fa fa-edit"></i> Wijzigen</button>
-    <button class="btn danger" (click)="deleteContact()"><i class="fa fa-trash"></i> Verwijderen</button>
+    <button [routerLink]="['factuur']">Factuur maken</button>
+    <button>Contact Wijzigen</button>
+    <button (click)="deleteContact()">Contact Verwijderen</button>
+    <button [routerLink]="['offerte']">Offerte maken</button>
   </li>
 </app-card>
