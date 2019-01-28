@@ -57,7 +57,7 @@ tbody tr, thead tr th {
   background: #bac1b8;
 }
 
-td{
+td {
   height: 70px;
   max-width: 80px;
   overflow: hidden;
@@ -65,10 +65,27 @@ td{
   white-space: nowrap
 }
 
-th{
+th {
   width: 100px;
 }
 
-table{
+table {
   table-layout: fixed;
+}
+
+input {
+  width: 720px;
+  border-bottom-left-radius: 0%;
+  border-top-left-radius: 0%;
+}
+
+.fa-search {
+  background-color: lightgray;
+  padding: 0.38em 0.75em 0.6em;
+  border-bottom-left-radius: 5%;
+  border-top-left-radius: 5%;
+}
+
+.items:hover {
+  background: lightgray;
 }

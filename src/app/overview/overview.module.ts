@@ -13,11 +13,12 @@ import {QuotationListComponent} from './quotation/quotation-list/quotation-list.
 import {QuotationService} from './quotation/quotation.service';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {QuotationFilterPipe} from './quotation/quotationfilter.pipe';
+import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
 
 
 @NgModule({
   declarations: [OverviewComponent, InvoiceComponent, InvoiceEditComponent, InvoiceListComponent, QuotationComponent,
-    QuotationEditComponent, QuotationListComponent, QuotationFilterPipe],
+    QuotationEditComponent, QuotationListComponent, QuotationFilterPipe, InvoiceFilterPipe],
   imports: [
     CommonModule,
     SharedModule,

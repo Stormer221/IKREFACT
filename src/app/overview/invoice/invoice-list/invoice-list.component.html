@@ -2,7 +2,10 @@
   <h1>Facturen</h1>
   <br>
   <br>
-  <input [(ngModel)]="searchTerm" id="searchBar" placeholder="Zoeken..." type="text">
+  <span>
+    <i class="fa fa-search"></i>
+    <input [(ngModel)]="searchTerm" placeholder="Zoeken..." type="text">
+  </span>
   <br>
   <br>
   <table>
@@ -17,8 +20,8 @@
       <th>Download</th>
     </tr>
     </thead>
-    <tr
-      *ngFor="let invoiceElement of blankRows() | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+    <tr class="items"
+        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
       <td>{{invoiceElement.title}}</td>
       <td>{{invoiceElement.description}}</td>
       <td>{{invoiceElement.date}}</td>
@@ -28,7 +31,7 @@
       </td>
       <ng-template #disabledbutton>
         <td>
-        <button disabled>Download PDF</button>
+          <button disabled>Download PDF</button>
       </ng-template>
     </tr>
   </table>
