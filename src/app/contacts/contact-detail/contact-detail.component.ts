@@ -53,8 +53,6 @@ export class ContactDetailComponent implements OnInit {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
 
-
-
   toQuotation() {
     this.router.navigate(['offerte'], {relativeTo: this.route});
   }
