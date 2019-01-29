@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Quotation} from '../quotation.model';
 import {QuotationService} from '../quotation.service';
-import {Router} from "@angular/router";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quotation-list',
@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class QuotationListComponent implements OnInit {
   public quotations: Quotation[] = [];
-  public quotation: Quotation = new Quotation('', '', '', null, '', null);
+  public quotation: Quotation = new Quotation();
   public searchTerm: string;
   public quotation_page = 1;
   public sort: string;

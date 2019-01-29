@@ -72,7 +72,7 @@ td {
 
 th {
   width: 100px;
-  cursor: default;
+  cursor: pointer;
 }
 
 table {
