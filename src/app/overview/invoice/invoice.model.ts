@@ -9,7 +9,7 @@ export class InvoiceModel {
   public invoiceID: number;
 
 
-  constructor(title: string = '', date: string = '', deliveryDate: string = '', price: number = 0, paid: boolean = false,
+  constructor(title: string = '', date: string = '', deliveryDate: string = '', price: number = 0, paid: boolean = null,
               payDate: string = '', description: string = '', invoiceID: number = null) {
     this.title = title;
     this.date = date;
