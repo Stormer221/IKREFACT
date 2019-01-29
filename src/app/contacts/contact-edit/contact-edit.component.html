@@ -27,7 +27,7 @@
           class="pull right"></li>
       <br>
       <div class="form-group" formArrayName="addresses"
-           *ngFor="let addressItem of contactForm.controls['addresses'].controls; let i = index">
+           *ngFor="let addressItem of formDataAddresses.controls; let i = index">
         <div class="address-box" formGroupName="{{i}}">
           <li>
             <label for="street">Straat:</label>
@@ -75,14 +75,14 @@
         </div>
       </div>
       <br>
-      <button type="button" (click)="addAddress()" *ngIf="contactForm.controls['addresses'].controls.length < 3">Add
+      <button type="button" (click)="addAddress()" *ngIf="formDataAddresses.controls < 3">Add
         Next
       </button>
       <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">
         Remove last
       </button>
       <div class="form-group" formArrayName="phoneNumbers"
-           *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
+           *ngFor="let phoneNumberItem of formDataPhoneNumbers.controls; let i = index">
         <div class="phoneNumber-box" formGroupName="{{i}}">
           <br>
           <li>
@@ -110,7 +110,7 @@
               *ngIf="contactForm.controls['phoneNumbers'].controls.length > 1">Remove last
       </button>
       <div class="form-group" formArrayName="emails"
-           *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
+           *ngFor="let emailItem of formDataEmails.controls; let i = index">
         <div class="email-box" formGroupName="{{i}}">
           <br>
           <li>
