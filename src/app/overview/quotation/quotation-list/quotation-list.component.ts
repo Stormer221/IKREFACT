@@ -27,8 +27,6 @@ export class QuotationListComponent implements OnInit {
 
   ngOnInit() {
     this.quotationService.getQuotation()
-      .subscribe(result => console.log(result));
-    this.quotationService.getQuotation()
       .subscribe((quotations: Quotation[]) =>
         this.quotations = quotations);
   }

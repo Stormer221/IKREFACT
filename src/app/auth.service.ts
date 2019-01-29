@@ -8,10 +8,9 @@ export class AuthService {
   constructor() { }
 
   public getToken() {
-    return btoa('Guest:Password');
+    return btoa('guest:password');
   }
 
   public setAuth() {
-
   }
 }
