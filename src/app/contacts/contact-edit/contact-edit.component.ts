@@ -73,6 +73,14 @@ export class ContactEditComponent implements OnInit {
             (<FormArray>this.contactForm.controls['emails']).at(+index).patchValue(
               this.contact.emails[index]);
           }
+          if (this.contact.company.companyName) {
+            this.contactForm.controls['cfOption'].setValue('Bedrijf');
+            this.contactForm.controls['cfDescription'].setValue(this.contact.company.companyName);
+          }
+          if (this.contact.freelancer.relation) {
+            this.contactForm.controls['cfOption'].setValue('Freelancer');
+            this.contactForm.controls['cfDescription'].setValue(this.contact.freelancer.relation);
+          }
         }
       );
   }
@@ -129,10 +137,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submit form');
-    console.log(this.contactForm);
     if ( this.contactForm.valid ) {
-
       if (!this.contact) {
         console.log('add new contact');
         this.contact = new Contact(this.contactForm.value);
@@ -143,6 +148,8 @@ export class ContactEditComponent implements OnInit {
         console.log('edit Contact');
         this.contact = new Contact(this.contactForm.value);
         this.contact.contactID = this.id;
+        console.log(this.contactForm);
+        console.log(this.contact);
         this.contactService.editContact(this.contact).subscribe();
         this.router.navigate(['../'], {relativeTo: this.route});
       }
