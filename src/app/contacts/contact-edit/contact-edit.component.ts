@@ -47,7 +47,7 @@ export class ContactEditComponent implements OnInit {
       .subscribe(
         (contact: Contact) => {
           this.contact = contact;
-          this.id = contact.contactID
+          this.id = contact.contactID;
           this.contactForm.controls['firstName'].setValue(this.contact.firstName);
           this.contactForm.controls['infix'].setValue(this.contact.infix);
           this.contactForm.controls['surname'].setValue(this.contact.surname);
@@ -112,8 +112,8 @@ export class ContactEditComponent implements OnInit {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
         'telephoneNumber': new FormControl('',   [
-          Validators.required, Validators.min(1000000000),
-          Validators.max(99999999999)
+          Validators.required, Validators.minLength(9),
+          Validators.maxLength(11)
         ]),
         'phoneNumberDescription': new FormControl()
       })
@@ -129,7 +129,10 @@ export class ContactEditComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('submit form');
+    console.log(this.contactForm);
     if ( this.contactForm.valid ) {
+
       if (!this.contact) {
         console.log('add new contact');
         this.contact = new Contact(this.contactForm.value);
@@ -141,7 +144,6 @@ export class ContactEditComponent implements OnInit {
         this.contact = new Contact(this.contactForm.value);
         this.contact.contactID = this.id;
         this.contactService.editContact(this.contact).subscribe();
-        console.log(this.contact);
         this.router.navigate(['../'], {relativeTo: this.route});
       }
     }
