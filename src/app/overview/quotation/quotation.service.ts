@@ -15,5 +15,14 @@ export class QuotationService {
     return this.http.get<Quotation[]>(this.quotationURL);
   }
 
+  getQuotationById(id: number): Observable<Quotation> {
+    return this.http.get<Quotation>(this.quotationURL + '/' + id);
+  }
+
+  deleteQuotation(id: number): Observable<{}> {
+    // @ts-ignore
+    return this.http.delete<Quotation>(this.quotationURL + '/' + id, {responseType: 'text'});
+  }
+
 }
 
