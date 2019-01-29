@@ -1,5 +1,5 @@
 export class EmailModel {
-  public email: string;
-  public emailDescription: string;
+  emailAddress: string;
+  emailDescription: string;
 
 }

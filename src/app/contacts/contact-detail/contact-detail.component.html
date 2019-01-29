@@ -1,13 +1,4 @@
 <app-card>
-
-  <div class="titlebar">
-    <button routerLink="/contacten"><i class="fa fa-arrow-left"></i></button>
-    <h1>{{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</h1>
-    <button [routerLink]="['factuur']">Factuur maken</button>
-    <button>Offerte maken</button>
-  </div>
-</app-card>
-<app-card>
   <h2>Naam:</h2>
   <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
   <div *ngFor="let addressItem of contact?.addresses; let i = index">

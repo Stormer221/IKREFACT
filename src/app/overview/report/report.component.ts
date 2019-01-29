@@ -39,9 +39,9 @@ export class ReportComponent implements OnInit {
     this.expenseService.getExpense()
       .subscribe(result => {
         this.expenses = result.filter(expense =>
-          (expense.date >= this.startDate && expense.date <= this.endDate && expense.costItem == this.costItem) ? 1 : 0);
+          (expense.date >= this.startDate && expense.date <= this.endDate && expense.costItem == this.costItem) ? 1 : 0)
+          .sort((a, b) => (a['date'] < b['date']) ? 1 : ((b['date'] < a['date']) ? -1 : 0));
         this.expenses.forEach((expense: ExpenseModel) => this.total += expense.amount);
-        console.log(this.total)
       });
   }
 }
