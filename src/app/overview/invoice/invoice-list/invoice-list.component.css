@@ -1,5 +1,9 @@
-tbody tr, thead tr th {
+.pointer {
   cursor: pointer;
+}
+
+.cursor {
+  cursor: default;
 }
 
 .pagination /deep/ .ngx-pagination .current {
@@ -109,4 +113,12 @@ input {
 
 .download {
   width: 20%;
+}
+
+.downloadrow{
+  cursor: default;
+}
+
+.downloadbtn{
+  cursor: pointer;
 }
