@@ -89,3 +89,24 @@ input {
 .items:hover {
   background: lightgray;
 }
+
+.title {
+  width: 15%;
+}
+
+.description {
+  width: 36%;
+}
+
+.date {
+  width: 13%;
+}
+
+.paid {
+  width: 12%;
+  text-align: center;
+}
+
+.download {
+  width: 20%;
+}

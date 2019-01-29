@@ -34,7 +34,7 @@ import {ContactService} from './contacts/contact.service';
     ContactDetailComponent,
     ContactEditComponent,
     ContactDetailComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

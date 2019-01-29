@@ -1,0 +1,13 @@
+<app-card>
+  <div class="titlebar">
+    <h1>{{quotation?.title}}</h1>
+    <button (click)="toOverview()"><i class="fa fa-arrow-left"></i></button>
+  </div>
+</app-card>
+<app-card>
+  <div class="button-list">
+    <button class="btn danger" (click)="deleteQuotations()"><i class="fa fa-trash"></i> Verwijder</button>
+    <button class="btn" (click)="modifyQuotations()"><i class="fa fa-edit"></i> Wijzig
+    </button>
+  </div>
+</app-card>

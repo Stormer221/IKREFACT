@@ -13,7 +13,6 @@ export class Quotation {
     this.price = price;
     this.title = title;
     this.quotationID = quotationID;
-
   }
 
 }

@@ -10,21 +10,16 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
   providers: [ContactService]
 })
 export class ContactDetailComponent implements OnInit {
-  contact: Contact;
-  contactID: number;
-  email: string[];
+  public contact: Contact;
+  public contactID: number;
+  public email: string[];
 
 
   constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     this.contactID = +params['contactID'];
-    //     this.contact = this.contactService.getContact(this.contactID);
-    //   }
-    // );
+
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -39,10 +34,7 @@ export class ContactDetailComponent implements OnInit {
       .subscribe(
         (contact: Contact) => {
           this.contact = contact;
-          console.log('contact details');
-          console.log(contact);
         });
-    // this.contact = this.contactService.getContact(this.contactID);
   }
 
   deleteContact() {
@@ -68,6 +60,4 @@ export class ContactDetailComponent implements OnInit {
   toQuotation() {
     this.router.navigate(['/offerte']);
   }
-
-
 }
