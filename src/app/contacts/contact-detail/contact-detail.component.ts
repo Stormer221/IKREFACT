@@ -53,11 +53,9 @@ export class ContactDetailComponent implements OnInit {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
 
-  toFactuur() {
-    this.router.navigate(['/factuur']);
-  }
+
 
   toQuotation() {
-    this.router.navigate(['/offerte']);
+    this.router.navigate(['offerte'], {relativeTo: this.route});
   }
 }
