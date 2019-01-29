@@ -5,9 +5,10 @@ import {Observable, pipe} from 'rxjs';
 
 @Injectable()
 export class ContactService {
-  contactsUrl = 'walbert/contacts';
-
   private contactsUrl = 'walbert/contacts';
+
+  constructor(private http: HttpClient) {
+  }
 
   deleteContact(contactID: number): Observable<{}> {
     return this.http.delete<Contact>('walbert/contacts/' + contactID);
