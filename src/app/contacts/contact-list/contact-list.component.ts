@@ -9,19 +9,10 @@ import {ContactService} from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[];
-  filteredContacts: Contact[];
 
   private contact: Contact;
   private searchTerm: string;
 
-  getSearchTerm() {
-    return this.searchTerm;
-  }
-
-  setSearchTerm(value: string) {
-    this.searchTerm = value;
-    this.filteredContacts = this.filterContacts(value);
-  }
 
   constructor(private contactService: ContactService) {
   }
@@ -33,16 +24,6 @@ export class ContactListComponent implements OnInit {
     if (this.contact) {
       this.contactService.deleteContact(this.contact.contactID).subscribe();
       this.contactService.addContact(this.contact).subscribe(contact => this.contacts.push(contact));
-      this.filteredContacts = this.contacts;
     }
-
-
   }
-
-  private filterContacts(searchString: string) {
-    return this.contacts.filter(contact =>
-      contact.firstName.toLowerCase().indexOf(searchString));
-  }
-
-
 }
