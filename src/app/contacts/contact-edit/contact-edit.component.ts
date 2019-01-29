@@ -119,7 +119,7 @@ export class ContactEditComponent implements OnInit {
   addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'telephoneNumber': new FormControl('',   [
+        'telephoneNumber': new FormControl('', [
           Validators.required, Validators.minLength(9),
           Validators.maxLength(11)
         ]),
@@ -136,12 +136,20 @@ export class ContactEditComponent implements OnInit {
     this.router.navigate(['/contacten']);
   }
 
-  get formDataAddresses() { return <FormArray>this.contactForm.get('addresses'); }
-  get formDataPhoneNumbers() { return <FormArray>this.contactForm.get('phoneNumbers'); }
-  get formDataEmails() { return <FormArray>this.contactForm.get('emails'); }
+  get formDataAddresses() {
+    return <FormArray>this.contactForm.get('addresses');
+  }
+
+  get formDataPhoneNumbers() {
+    return <FormArray>this.contactForm.get('phoneNumbers');
+  }
+
+  get formDataEmails() {
+    return <FormArray>this.contactForm.get('emails');
+  }
 
   onSubmit() {
-    if ( this.contactForm.valid ) {
+    if (this.contactForm.valid) {
       if (!this.contact) {
         console.log('add new contact');
         this.contact = new Contact(this.contactForm.value);

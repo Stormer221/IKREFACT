@@ -36,5 +36,8 @@ export class QuotationService {
     });
   }
 
+  public addQuotation(quotation: Quotation) {
+    return this.http.post(this.quotationURL, quotation);
+  }
 }
 
