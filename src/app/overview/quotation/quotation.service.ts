@@ -42,5 +42,8 @@ export class QuotationService {
     return this.http.put<ExpenseModel>(this.quotationURL, quotation, {responseType: 'text'});
 
   }
+  public addQuotation(quotation: Quotation) {
+    return this.http.post(this.quotationURL, quotation);
+  }
 }
 
