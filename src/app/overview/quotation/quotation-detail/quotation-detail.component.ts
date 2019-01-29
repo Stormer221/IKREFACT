@@ -39,7 +39,8 @@ export class QuotationDetailComponent implements OnInit {
 
 
   modifyQuotations() {
-
+    this.quotationService.putQuotation(this.quotation).subscribe();
+    this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
 
   deleteQuotations() {

@@ -71,6 +71,7 @@ td {
 
 th {
   width: 100px;
+  cursor: pointer;
 }
 
 table {

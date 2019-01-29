@@ -119,7 +119,7 @@ export class ContactEditComponent implements OnInit {
   addPhoneNumber() {
     (<FormArray>this.contactForm.controls['phoneNumbers']).push(
       new FormGroup({
-        'telephoneNumber': new FormControl('',   [
+        'telephoneNumber': new FormControl('', [
           Validators.required, Validators.minLength(9),
           Validators.maxLength(11)
         ]),
@@ -137,7 +137,7 @@ export class ContactEditComponent implements OnInit {
   }
 
   onSubmit() {
-    if ( this.contactForm.valid ) {
+    if (this.contactForm.valid) {
       if (!this.contact) {
         console.log('add new contact');
         this.contact = new Contact(this.contactForm.value);
