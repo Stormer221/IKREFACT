@@ -75,10 +75,9 @@
         </div>
       </div>
       <br>
-      <button type="button" (click)="addAddress()" *ngIf="formDataAddresses.controls < 3">Add
-        Next
+      <button type="button" (click)="addAddress()" *ngIf="formDataAddresses.length < 3">Add Next
       </button>
-      <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">
+      <button type="button" (click)="removeAddress()"  *ngIf="formDataAddresses.length > 1">
         Remove last
       </button>
       <div class="form-group" formArrayName="phoneNumbers"
@@ -103,11 +102,11 @@
       </div>
       <br>
       <br>
-      <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length < 3">
+      <button type="button" (click)="addPhoneNumber()" *ngIf="formDataPhoneNumbers.length < 3">
         Add Next
       </button>
       <button type="button" (click)="removePhoneNumber()"
-              *ngIf="contactForm.controls['phoneNumbers'].controls.length > 1">Remove last
+              *ngIf="formDataPhoneNumbers.length > 1">Remove last
       </button>
       <div class="form-group" formArrayName="emails"
            *ngFor="let emailItem of formDataEmails.controls; let i = index">
@@ -131,9 +130,9 @@
       </div>
       <br>
       <br>
-      <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next
+      <button type="button" (click)="addEmail()" *ngIf="formDataEmails.length < 3">Add Next
       </button>
-      <button type="button" (click)="removeEmail()" *ngIf="contactForm.controls['emails'].controls.length > 1">Remove
+      <button type="button" (click)="removeEmail()" *ngIf="formDataEmails.length > 1">Remove
         last
       </button>
       <br>
