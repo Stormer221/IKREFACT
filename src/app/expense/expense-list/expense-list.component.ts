@@ -16,11 +16,11 @@ import {ExpenseService} from '../expense.service';
   styleUrls: ['./expense-list.component.css']
 })
 export class ExpenseListComponent implements OnInit {
-  private expenses: ExpenseModel[] = [];
-  private empty_expense: ExpenseModel = new ExpenseModel('', '', '', null, null, '', null);
-  private page = 1;
-  private sort: string;
-  private desc: boolean;
+  public expenses: ExpenseModel[] = [];
+  public page = 1;
+  public sort: string;
+  public desc: boolean;
+  private empty_expense: ExpenseModel = new ExpenseModel();
   private rest: number;
   private i = 0;
   private j = 0;

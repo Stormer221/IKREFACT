@@ -16,15 +16,13 @@
       <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
     </tr>
-    <tr class="items"
-
-      *ngFor="let q of blankRows() | quotationfilter: searchTerm | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
-      <td>{{q.title}}</td>
-      <td>{{q.description}}</td>
-      <td>{{q.date}}</td>
+    <tr class="items" *ngFor="let q of blankRows() | quotationfilter: searchTerm | paginate: {
+      itemsPerPage: 5, id: 'quotation', currentPage: quotation_page
+      }" (click)="goToQuotationDetails(q?.quotationID)">
+      <td>{{q?.title}}</td>
+      <td>{{q?.description}}</td>
+      <td>{{q?.date}}</td>
     </tr>
-
-
   </table>
   <div class="quotation-pagination">
     <pagination-controls id="quotation" (pageChange)="quotation_page = $event" autoHide="true"

@@ -8,10 +8,9 @@ import {ContactService} from '../contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
-  contacts: Contact[];
-
-  private contact: Contact;
-  private searchTerm: string;
+  public contacts: Contact[];
+  public contact: Contact;
+  public searchTerm: string;
 
 
   constructor(private contactService: ContactService) {
@@ -19,7 +18,8 @@ export class ContactListComponent implements OnInit {
 
   ngOnInit() {
     this.contactService.getReq()
-      .subscribe((contact: Contact[]) => this.contacts = contact);
+      .subscribe((contact: Contact[]) => this.contacts = contact.sort((a, b) => (
+        a['surname'] > b['surname']) ? 1 : ((b['surname'] > a['surname']) ? -1 : 0)));
 
     if (this.contact) {
       this.contactService.deleteContact(this.contact.contactID).subscribe();

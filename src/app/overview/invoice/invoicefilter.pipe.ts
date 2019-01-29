@@ -5,8 +5,6 @@ import {Pipe, PipeTransform} from '@angular/core';
   name: 'invoicefilter'
 })
 export class InvoiceFilterPipe implements PipeTransform {
-
-
   transform(item: any, searchTerm: string): any {
     if (!item || !searchTerm) {
       return item;

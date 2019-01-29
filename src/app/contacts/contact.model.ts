@@ -19,10 +19,12 @@ export class Contact {
     
   public constructor(init?: Partial<Contact>) {
     Object.assign(this, init);
-    if (init.cfOption === 'bedrijf') {
+    if (init.cfOption === 'Bedrijf') {
+      this.freelancer = null;
       this.company = new CompanyModel(this.cfDescription);
     }
-    if (init.cfOption === 'freelancer') {
+    if (init.cfOption === 'Freelancer') {
+      this.company = null;
       this.freelancer = new FreelancerModel(this.cfDescription);
     }
   }
