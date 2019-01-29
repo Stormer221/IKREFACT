@@ -1,6 +1,6 @@
 <div class="title">Walbert</div>
 <app-card>
-  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm.form)">
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
     <label for="username"> Username:</label>
     <input type="text" id="username" [(ngModel)]="user.username" name="username">
     <label for="password">Password:</label>

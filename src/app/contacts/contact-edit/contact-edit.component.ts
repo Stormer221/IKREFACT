@@ -16,7 +16,7 @@ export class ContactEditComponent implements OnInit {
   contactForm: FormGroup;
   companyFreelancerOptions = ['Bedrijf', 'Freelancer'];
 
-  constructor(private fb: FormBuilder, private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
+  constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
