@@ -43,3 +43,11 @@ nav ul li a {
   text-decoration: none;
   color: white;
 }
+
+nav ul li.logout-btn {
+  float: right;
+}
+
+nav ul li.logout-btn a {
+  color: rgba(255,255,255,0.5);
+}

@@ -23,8 +23,6 @@ export class ContactDetailComponent implements OnInit {
     this.route.params
       .subscribe(
         (params: Params) => {
-          this.contact = this.route.snapshot.data.params;
-          console.log(params);
           this.getContact(params);
         }
       );
@@ -36,7 +34,6 @@ export class ContactDetailComponent implements OnInit {
       .subscribe(
         (contact: Contact) => {
           this.contact = contact;
-          console.log(contact);
         });
   }
 
@@ -54,7 +51,6 @@ export class ContactDetailComponent implements OnInit {
 
   onEditContact() {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
-
   }
 
   toFactuur() {

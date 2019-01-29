@@ -17,13 +17,20 @@
 </div>
 
 <app-card>
-  <h1>Inkomsten</h1>
-  <h1 class="pull right">&euro; 1.337,00</h1>
-</app-card>
-
-<app-card>
+  <div>
+    <h1>Inkomsten</h1>
+    <h1 class="pull right income">&euro; {{totalIncome | number}}</h1>
+  </div>
+  <div>
   <h1>Uitgaven</h1>
-  <h1 class="pull right expense">&euro; -420,00</h1>
+    <h1 class="pull right expense">&euro; -{{totalExpense | number}}</h1>
+  </div>
+  <hr/>
+  <div>
+    <h1>Winst</h1>
+    <h1 [className]="'pull right ' + (totalIncome - totalExpense >= 0 ? 'income' : 'expense')">
+      &euro; {{(totalIncome - totalExpense) | number}}</h1>
+  </div>
 </app-card>
 
 <app-card>
@@ -32,41 +39,20 @@
   </h1>
   <table>
     <tr>
-      <th>Entry Header 1</th>
-      <th>Entry Header 2</th>
-      <th>Entry Header 3</th>
-      <th>Entry Header 4</th>
+      <th>Titel</th>
+      <th>Omschrijving</th>
+      <th>Datum</th>
+      <th>Leverdatum</th>
+      <th>Prijs</th>
     </tr>
-    <tr>
-      <td>Entry First Line 1</td>
-      <td>Entry First Line 2</td>
-      <td>Entry First Line 3</td>
-      <td>Entry First Line 4</td>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{invoice?.title}}</td>
+      <td>{{invoice?.description}}</td>
+      <td>{{invoice?.date}}</td>
+      <td>{{invoice?.deliveryDate}}</td>
+      <td>&euro; {{invoice?.price}}</td>
     </tr>
-    <tr>
-      <td>Entry Line 1</td>
-      <td>Entry Line 2</td>
-      <td>Entry Line 3</td>
-      <td>Entry Line 4</td>
-    </tr>
-    <tr>
-      <td>Entry Line 1</td>
-      <td>Entry Line 2</td>
-      <td>Entry Line 3</td>
-      <td>Entry Line 4</td>
-    </tr>
-    <tr>
-      <td>Entry Line 1</td>
-      <td>Entry Line 2</td>
-      <td>Entry Line 3</td>
-      <td>Entry Line 4</td>
-    </tr>
-    <tr>
-      <td>Entry Last Line 1</td>
-      <td>Entry Last Line 2</td>
-      <td>Entry Last Line 3</td>
-      <td>Entry Last Line 4</td>
-    </tr>
+
   </table>
 
 </app-card>

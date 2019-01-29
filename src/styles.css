@@ -135,7 +135,6 @@ table {
 
 table td, table th {
   padding: 0.5em;
-  text-align: left;
 }
 
 table tr:not(:last-child) {

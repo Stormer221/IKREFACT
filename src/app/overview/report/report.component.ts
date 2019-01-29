@@ -18,9 +18,9 @@ import {ExpenseModel} from "../../expense/expense.model";
 export class ReportComponent implements OnInit {
   public expenses: ExpenseModule[];
   public total: number = 0;
-  private startDate: Date;
-  private endDate: Date;
-  private costItem: string;
+  public startDate: Date;
+  public endDate: Date;
+  public costItem: string;
 
   constructor(
     private expenseService: ExpenseService,
@@ -39,9 +39,9 @@ export class ReportComponent implements OnInit {
     this.expenseService.getExpense()
       .subscribe(result => {
         this.expenses = result.filter(expense =>
-          (expense.date >= this.startDate && expense.date <= this.endDate && expense.costItem == this.costItem) ? 1 : 0);
+          (expense.date >= this.startDate && expense.date <= this.endDate && expense.costItem == this.costItem) ? 1 : 0)
+          .sort((a, b) => (a['date'] < b['date']) ? 1 : ((b['date'] < a['date']) ? -1 : 0));
         this.expenses.forEach((expense: ExpenseModel) => this.total += expense.amount);
-        console.log(this.total)
       });
   }
 }
