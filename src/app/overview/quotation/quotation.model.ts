@@ -4,16 +4,15 @@ export class Quotation {
   public deliverydate: string;
   public price: number;
   public title: string;
-  public quotation_id: number;
+  public quotationID: number;
 
-  constructor(description: string, date: string, deliverydate: string, price: number, title: string, quotation_id: number) {
+  constructor(description: string, date: string, deliverydate: string, price: number, title: string, quotationID: number) {
     this.description = description;
     this.date = date;
     this.deliverydate = deliverydate;
     this.price = price;
     this.title = title;
-    this.quotation_id = quotation_id;
-
+    this.quotationID = quotationID;
   }
 
 }

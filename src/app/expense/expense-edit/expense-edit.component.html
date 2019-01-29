@@ -3,7 +3,7 @@
   <ng-template #new_expense><h1>Nieuwe Kosten</h1></ng-template>
 </app-card>
 <app-card>
-  <form #expenseForm="ngForm" (ngSubmit)="submitExpense(expenseForm.form)">
+  <form #expenseForm="ngForm" (ngSubmit)="submitExpense()">
     <ul>
       <li>
         <label for="costItem">Kostenpost:</label>

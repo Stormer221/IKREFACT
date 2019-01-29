@@ -68,3 +68,7 @@ th {
 table {
   table-layout: fixed;
 }
+
+.items:hover {
+  background: lightgray;
+}
