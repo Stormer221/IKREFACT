@@ -6,24 +6,8 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class ContactService {
   contactsUrl = 'walbert/contacts';
-  private contacts: Contact[] = [];
-  private contact: Contact;
 
   constructor(private http: HttpClient) {
-  }
-
-  getContacts() {
-    // this.getReq();
-    // return this.contacts;
-  }
-
-  getContact(id: number) {
-    const contact = this.contacts.find(
-      (c) => {
-        return c.contactID === id;
-      }
-    );
-    return contact;
   }
 
   deleteContact(contactID: number): Observable<{}> {
@@ -36,9 +20,6 @@ export class ContactService {
 
   getSingleContact(contactID: number): Observable<Contact> {
     return this.http.get<Contact>('walbert/contacts/' + contactID);
-  }
-
-  putReq() {
   }
 
   addContact(contact: Contact): Observable<Contact> {

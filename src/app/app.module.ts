@@ -18,6 +18,7 @@ import {ContactEditComponent} from './contacts/contact-edit/contact-edit.compone
 import {ContactsComponent} from './contacts/contacts.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FilterPipe } from './contacts/filter.pipe';
+import {ContactService} from './contacts/contact.service';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FilterPipe } from './contacts/filter.pipe';
     OverviewModule
   ],
   providers: [
+    ContactService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
