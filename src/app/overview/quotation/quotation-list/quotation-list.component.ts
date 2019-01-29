@@ -73,7 +73,7 @@ export class QuotationListComponent implements OnInit {
   public goToQuotationDetails(id: number) {
     if (id) {
       this.quotationService.getQuotationById(id);
-      this.router.navigate(['overzichten/offerte/' + id]);
+      this.router.navigate(['overzichten/offerte', id]);
     }
   }
 }
