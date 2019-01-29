@@ -89,3 +89,19 @@ input {
 .items:hover {
   background: lightgray;
 }
+
+.title {
+  width: 15%;
+}
+
+.description {
+  width: 48%;
+}
+
+.date {
+  width: 13%;
+}
+
+.download {
+  width: 20%;
+}

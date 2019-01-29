@@ -19,11 +19,11 @@
 <app-card>
   <div>
     <h1>Inkomsten</h1>
-    <h1 class="pull right income">&euro; {{totalIncome}}</h1>
+    <h1 class="pull right income">&euro; {{totalIncome | number}}</h1>
   </div>
   <div>
   <h1>Uitgaven</h1>
-    <h1 class="pull right expense">&euro; -{{totalExpense}}</h1>
+    <h1 class="pull right expense">&euro; -{{totalExpense | number}}</h1>
   </div>
   <hr/>
   <div>
