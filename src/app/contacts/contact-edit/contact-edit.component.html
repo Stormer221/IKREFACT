@@ -158,7 +158,7 @@
           formControlName="cfDescription"
           class="pull right"></li>
       <li class="button-list">
-        <button class="btn success" type="submit"><i class="fa fa-save"></i> Opslaan</button>
+        <button class="btn success" type="submit" [disabled]="!contactForm.valid"><i class="fa fa-save"></i> Opslaan</button>
         <button class="btn warning" (click)="toContacts()"><i class="fa fa-times"></i> Annuleer</button>
       </li>
     </ul>

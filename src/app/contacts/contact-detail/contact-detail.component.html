@@ -5,7 +5,7 @@
     <h2 *ngIf="contact?.addresses.length == 1">Adres:</h2>
     <h2 *ngIf="contact?.addresses.length > 1">Adres {{+i+1}}:</h2>
     <li>{{addressItem.street}} {{addressItem.houseNumber}}</li>
-    <li>{{addressItem.zipcode}} {{addressItem.residence}} {{addressItem.country}}</li>
+    <li>{{addressItem.zipCode}} {{addressItem.residence}} {{addressItem.country}}</li>
     <li>Beschrijving: {{addressItem.addressDescription}}</li>
   </div>
   <div *ngFor="let phoneNumberItem of contact?.phoneNumbers; let i = index">
