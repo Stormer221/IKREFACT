@@ -8,7 +8,7 @@ export class AuthService {
   constructor() { }
 
   public getToken() {
-    return btoa('Jann:wachtwoord');
+    return btoa('Guest:wachtwoord');
   }
 
   public setAuth() {
