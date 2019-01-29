@@ -19,12 +19,7 @@ export class ContactDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.route.params.subscribe(
-    //   (params: Params) => {
-    //     this.contactID = +params['contactID'];
-    //     this.newContact = this.contactService.getContact(this.contactID);
-    //   }
-    // );
+
     this.route.params
       .subscribe(
         (params: Params) => {
@@ -42,11 +37,7 @@ export class ContactDetailComponent implements OnInit {
         (contact: Contact) => {
           this.contact = contact;
           console.log(contact);
-
-
         });
-    // this.newContact = this.contactService.getContact(this.contactID);
-
   }
 
   deleteContact() {

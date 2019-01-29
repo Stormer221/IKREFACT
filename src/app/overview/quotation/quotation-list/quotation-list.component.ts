@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Quotation} from '../quotation.model';
 import {QuotationService} from '../quotation.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-quotation-list',
@@ -22,12 +23,10 @@ export class QuotationListComponent implements OnInit {
   private amount_rows = 0;
   private items_per_page = 5;
 
-  constructor(private quotationService: QuotationService) {
+  constructor(private quotationService: QuotationService, private router: Router) {
   }
 
   ngOnInit() {
-    this.quotationService.getQuotation()
-      .subscribe(result => console.log(result));
     this.quotationService.getQuotation()
       .subscribe((quotations: Quotation[]) =>
         this.quotations = quotations);
@@ -51,7 +50,6 @@ export class QuotationListComponent implements OnInit {
       this.sort = field;
       this.desc = false;
       this.quotations = this.quotations.sort((a, b) => (a[field] < b[field]) ? 1 : ((b[field] < a[field]) ? -1 : 0));
-
     }
   }
 
@@ -66,6 +64,13 @@ export class QuotationListComponent implements OnInit {
       return this.quotations;
     } else {
       return this.quotations;
+    }
+  }
+
+  goToQuotationDetails(id: number) {
+    if (id) {
+      this.quotationService.getQuotationById(id);
+      this.router.navigate(['overzichten/offerte', id]);
     }
   }
 }

@@ -14,7 +14,7 @@ export class InvoiceFilterPipe implements PipeTransform {
     return item.filter(it => {
       const title = it.title.toString().includes(searchTerm);
       const description = it.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const date = it.date.toLowerCase().includes(searchTerm.toLowerCase());
+      const date = it.date.toLowerCase().includes(searchTerm.toLowerCase())
       console.log(title + description + date);
       return (title + description + date);
     });

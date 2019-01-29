@@ -33,7 +33,7 @@ import { FilterPipe } from './contacts/filter.pipe';
     ContactDetailComponent,
     ContactEditComponent,
     ContactDetailComponent,
-    FilterPipe
+    FilterPipe,
   ],
   imports: [
     BrowserModule,

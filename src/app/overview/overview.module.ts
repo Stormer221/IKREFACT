@@ -13,11 +13,12 @@ import {QuotationListComponent} from './quotation/quotation-list/quotation-list.
 import {QuotationService} from './quotation/quotation.service';
 import {ReportComponent} from './report/report.component';
 import {ReportGeneratorComponent} from './report/report-generator/report-generator.component';
-import {ExpenseService} from "../expense/expense.service";
-import {HttpClientModule} from "@angular/common/http";
+import {ExpenseService} from '../expense/expense.service';
+import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {QuotationFilterPipe} from './quotation/quotationfilter.pipe';
 import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
+import {QuotationDetailComponent} from './quotation/quotation-detail/quotation-detail.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
     ReportComponent,
     ReportGeneratorComponent,
     QuotationFilterPipe,
-    InvoiceFilterPipe
+    InvoiceFilterPipe,
+    QuotationDetailComponent
   ],
   imports: [
     CommonModule,

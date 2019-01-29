@@ -11,8 +11,9 @@ import {ContactDetailComponent} from './contacts/contact-detail/contact-detail.c
 import {ContactEditComponent} from './contacts/contact-edit/contact-edit.component';
 import {InvoiceEditComponent} from './overview/invoice/invoice-edit/invoice-edit.component';
 import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.component';
-import {ReportComponent} from "./overview/report/report.component";
-import {QuotationEditComponent} from "./overview/quotation/quotation-edit/quotation-edit.component";
+import {ReportComponent} from './overview/report/report.component';
+import {QuotationEditComponent} from './overview/quotation/quotation-edit/quotation-edit.component';
+import {QuotationDetailComponent} from './overview/quotation/quotation-detail/quotation-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   {path: 'onkosten/:id/wijzigen', component: ExpenseEditComponent},
   {path: 'overzichten', component: OverviewComponent},
   {path: 'rapport/:startDate/:endDate/:costItem', component: ReportComponent},
+  {path: 'overzichten/offerte/:quotationID', component: QuotationDetailComponent},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},
 ];
