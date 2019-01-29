@@ -11,7 +11,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let expense of blankRows() | paginate: { itemsPerPage: 5, currentPage: page }" [expense]="expense"
+    <tr class="items"
+      *ngFor="let expense of blankRows() | paginate: { itemsPerPage: 5, currentPage: page }" [expense]="expense"
         app-expense-list-item routerLink="{{expense.expenseID}}">
     </tr>
     </tbody>
