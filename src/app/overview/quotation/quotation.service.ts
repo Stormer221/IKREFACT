@@ -15,5 +15,17 @@ export class QuotationService {
     return this.http.get<Quotation[]>(this.quotationURL);
   }
 
+  getPDF(quotationID: number): void {
+    const downloadString = this.quotationURL + '/pdf/' + quotationID;
+
+    this.http.get(downloadString, { responseType: 'blob'}).subscribe((response) => {
+      const blob = new Blob([response], {type: 'application/pdf'});
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.download = 'factuur' + quotationID + '.pdf';
+      link.click();
+    });
+  }
+
 }
 

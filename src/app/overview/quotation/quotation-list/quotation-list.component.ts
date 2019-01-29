@@ -68,4 +68,9 @@ export class QuotationListComponent implements OnInit {
       return this.quotations;
     }
   }
+
+  downloadPDF(quotationID: number) {
+    console.log('QID: ' + quotationID);
+    this.quotationService.getPDF(quotationID);
+  }
 }
