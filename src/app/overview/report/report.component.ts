@@ -18,9 +18,9 @@ import {ExpenseModel} from "../../expense/expense.model";
 export class ReportComponent implements OnInit {
   public expenses: ExpenseModule[];
   public total: number = 0;
-  private startDate: Date;
-  private endDate: Date;
-  private costItem: string;
+  public startDate: Date;
+  public endDate: Date;
+  public costItem: string;
 
   constructor(
     private expenseService: ExpenseService,

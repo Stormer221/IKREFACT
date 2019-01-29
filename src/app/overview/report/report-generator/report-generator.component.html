@@ -1,7 +1,7 @@
 <app-card>
   <h1>Genereer Rapport</h1>
   <hr/>
-  <form #generateForm="ngForm" (ngSubmit)="submitGenerateForm(generateForm.form)">
+  <form #generateForm="ngForm" (ngSubmit)="submitGenerateForm()">
     <div>
       <label for="startDate">Startdatum</label><input [(ngModel)]="startDate" id="startDate" name="startDate" required
                                                       type="date">

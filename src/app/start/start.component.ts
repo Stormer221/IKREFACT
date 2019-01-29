@@ -10,9 +10,9 @@ import {InvoiceModel} from "../overview/invoice/invoice.model";
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-  private totalExpense: number = 0;
-  private totalIncome: number = 0;
-  private invoices: InvoiceModel[];
+  public totalExpense: number = 0;
+  public totalIncome: number = 0;
+  public invoices: InvoiceModel[];
 
 
   constructor(private expeseService: ExpenseService, private invoiceService: InvoiceService) {
