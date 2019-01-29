@@ -11,24 +11,22 @@
   <table>
     <thead>
     <tr>
-      <th (click)="sortBy('title')">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
-      <th (click)="sortBy('description')">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
-      <th (click)="sortBy('date')">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
-      <th (click)="sortBy('paid')">Betaald <span *ngIf="this.sort == 'paid'; then arrow"></span></th>
+      <th (click)="sortBy('title')" class="title" style="text-align: left">Titel <span *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')" class="description">Beschrijving <span *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')" class="date">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <th (click)="sortBy('paid')" class="paid">Betaald <span *ngIf="this.sort == 'paid'; then arrow"></span></th>
       <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
-      <th>Download</th>
+      <th class="download">Download</th>
     </tr>
     </thead>
     <tr class="items"
-        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm
-        | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }"
-        (click)="goToInvoiceDetails(invoiceElement.invoiceID)">
-      <td>{{invoiceElement.title}}</td>
-      <td>{{invoiceElement.description}}</td>
-      <td>{{invoiceElement.date}}</td>
-      <td>{{invoiceElement.paid}}</td>
-      <td *ngIf="invoiceElement.title != ''; else disabledbutton">
+        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+      <td class="title">{{invoiceElement.title}}</td>
+      <td class="description">{{invoiceElement.description}}</td>
+      <td class="date">{{invoiceElement.date}}</td>
+      <td class="paid">{{true == invoiceElement.paid ? '&#10004;' : '&#10006;'}}</td>
+      <td *ngIf="invoiceElement.title != ''; else disabledbutton" class="download">
         <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
       </td>
       <ng-template #disabledbutton>
