@@ -19,6 +19,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {QuotationFilterPipe} from './quotation/quotationfilter.pipe';
 import {InvoiceFilterPipe} from './invoice/invoicefilter.pipe';
 import {QuotationDetailComponent} from './quotation/quotation-detail/quotation-detail.component';
+import {InvoiceDetailComponent} from './invoice/invoice-detail/invoice-detail.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {QuotationDetailComponent} from './quotation/quotation-detail/quotation-d
     ReportGeneratorComponent,
     QuotationFilterPipe,
     InvoiceFilterPipe,
-    QuotationDetailComponent
+    QuotationDetailComponent,
+    InvoiceDetailComponent
   ],
   imports: [
     CommonModule,

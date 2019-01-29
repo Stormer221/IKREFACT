@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {InvoiceModel} from '../invoice.model';
 import {InvoiceService} from '../invoice.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-invoice-list',
@@ -8,21 +9,20 @@ import {InvoiceService} from '../invoice.service';
   styleUrls: ['./invoice-list.component.css']
 })
 export class InvoiceListComponent implements OnInit {
-
-  invoices: InvoiceModel[] = [];
-  empty_invoice: InvoiceModel = new InvoiceModel('', '', '', null, null,
-    '', '', null);
-  private page = 1;
-  private sort: string;
-  private desc: boolean;
-  private rest: number;
+  public invoices: InvoiceModel[] = [];
+  public empty_invoice: InvoiceModel = new InvoiceModel();
+  public page = 1;
+  public sort: string;
+  public desc: boolean;
+  public rest: number;
   private i = 0;
   private j = 0;
   private g = 0;
-  private amount_rows = 0;
-  private items_per_page = 5;
+  public amount_rows = 0;
+  public items_per_page = 5;
+  public searchTerm: string;
 
-  constructor(private invoiceService: InvoiceService) {
+  constructor(private invoiceService: InvoiceService, private router: Router) {
   }
 
   sortBy(field: string) {
@@ -48,6 +48,8 @@ export class InvoiceListComponent implements OnInit {
 
   ngOnInit() {
     this.invoiceService.getInvoices()
+      .subscribe((invoices: InvoiceModel[]) => console.log(invoices));
+    this.invoiceService.getInvoices()
       .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
   }
 
@@ -67,5 +69,13 @@ export class InvoiceListComponent implements OnInit {
     } else {
       return this.invoices;
     }
+  }
+
+  goToInvoiceDetails(id) {
+    if (id) {
+      this.invoiceService.getInvoiceById(id);
+      this.router.navigate(['overzichten/factuur/', id]);
+    }
+
   }
 }

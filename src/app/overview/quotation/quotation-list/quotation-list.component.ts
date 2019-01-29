@@ -9,19 +9,18 @@ import {Router} from '@angular/router';
   styleUrls: ['./quotation-list.component.css']
 })
 export class QuotationListComponent implements OnInit {
-
-  quotations: Quotation[] = [];
-  quotation: Quotation = new Quotation('', '', '', null, '', null);
-  private searchTerm: string;
-  private quotation_page = 1;
-  private sort: string;
-  private desc: boolean;
-  private rest: number;
+  public quotations: Quotation[] = [];
+  public quotation: Quotation = new Quotation('', '', '', null, '', null);
+  public searchTerm: string;
+  public quotation_page = 1;
+  public sort: string;
+  public desc: boolean;
+  public rest: number;
   private i = 0;
   private j = 0;
   private g = 0;
-  private amount_rows = 0;
-  private items_per_page = 5;
+  public amount_rows = 0;
+  public items_per_page = 5;
 
   constructor(private quotationService: QuotationService, private router: Router) {
   }
