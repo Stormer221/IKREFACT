@@ -1,0 +1,17 @@
+<app-card>
+  <div class="titlebar">
+    <h1>{{expense?.title}}</h1>
+    <button routerLink="/onkosten"><i class="fa fa-arrow-left"></i></button>
+  </div>
+</app-card>
+<app-card>
+  <p>{{expense?.costItem|titlecase}} van &euro; {{expense?.amount}} op {{expense?.date | date: 'd MMMM yyyy'}}
+    bij {{expense?.company}}</p>
+  <hr>
+  <p>{{expense?.description}}</p>
+  <div class="button-list">
+    <button class="btn danger" (click)="deleteExpense()"><i class="fa fa-trash"></i> Verwijder</button>
+    <button class="btn" routerLink="/onkosten/{{expense?.expenseID}}/wijzigen"><i class="fa fa-edit"></i> Wijzig
+    </button>
+  </div>
+</app-card>

@@ -1,0 +1,58 @@
+<div class="banner"></div>
+<div class="buttons">
+  <div>
+    <a routerLink="/contacten">
+      <img src="assets/images/ico-projecten-of-facturen@2000x.png">
+      Contacten
+    </a>
+    <a routerLink="/onkosten">
+      <img src="assets/images/ico-onkosten@2000x.png">
+      Onkosten
+    </a>
+    <a routerLink="/overzichten">
+      <img src="assets/images/ico-overzichten@2000x.png">
+      Overzichten
+    </a>
+  </div>
+</div>
+
+<app-card>
+  <div>
+    <h1>Inkomsten</h1>
+    <h1 class="pull right income">&euro; {{totalIncome | number}}</h1>
+  </div>
+  <div>
+  <h1>Uitgaven</h1>
+    <h1 class="pull right expense">&euro; -{{totalExpense | number}}</h1>
+  </div>
+  <hr/>
+  <div>
+    <h1>Winst</h1>
+    <h1 [className]="'pull right ' + (totalIncome - totalExpense >= 0 ? 'income' : 'expense')">
+      &euro; {{(totalIncome - totalExpense) | number}}</h1>
+  </div>
+</app-card>
+
+<app-card>
+  <h1>
+    Openstaande facturen
+  </h1>
+  <table>
+    <tr>
+      <th>Titel</th>
+      <th>Omschrijving</th>
+      <th>Datum</th>
+      <th>Leverdatum</th>
+      <th>Prijs</th>
+    </tr>
+    <tr *ngFor="let invoice of invoices">
+      <td>{{invoice?.title}}</td>
+      <td>{{invoice?.description}}</td>
+      <td>{{invoice?.date}}</td>
+      <td>{{invoice?.deliveryDate}}</td>
+      <td>&euro; {{invoice?.price}}</td>
+    </tr>
+
+  </table>
+
+</app-card>

@@ -1,0 +1,42 @@
+<app-card>
+  <h1 *ngIf="model.title; else new_expense">{{model.title}}</h1>
+  <ng-template #new_expense><h1>Nieuwe Kosten</h1></ng-template>
+</app-card>
+<app-card>
+  <form #expenseForm="ngForm" (ngSubmit)="submitExpense()">
+    <ul>
+      <li>
+        <label for="costItem">Kostenpost:</label>
+        <input list="costItems" id="costItem" name="costItem" required maxlength="50" [(ngModel)]="model.costItem"/>
+        <datalist type="text" id="costItems">
+          <option *ngFor="let costItem of costItems">{{costItem.itemType}}</option>
+        </datalist>
+      </li>
+      <li>
+        <label for="title">Titel:</label>
+        <input type="text" id="title" required maxlength="50" [(ngModel)]="model.title" name="title">
+      </li>
+      <li>
+        <label for="description">Omschrijving:</label>
+        <input type="text" id="description" required maxlength="255" [(ngModel)]="model.description" name="description">
+      </li>
+      <li>
+        <label for="date">Datum:</label>
+        <input type="date" required [ngModel]="model.date | date:'yyyy-MM-dd'" (ngModelChange)="model.date = $event"
+               [value]="model.date | date:'yyyy-MM-dd'" name="date" id="date">
+      </li>
+      <li>
+        <label for="company">Bedrijf:</label>
+        <input type="text" id="company" required maxlength="50" [(ngModel)]="model.company" name="company">
+      </li>
+      <li>
+        <label for="amount"> Prijs:</label>
+        <input type="number" id="amount" required [(ngModel)]="model.amount" name="amount">
+      </li>
+      <li class="button-list">
+        <button class="btn success" [disabled]="!expenseForm.valid"><i class="fa fa-save"></i> Opslaan</button>
+        <button class="btn warning" (click)="onCancel()"><i class="fa fa-times"></i> Annuleer</button>
+      </li>
+    </ul>
+  </form>
+</app-card>

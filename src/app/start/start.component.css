@@ -1,0 +1,40 @@
+div.banner {
+  background: #018284 url('/assets/images/illustratie-albert@2000x.png') center no-repeat;
+  background-size: contain;
+  height: 400px;
+}
+
+div.buttons {
+  background-color: #018284;
+  padding: 2em;
+  text-align: center;
+}
+
+div.buttons div {
+  margin: auto;
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.buttons img {
+  height: 100px;
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+div.buttons img:hover {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+.expense {
+  color: #e8512e;
+}

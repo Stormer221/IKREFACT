@@ -1,0 +1,47 @@
+<app-card>
+  <h1>
+    {{costItem | titlecase}} van {{startDate | date: 'dd/MM/yyyy'}} tot {{endDate | date: 'dd/MM/yyyy'}}
+  </h1>
+  <hr/>
+  <table>
+    <tr>
+      <th>
+        Titel
+      </th>
+      <th>
+        Omschrijving
+      </th>
+      <th>
+        Leverancier
+      </th>
+      <th>
+        Datum
+      </th>
+      <th>
+        Prijs
+      </th>
+    </tr>
+    <tr *ngFor="let expense of expenses">
+      <td>
+        {{expense?.title}}
+      </td>
+      <td>
+        {{expense?.description}}
+      </td>
+      <td>
+        {{expense?.company}}
+      </td>
+      <td>
+        {{expense?.date | date: 'dd/MM/yyyy'}}
+      </td>
+      <td>
+        &euro; {{expense?.amount | number}}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="5">
+        Totaal: &euro; {{total}}
+      </td>
+    </tr>
+  </table>
+</app-card>

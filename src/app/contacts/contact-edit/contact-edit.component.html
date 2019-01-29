@@ -1,0 +1,166 @@
+<app-card>
+  <h1>Contact</h1>
+</app-card>
+<app-card>
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm)">
+    <ul>
+      <li>
+        <label for="firstName">Voornaam:</label>
+        <input
+          type="text"
+          id="firstName"
+          formControlName="firstName"
+          class=" pull right"></li>
+      <li>
+        <label for="infix">Tussenvoegsel:</label>
+        <input
+          type="text"
+          id="infix"
+          formControlName="infix"
+          class="pull right"></li>
+      <li>
+        <label for="surname">Achternaam:</label>
+        <input
+          type="text"
+          id="surname"
+          formControlName="surname"
+          class="pull right"></li>
+      <br>
+      <div class="form-group" formArrayName="addresses"
+           *ngFor="let addressItem of contactForm.controls['addresses'].controls; let i = index">
+        <div class="address-box" formGroupName="{{i}}">
+          <li>
+            <label for="street">Straat:</label>
+            <input
+              type="text"
+              id="street"
+              formControlName="street"
+              class="pull right"></li>
+          <li>
+            <label for="houseNumber">Huisnummer:</label>
+            <input
+              type="number"
+              id="houseNumber"
+              formControlName="houseNumber"
+              class="pull right"></li>
+          <li>
+            <label for="zipCode">Postcode:</label>
+            <input
+              type="text"
+              id="zipCode"
+              formControlName="zipCode"
+              class="pull right"></li>
+          <li>
+            <label for="residence">Plaats:</label>
+            <input
+              type="text"
+              id="residence"
+              formControlName="residence"
+              class="pull right"></li>
+          <li>
+            <label for="country">Land:</label>
+            <input
+              type="text"
+              id="country"
+              formControlName="country"
+              class="pull right"></li>
+          <li>
+            <label for="addressDescription">Beschrijving</label>
+            <input
+              type="text"
+              id="addressDescription"
+              formControlName="addressDescription"
+              class="pull right"></li>
+          <br>
+        </div>
+      </div>
+      <br>
+      <button type="button" (click)="addAddress()" *ngIf="contactForm.controls['addresses'].controls.length < 3">Add
+        Next
+      </button>
+      <button type="button" (click)="removeAddress()" *ngIf="contactForm.controls['addresses'].controls.length > 1">
+        Remove last
+      </button>
+      <div class="form-group" formArrayName="phoneNumbers"
+           *ngFor="let phoneNumberItem of contactForm.controls['phoneNumbers'].controls; let i = index">
+        <div class="phoneNumber-box" formGroupName="{{i}}">
+          <br>
+          <li>
+            <label for="telephoneNumber">Telefoon nummer: </label>
+            <input
+              type="text"
+              id="telephoneNumber"
+              formControlName="telephoneNumber"
+              class="pull right"></li>
+          <li>
+            <label for="phoneNumberDescription">Beschrijving:</label>
+            <input
+              type="text"
+              id="phoneNumberDescription"
+              formControlName="phoneNumberDescription"
+              class="pull right"></li>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button type="button" (click)="addPhoneNumber()" *ngIf="contactForm.controls['phoneNumbers'].controls.length < 3">
+        Add Next
+      </button>
+      <button type="button" (click)="removePhoneNumber()"
+              *ngIf="contactForm.controls['phoneNumbers'].controls.length > 1">Remove last
+      </button>
+      <div class="form-group" formArrayName="emails"
+           *ngFor="let emailItem of contactForm.controls['emails'].controls; let i = index">
+        <div class="email-box" formGroupName="{{i}}">
+          <br>
+          <li>
+            <label for="emailAddress">Email:</label>
+            <input
+              type="text"
+              id="emailAddress"
+              formControlName="emailAddress"
+              class="pull right"></li>
+          <li>
+            <label for="emailDescription">Beschrijving:</label>
+            <input
+              type="text"
+              id="emailDescription"
+              formControlName="emailDescription"
+              class="pull right"></li>
+        </div>
+      </div>
+      <br>
+      <br>
+      <button type="button" (click)="addEmail()" *ngIf="contactForm.controls['emails'].controls.length < 3">Add Next
+      </button>
+      <button type="button" (click)="removeEmail()" *ngIf="contactForm.controls['emails'].controls.length > 1">Remove
+        last
+      </button>
+      <br>
+      <br>
+      <br>
+      <span class="radio" *ngFor="let cfOption of companyFreelancerOptions">
+        <label class="radio">
+          <input
+            type="radio"
+            class="radio-buttons"
+            formControlName="cfOption"
+            [value]="cfOption">{{ cfOption }}
+        </label>
+      </span>
+      <li>
+        <label *ngIf="contactForm.get('cfOption').value == 'Bedrijf'">Bedrijfsnaam</label>
+        <label *ngIf="contactForm.get('cfOption').value == 'Freelancer'">Omschrijving</label>
+        <input
+          *ngIf="contactForm.get('cfOption').value"
+          type="text"
+          id="cfDescription"
+          formControlName="cfDescription"
+          class="pull right"></li>
+      <li class="button-list">
+        <button class="btn success" type="submit" [disabled]="!contactForm.valid"><i class="fa fa-save"></i> Opslaan</button>
+        <button class="btn warning" (click)="toContacts()"><i class="fa fa-times"></i> Annuleer</button>
+      </li>
+    </ul>
+  </form>
+</app-card>

@@ -1,0 +1,45 @@
+<app-card>
+  <h1>Facturen</h1>
+  <br>
+  <br>
+  <span>
+    <i class="fa fa-search"></i>
+    <input [(ngModel)]="searchTerm" placeholder="Zoeken..." type="text">
+  </span>
+  <br>
+  <br>
+  <table>
+    <thead>
+    <tr>
+      <th (click)="sortBy('title')" class="title" style="text-align: left">Titel <span
+        *ngIf="this.sort == 'title'; then arrow"></span></th>
+      <th (click)="sortBy('description')" class="description">Beschrijving <span
+        *ngIf="this.sort == 'description'; then arrow"></span></th>
+      <th (click)="sortBy('date')" class="date">Datum <span *ngIf="this.sort == 'date'; then arrow"></span></th>
+      <th (click)="sortBy('paid')" class="paid">Betaald <span *ngIf="this.sort == 'paid'; then arrow"></span></th>
+      <ng-template #arrow><span *ngIf="!this.desc; else up"><i class="fa fa-arrow-up"></i></span></ng-template>
+      <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
+      <th class="download">Download</th>
+    </tr>
+    </thead>
+    <tr class="items"
+        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+      <td class="title">{{invoiceElement.title}}</td>
+      <td class="description">{{invoiceElement.description}}</td>
+      <td class="date">{{invoiceElement.date}}</td>
+      <td class="paid" *ngIf="invoiceElement.paid; else notPaid"><i class="fa fa-check"></i></td>
+      <ng-template #notPaid>
+        <td class="paid"><i class="fa fa-times"></i></td>
+      </ng-template>
+      <td *ngIf="invoiceElement.title != ''; else disabledbutton" class="download">
+        <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
+      </td>
+      <ng-template #disabledbutton>
+        <td>
+          <button disabled>Download PDF</button>
+      </ng-template>
+    </tr>
+  </table>
+  <pagination-controls id="invoice" (pageChange)="page = $event" autoHide="true"
+                       class="pagination"></pagination-controls>
+</app-card>

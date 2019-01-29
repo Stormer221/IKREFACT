@@ -1,0 +1,36 @@
+<app-card>
+  <h1>Factuur</h1>
+  <form #invoiceForm="ngForm" (ngSubmit)="submitInvoice()">
+    <ul>
+      <li>
+        <label for="title">Titel:</label>
+        <input type="text" id="title" name="title" class="pull right" required [(ngModel)]="invoice.title">
+      </li>
+      <li>
+        <label for="date">Datum:</label>
+        <input type="date" id="date" name="date" class="pull right"  required [(ngModel)]="invoice.date">
+      </li>
+      <li>
+        <label for="deliveryDate">Afleverdatum</label>
+        <input type="date" id="deliveryDate" name="deliveryDate" class="pull right"  required [(ngModel)]="invoice.deliveryDate">
+      </li>
+      <li>
+        <label for="price"> Prijs:</label>
+        <input type="text" id="price" name="price" class="pull right"  required [(ngModel)]="invoice.price">
+      </li>
+      <li>
+        <label for="payDate">Betaaldatum:</label>
+        <input type="date" id="payDate" name="payDate" class="pull right"  required [(ngModel)]="invoice.payDate">
+      </li>
+      <li>
+        <label for="description">Omschrijving:</label>
+        <input type="text" id="description" name="description" class="pull right"  required [(ngModel)]="invoice.description">
+      </li>
+      <li class="button-list">
+        <button [disabled]="!invoiceForm.valid">Opslaan</button>
+        <button (click)="toContacts()">Cancel</button>
+      </li>
+    </ul>
+  </form>
+</app-card>
+
