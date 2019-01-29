@@ -1,3 +1,4 @@
-<app-header></app-header>
-
-<!--<app-login></app-login>-->
+<app-header *ngIf="isAuthenticated(); else router"></app-header>
+<ng-template #router>
+  <router-outlet></router-outlet>
+</ng-template>
