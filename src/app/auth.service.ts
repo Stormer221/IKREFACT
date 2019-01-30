@@ -24,7 +24,7 @@ export class AuthService {
   public getToken() {
     const token: string = localStorage.getItem('authToken');
     if (!this.permanent) {
-      this.delToken();
+      // this.delToken();
     }
     return token;
   }

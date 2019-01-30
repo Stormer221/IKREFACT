@@ -4,20 +4,39 @@
     <button (click)="toOverview()"><i class="fa fa-arrow-left"></i></button>
   </div>
 </app-card>
-<app-card>
-  <h2>Invoice ID:</h2>
-  <p>{{invoice?.invoiceID}}</p>
-  <h2>Beschrijving:</h2>
-  <p>{{invoice?.description}}</p>
-  <h2>Aanmaak Datum:</h2>
-  <p>{{invoice?.date}}</p>
-  <h2>Lever Datum:</h2>
-  <p>{{invoice?.deliveryDate}}</p>
-  <h2>Kosten:</h2>
-  <p>{{invoice?.price}}</p>
-  <h2 *ngIf="invoice?.paid">Betaald </h2>
-  <h2 *ngIf="!invoice?.paid">Niet betaald</h2>
 
+<app-card>
+  <table>
+    <tr class="regel">
+      <td class="headers"><h3>Factuur ID:</h3></td>
+      <td class="values">{{invoice?.invoiceID}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Beschrijving:</h3></td>
+      <td class="values">{{invoice?.description}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Aanmaak Datum:</h3></td>
+      <td class="values">{{invoice?.date}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Lever Datum:</h3></td>
+      <td class="values">{{invoice?.deliveryDate}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Levering:</h3></td>
+      <td class="values">{{invoice.price}}</td>
+    </tr>
+    <tr class="regel" *ngIf="invoice?.paid">
+      <td><h3>Betaald</h3></td>
+      <td><i class="fa fa-check"></i></td>
+    <tr class="regel" *ngIf="!invoice?.paid">
+      <td><h3>Niet betaald</h3></td>
+      <td><i class="fa fa-times"></i></td>
+    <tr class="regel" *ngIf="invoice?.paid">
+      <td><h3>Betaal Datum</h3></td>
+      <td>{{invoice.payDate}}</td>
+  </table>
 </app-card>
 <app-card>
   <div class="button-list">
