@@ -1,22 +1,23 @@
 <app-card>
   <h2>Naam:</h2>
+
   <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
   <div *ngFor="let addressItem of contact?.addresses; let i = index">
     <h2 *ngIf="contact?.addresses.length == 1">Adres:</h2>
     <h2 *ngIf="contact?.addresses.length > 1">Adres {{+i+1}}:</h2>
-    <li>{{addressItem.street}} {{addressItem.houseNumber}}</li>
-    <li>{{addressItem.zipCode}} {{addressItem.residence}} {{addressItem.country}}</li>
-    <li>Beschrijving: {{addressItem.addressDescription}}</li>
+    <p>{{addressItem.street}} {{addressItem.houseNumber}}</p>
+    <p>{{addressItem.zipCode}} {{addressItem.residence}} {{addressItem.country}}</p>
+    <p>Beschrijving: {{addressItem.addressDescription}}</p>
   </div>
   <div *ngFor="let phoneNumberItem of contact?.phoneNumbers; let i = index">
     <h2 *ngIf="contact?.phoneNumbers.length == 1">Telefoonnummer:</h2>
     <h2 *ngIf="contact?.phoneNumbers.length > 1">Telefoonnummer {{+i+1}}:</h2>
-    <li> {{phoneNumberItem.telephoneNumber}}    {{phoneNumberItem.phoneNumberDescription}}</li>
+    <p> {{phoneNumberItem.telephoneNumber}}    {{phoneNumberItem.phoneNumberDescription}}</p>
   </div>
   <div *ngFor="let emailItem of contact?.emails; let i = index">
     <h2 *ngIf="contact?.emails.length == 1">E-mailadres:</h2>
     <h2 *ngIf="contact?.emails.length > 1">E-mailadres {{+i+1}}:</h2>
-    <li>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</li>
+    <p>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</p>
   </div>
   <div class="company-box" *ngIf="contact?.company.companyName">
     <h2>Bedrijf:   {{contact?.company.companyName}}</h2>
@@ -24,10 +25,10 @@
   <div class="freelancer-box" *ngIf="contact?.freelancer.relation">
     <h2>Freelancer:   {{contact?.freelancer.relation}}</h2>
   </div>
-  <li class="button-list">
+  <p class="button-list">
     <button [routerLink]="['/factuur']">Factuur maken</button>
     <button (click)="onEditContact()">Contact Wijzigen</button>
     <button (click)="deleteContact()">Contact Verwijderen</button>
     <button (click)="toQuotation()">Offerte maken</button>
-  </li>
+  </p>
 </app-card>
