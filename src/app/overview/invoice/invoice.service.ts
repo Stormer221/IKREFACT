@@ -19,7 +19,7 @@ export class InvoiceService {
   getPDF(invoiceID: number): void {
     const downloadString = this.invoiceURL + '/pdf/' + invoiceID;
 
-    this.http.get(downloadString, {responseType: 'blob'}).pipe(retry(4)).subscribe((response) => {
+    this.http.get(downloadString, {responseType: 'blob'}).subscribe((response) => {
       const blob = new Blob([response], {type: 'application/pdf'});
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -32,7 +32,7 @@ export class InvoiceService {
 
   addInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
     // @ts-ignore
-    return this.http.post<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'}).pipe(retry(4));
+    return this.http.post<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
   }
 
   getInvoiceById(id: number): Observable<InvoiceModel> {

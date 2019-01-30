@@ -43,7 +43,7 @@ export class ExpenseService {
      * This implementation creates a warning in IntelliJ although it fixes the error. For this reason im ignoring it.
      * */
     // @ts-ignore
-    return this.http.post<ExpenseModel>(this.expenseUrl, expense, {responseType: 'text'}).pipe(retry(4));
+    return this.http.post<ExpenseModel>(this.expenseUrl, expense, {responseType: 'text'});
   }
 
   /** PUT: update an existing expense in the database */
@@ -66,6 +66,6 @@ export class ExpenseService {
   /** POST: add a new expense to the database */
   addCostItem(costItem: CostItemModel): Observable<CostItemModel> {
     // @ts-ignore
-    return this.http.post<CostItemModel>(this.costItemUrl, costItem, {responseType: 'text'}).pipe(retry(4));
+    return this.http.post<CostItemModel>(this.costItemUrl, costItem, {responseType: 'text'});
   }
 }

@@ -29,7 +29,7 @@ export class QuotationService {
   public getPDF(quotationID: number): void {
     const downloadString = this.quotationURL + '/pdf/' + quotationID;
 
-    this.http.get(downloadString, {responseType: 'blob'}).pipe(retry(4)).subscribe((response) => {
+    this.http.get(downloadString, {responseType: 'blob'}).subscribe((response) => {
       const blob = new Blob([response], {type: 'application/pdf'});
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
@@ -45,7 +45,7 @@ export class QuotationService {
   }
 
   public addQuotation(quotation: Quotation): Observable<Quotation> {
-    return this.http.post<Quotation>(this.quotationURL, quotation).pipe(retry(4));
+    return this.http.post<Quotation>(this.quotationURL, quotation);
   }
 }
 

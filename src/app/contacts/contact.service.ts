@@ -25,10 +25,7 @@ export class ContactService {
 
   addContact(contact: Contact): Observable<Contact> {
     // @ts-ignore
-    return this.http.post(this.contactsUrl, contact, {responseType: 'json'})
-    .pipe( retry(4),
-      catchError(err => 'Something went wrong')
-    );
+    return this.http.post(this.contactsUrl, contact, {responseType: 'json'});
   }
 
   editContact(contact: Contact): Observable<Contact> {
