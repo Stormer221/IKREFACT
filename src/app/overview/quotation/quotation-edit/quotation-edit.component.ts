@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuotationService} from '../quotation.service';
 import {Quotation} from '../quotation.model';
-import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-quotation-edit',
@@ -36,7 +35,11 @@ export class QuotationEditComponent implements OnInit {
   submitQuotation() {
     if (this.id) {
       this.quotationService.putQuotation(this.quotation).subscribe();
-      this.router.navigate(['/overzichten/offerte/' + this.id]);
+      setTimeout( () => {
+
+        this.router.navigate(['/overzichten/offerte/' + this.id]);
+      }, 1000);
+
     } else {
       console.log(this.quotation);
       this.quotationService.addQuotation(this.quotation);
