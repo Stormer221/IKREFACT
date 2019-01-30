@@ -46,5 +46,6 @@ export class InvoiceEditComponent implements OnInit {
     if (!this.editInvoice) {
       this.invoiceService.addInvoice(this.invoice).subscribe();
     }
+    this.router.navigate(['../../../'], {relativeTo: this.route});
   }
 }
