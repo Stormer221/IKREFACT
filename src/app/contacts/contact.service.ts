@@ -1,11 +1,11 @@
 import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService {
-  private contactsUrl = 'walbert/contacts';
+  private contactsUrl = 'http://gefeliciflappeltaart.nl:8080/walbert/contacts';
 
   constructor(private http: HttpClient) {
   }
@@ -19,7 +19,7 @@ export class ContactService {
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
-    return this.http.get<Contact>('walbert/contacts/' + contactID);
+    return this.http.get<Contact>(this.contactsUrl + '/' + contactID);
   }
 
   addContact(contact: Contact): Observable<Contact> {

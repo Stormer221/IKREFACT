@@ -14,8 +14,8 @@ import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.co
 import {ReportComponent} from './overview/report/report.component';
 import {QuotationEditComponent} from './overview/quotation/quotation-edit/quotation-edit.component';
 import {AuthGuardService} from './auth-guard.service';
-import {QuotationDetailComponent} from "./overview/quotation/quotation-detail/quotation-detail.component";
-import {InvoiceDetailComponent} from "./overview/invoice/invoice-detail/invoice-detail.component";
+import {QuotationDetailComponent} from './overview/quotation/quotation-detail/quotation-detail.component';
+import {InvoiceDetailComponent} from './overview/invoice/invoice-detail/invoice-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
@@ -35,6 +35,7 @@ const appRoutes: Routes = [
   {path: 'rapport/:startDate/:endDate/:costItem', component: ReportComponent, canActivate: [AuthGuardService]},
   {path: 'overzichten/offerte/:quotationID', component: QuotationDetailComponent, canActivate: [AuthGuardService]},
   {path: 'overzichten/factuur/:invoiceID', component: InvoiceDetailComponent, canActivate: [AuthGuardService]},
+  {path: 'overzichten/factuur/:invoiceID/wijzigen', component: InvoiceEditComponent, canActivate: [AuthGuardService]},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},
 ];

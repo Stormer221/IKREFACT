@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 
 @Injectable()
 export class QuotationService {
-  private quotationURL = 'walbert/quotations';
+  private quotationURL = 'http://gefeliciflappeltaart.nl:8080/walbert/quotations';
 
   constructor(private http: HttpClient) {
   }
@@ -31,10 +31,13 @@ export class QuotationService {
       const blob = new Blob([response], {type: 'application/pdf'});
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
-      link.download = 'factuur' + quotationID + '.pdf';
+      link.download = 'offerte' + quotationID + '.pdf';
       link.click();
     });
   }
 
+  public addQuotation(quotation: Quotation) {
+    return this.http.post(this.quotationURL, quotation);
+  }
 }
 

@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {ExpenseModel} from '../expense.model';
 import {ExpenseService} from '../expense.service';
-import {CostItemModel} from "../costItem.model";
+import {CostItemModel} from '../costItem.model';
 
 /***
  * The ExpenseEditComponent.

@@ -12,20 +12,23 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 export class ContactDetailComponent implements OnInit {
   public contact: Contact;
   public contactID: number;
-  public email: string[];
 
 
   constructor(private contactService: ContactService, private router: Router, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-
     this.route.params
       .subscribe(
         (params: Params) => {
           this.getContact(params);
+          setTimeout(() => {
+              this.getContact(params);
+            }
+            , 1000);
         }
       );
+
 
   }
 
@@ -53,11 +56,7 @@ export class ContactDetailComponent implements OnInit {
     this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
 
-  toFactuur() {
-    this.router.navigate(['/factuur']);
-  }
-
   toQuotation() {
-    this.router.navigate(['/offerte']);
+    this.router.navigate(['offerte'], {relativeTo: this.route});
   }
 }

@@ -21,6 +21,7 @@ export class QuotationDetailComponent implements OnInit {
         (params: Params) => {
           this.quotation = this.route.snapshot.data.params;
           this.getQuotation(params);
+          console.log(params);
         });
 
   }

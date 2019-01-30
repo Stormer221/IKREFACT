@@ -3,11 +3,10 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {InvoiceModel} from './invoice.model';
 import {Quotation} from '../quotation/quotation.model';
-import {InvoiceComponent} from './invoice.component';
 
 @Injectable()
 export class InvoiceService {
-  invoiceURL = '/walbert/invoices';
+  invoiceURL = 'http://gefeliciflappeltaart.nl:8080/walbert/invoices';
 
   constructor(private http: HttpClient) {
   }
@@ -24,7 +23,9 @@ export class InvoiceService {
       const link = document.createElement('a');
       link.href = window.URL.createObjectURL(blob);
       link.download = 'factuur' + invoiceID + '.pdf';
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     });
   }
 
@@ -40,6 +41,12 @@ export class InvoiceService {
   deleteQuotation(id: number) {
     // @ts-ignore
     return this.http.delete<Quotation>(this.invoiceURL + '/' + id, {responseType: 'text'});
+  }
+
+  updateInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
+    // @ts-ignore
+    return this.http.put<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
+
   }
 }
 

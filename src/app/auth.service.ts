@@ -15,7 +15,7 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private userURL = 'walbert/users/me';
+  private userURL = 'http://gefeliciflappeltaart.nl:8080/walbert/users/me';
   private permanent: boolean;
 
   constructor(private http: HttpClient, private router: Router) {
