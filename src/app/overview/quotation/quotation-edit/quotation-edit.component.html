@@ -20,8 +20,8 @@
         <input type="text" id="price" name="price" class="pull right" required [(ngModel)]="quotation.price">
       </li>
       <!--<li>-->
-        <!--<label for="vat"> BTW:</label>-->
-        <!--<input type="text" id="vat" name="vat" class="pull right" required [(ngModel)]="quotation.vat">-->
+      <!--<label for="vat"> BTW:</label>-->
+      <!--<input type="text" id="vat" name="vat" class="pull right" required [(ngModel)]="quotation.vat">-->
       <!--</li>-->
       <li>
         <label for="description">Omschrijving:</label>
@@ -41,8 +41,8 @@
         <input type="text" id="hours" name="hours" class="pull right" required [(ngModel)]="quotation.hours">
       </li>
       <li class="button-list">
-        <button type="submit" [disabled]="!quotationForm.valid">Opslaan</button>
-        <button (click)="toContacts()">Cancel</button>
+        <button class="btn success" type="submit" [disabled]="!quotationForm.valid"><i class="fa fa-save"></i> Opslaan</button>
+        <button class="btn warning" (click)="toContacts()"><i class="fa fa-times"></i> Cancel</button>
       </li>
     </ul>
   </form>

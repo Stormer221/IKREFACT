@@ -20,7 +20,6 @@ export class QuotationEditComponent implements OnInit {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['quotationID'];
-        console.log(this.id);
         if (this.id) {
           this.quotationService.getQuotationById(this.id)
             .subscribe(result => this.quotation = result);
