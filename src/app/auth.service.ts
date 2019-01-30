@@ -56,5 +56,4 @@ export class AuthService {
   public logout() {
     this.delToken();
   }
-
 }
