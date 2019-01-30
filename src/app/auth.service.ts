@@ -23,15 +23,12 @@ export class AuthService {
 
   public getToken() {
     const token: string = localStorage.getItem('authToken');
-    if (!this.permanent) {
-    }
     return token;
   }
 
   private setToken(user: User, permanent: boolean = false) {
     this.permanent = permanent;
     return localStorage.setItem('authToken', btoa(`${user.username}:${user.password}`));
-
   }
 
   public delToken() {
