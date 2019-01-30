@@ -8,10 +8,11 @@ export class Quotation {
   public delivery: string;
   public concerns: string;
   public hours: string;
+  public vat: number;
 
 
-  constructor(description: string = '', date: string = '', deliveryDate: string = '', price: number = 0, title: string = '', quotationID: number = null,
-              delivery: string = '', concerns: string = '', hours: string = '') {
+  constructor(description: string = '', date: string = '', deliverydate: string = '', price: number = 0, title: string = '',
+              quotationID: number = null, delivery: string = '', concerns: string = '', hours: string = '', vat: number) {
     this.description = description;
     this.date = date;
     this.deliveryDate = deliveryDate;
@@ -21,6 +22,7 @@ export class Quotation {
     this.delivery = delivery;
     this.concerns = concerns;
     this.hours = hours;
+    this.vat = vat;
 
   }
 

@@ -17,13 +17,8 @@ export class ContactListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.contactService.getReq()
+    this.contactService.getContacts()
       .subscribe((contact: Contact[]) => this.contacts = contact.sort((a, b) => (
         a['surname'] > b['surname']) ? 1 : ((b['surname'] > a['surname']) ? -1 : 0)));
-
-    if (this.contact) {
-      this.contactService.deleteContact(this.contact.contactID).subscribe();
-      this.contactService.addContact(this.contact).subscribe(contact => this.contacts.push(contact));
-    }
   }
 }

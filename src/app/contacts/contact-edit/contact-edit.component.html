@@ -75,10 +75,10 @@
         </div>
       </div>
       <br>
-      <button type="button" (click)="addAddress()" *ngIf="formDataAddresses.length < 3">Add Next
+      <button class="btn success" type="button" (click)="addAddress()" *ngIf="formDataAddresses.length < 3"><i class="fa fa-plus"></i>
       </button>
-      <button type="button" (click)="removeAddress()"  *ngIf="formDataAddresses.length > 1">
-        Remove last
+      <button class="btn danger" type="button" (click)="removeAddress()"  *ngIf="formDataAddresses.length > 1">
+        <i class="fa fa-minus"></i>
       </button>
       <div class="form-group" formArrayName="phoneNumbers"
            *ngFor="let phoneNumberItem of formDataPhoneNumbers.controls; let i = index">
@@ -102,11 +102,10 @@
       </div>
       <br>
       <br>
-      <button type="button" (click)="addPhoneNumber()" *ngIf="formDataPhoneNumbers.length < 3">
-        Add Next
+      <button class="btn success" type="button" (click)="addPhoneNumber()" *ngIf="formDataPhoneNumbers.length < 3"><i class="fa fa-plus"></i>
       </button>
-      <button type="button" (click)="removePhoneNumber()"
-              *ngIf="formDataPhoneNumbers.length > 1">Remove last
+      <button class="btn danger" type="button" (click)="removePhoneNumber()"
+              *ngIf="formDataPhoneNumbers.length > 1"><i class="fa fa-minus"></i>
       </button>
       <div class="form-group" formArrayName="emails"
            *ngFor="let emailItem of formDataEmails.controls; let i = index">
@@ -130,10 +129,9 @@
       </div>
       <br>
       <br>
-      <button type="button" (click)="addEmail()" *ngIf="formDataEmails.length < 3">Add Next
+      <button class="btn success" type="button" (click)="addEmail()" *ngIf="formDataEmails.length < 3"><i class="fa fa-plus"></i>
       </button>
-      <button type="button" (click)="removeEmail()" *ngIf="formDataEmails.length > 1">Remove
-        last
+      <button class="btn danger" type="button" (click)="removeEmail()" *ngIf="formDataEmails.length > 1"><i class="fa fa-minus"></i>
       </button>
       <br>
       <br>

@@ -26,9 +26,11 @@ export class QuotationListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quotationService.getQuotation()
-      .subscribe((quotations: Quotation[]) =>
-        this.quotations = quotations);
+    setTimeout(() => {
+      this.quotationService.getQuotation()
+        .subscribe((quotations: Quotation[]) =>
+          this.quotations = quotations);
+    }, 300);
   }
 
   sortBy(field: string) {

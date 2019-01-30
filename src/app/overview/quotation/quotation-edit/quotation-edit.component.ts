@@ -9,6 +9,7 @@ import {Quotation} from '../quotation.model';
   styleUrls: ['./quotation-edit.component.css']
 })
 export class QuotationEditComponent implements OnInit {
+  // @ts-ignore
   public quotation: Quotation = new Quotation();
   public id: number = null;
 
@@ -36,14 +37,13 @@ export class QuotationEditComponent implements OnInit {
     if (this.id) {
       this.quotationService.putQuotation(this.quotation).subscribe();
       setTimeout(() => {
-
         this.router.navigate(['/overzichten/offerte/' + this.id]);
       }, 1000);
-
     } else {
-      console.log(this.quotation);
-      this.quotationService.addQuotation(this.quotation).subscribe();
-      this.router.navigate(['overzichten']);
+      this.quotationService.addQuotation(this.quotation);
+      setTimeout(() => {
+        this.router.navigate(['overzichten']);
+      }, 1000);
     }
 
 
