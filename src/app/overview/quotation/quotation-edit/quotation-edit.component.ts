@@ -40,7 +40,7 @@ export class QuotationEditComponent implements OnInit {
         this.router.navigate(['/overzichten/offerte/' + this.id]);
       }, 1000);
     } else {
-      this.quotationService.addQuotation(this.quotation);
+      this.quotationService.addQuotation(this.quotation).subscribe();
       setTimeout(() => {
         this.router.navigate(['overzichten']);
       }, 1000);
