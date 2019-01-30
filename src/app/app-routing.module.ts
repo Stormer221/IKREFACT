@@ -14,8 +14,8 @@ import {ExpenseDetailComponent} from './expense/expense-detail/expense-detail.co
 import {ReportComponent} from './overview/report/report.component';
 import {QuotationEditComponent} from './overview/quotation/quotation-edit/quotation-edit.component';
 import {AuthGuardService} from './auth-guard.service';
-import {QuotationDetailComponent} from "./overview/quotation/quotation-detail/quotation-detail.component";
-import {InvoiceDetailComponent} from "./overview/invoice/invoice-detail/invoice-detail.component";
+import {QuotationDetailComponent} from './overview/quotation/quotation-detail/quotation-detail.component';
+import {InvoiceDetailComponent} from './overview/invoice/invoice-detail/invoice-detail.component';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'start', pathMatch: 'full'},
