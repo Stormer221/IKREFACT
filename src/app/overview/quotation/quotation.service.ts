@@ -6,7 +6,7 @@ import {ExpenseModel} from '../../expense/expense.model';
 
 @Injectable()
 export class QuotationService {
-  private quotationURL = 'walbert/quotations';
+  private quotationURL = 'http://gefeliciflappeltaart.nl:8080/walbert/quotations';
 
   constructor(private http: HttpClient) {
   }

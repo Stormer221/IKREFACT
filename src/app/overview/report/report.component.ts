@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ExpenseService} from "../../expense/expense.service";
-import {ExpenseModule} from "../../expense/expense.module";
 import {ActivatedRoute, Params} from "@angular/router";
 import {ExpenseModel} from "../../expense/expense.model";
 
@@ -16,7 +15,7 @@ import {ExpenseModel} from "../../expense/expense.model";
   styleUrls: ['./report.component.css']
 })
 export class ReportComponent implements OnInit {
-  public expenses: ExpenseModule[];
+  public expenses: ExpenseModel[];
   public total: number = 0;
   public startDate: Date;
   public endDate: Date;

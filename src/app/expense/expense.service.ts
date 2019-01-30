@@ -18,9 +18,9 @@ import {CostItemModel} from './costItem.model';
 
 export class ExpenseService {
   /** Base url for the expense API */
-  private expenseUrl = '/walbert/expenses';
+  private expenseUrl = 'http://gefeliciflappeltaart.nl:8080/walbert/expenses';
   /** Base url for the costItem API */
-  private costItemUrl = '/walbert/costItems';
+  private costItemUrl = 'http://gefeliciflappeltaart.nl:8080/walbert/costItems';
 
   constructor(private http: HttpClient) {
   }

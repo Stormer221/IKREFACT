@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuotationService} from '../quotation.service';
 import {Quotation} from '../quotation.model';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-quotation-edit',

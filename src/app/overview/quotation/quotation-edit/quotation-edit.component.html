@@ -1,6 +1,6 @@
 <app-card>
   <h1>Offerte</h1>
-  <form #quotationForm="ngForm" (ngSubmit)="submitQuotation()">
+  <form [formGroup]="quotationForm" (ngSubmit)="submitQuotation()">
     <ul>
       <li>
         <label for="title">Titel:</label>
@@ -37,7 +37,7 @@
         <input type="text" id="hours" name="hours" class="pull right" required [(ngModel)]="quotation.hours">
       </li>
       <li class="button-list">
-        <button [disabled]="!quotationForm.valid">Opslaan</button>
+        <button type="submit" [disabled]="!quotationForm.valid">Opslaan</button>
         <button (click)="toContacts()">Cancel</button>
       </li>
     </ul>
