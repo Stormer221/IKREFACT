@@ -44,7 +44,8 @@ export class QuotationService {
   }
 
   public addQuotation(quotation: Quotation): Observable<Quotation> {
-    return this.http.post<Quotation>(this.quotationURL, quotation);
+    // @ts-ignore
+    return this.http.post<Quotation>(this.quotationURL, quotation, {responseType: 'text'});
   }
 }
 

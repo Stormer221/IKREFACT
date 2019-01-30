@@ -34,11 +34,11 @@ export class QuotationEditComponent implements OnInit {
   }
 
   submitQuotation() {
-    console.log(this.id);
     if (this.id) {
       this.quotationService.putQuotation(this.quotation).subscribe();
       this.router.navigate(['/overzichten/offerte/' + this.id]);
     } else {
+      console.log(this.quotation);
       this.quotationService.addQuotation(this.quotation);
       this.router.navigate(['overzichten']);
     }

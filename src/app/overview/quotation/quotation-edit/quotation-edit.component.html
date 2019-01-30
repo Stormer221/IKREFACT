@@ -1,6 +1,6 @@
 <app-card>
   <h1>Offerte</h1>
-  <form [formGroup]="quotationForm" (ngSubmit)="submitQuotation()">
+  <form #quotationForm="ngForm" (ngSubmit)="submitQuotation()">
     <ul>
       <li>
         <label for="title">Titel:</label>
@@ -13,7 +13,7 @@
       <li>
         <label for="deliveryDate">Afleverdatum</label>
         <input type="date" id="deliveryDate" name="deliveryDate" class="pull right" required
-               [(ngModel)]="quotation.deliverydate">
+               [(ngModel)]="quotation.deliveryDate">
       </li>
       <li>
         <label for="price"> Prijs:</label>
