@@ -13,7 +13,6 @@ export class InvoiceFilterPipe implements PipeTransform {
       const title = it.title.toString().toLowerCase().includes(searchTerm.toLowerCase());
       const description = it.description.toLowerCase().includes(searchTerm.toLowerCase());
       const date = it.date.toLowerCase().includes(searchTerm.toLowerCase());
-      console.log(title + description + date);
       return (title + description + date);
     });
   }

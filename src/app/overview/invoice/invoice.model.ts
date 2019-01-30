@@ -7,10 +7,11 @@ export class InvoiceModel {
   public payDate: string;
   public description: string;
   public invoiceID: number;
+  public vat: number;
 
 
   constructor(title: string = '', date: string = '', deliveryDate: string = '', price: number = 0, paid: boolean = null,
-              payDate: string = '', description: string = '', invoiceID: number = null) {
+              payDate: string = '', description: string = '', invoiceID: number = null, vat: number) {
     this.title = title;
     this.date = date;
     this.deliveryDate = deliveryDate;
@@ -19,5 +20,6 @@ export class InvoiceModel {
     this.payDate = payDate;
     this.description = description;
     this.invoiceID = invoiceID;
+    this.vat = vat;
   }
 }

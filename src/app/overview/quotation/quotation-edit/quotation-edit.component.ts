@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuotationService} from '../quotation.service';
 import {Quotation} from '../quotation.model';
-import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-quotation-edit',
@@ -10,6 +9,7 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./quotation-edit.component.css']
 })
 export class QuotationEditComponent implements OnInit {
+  // @ts-ignore
   public quotation: Quotation = new Quotation();
   public id: number = null;
 

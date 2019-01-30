@@ -1,6 +1,6 @@
 <app-card>
   <h1>Offerte</h1>
-  <form [formGroup]="quotationForm" (ngSubmit)="submitQuotation()">
+  <form #quotationForm="ngForm" (ngSubmit)="submitQuotation()">
     <ul>
       <li>
         <label for="title">Titel:</label>
@@ -19,6 +19,10 @@
         <label for="price"> Prijs:</label>
         <input type="text" id="price" name="price" class="pull right" required [(ngModel)]="quotation.price">
       </li>
+      <!--<li>-->
+        <!--<label for="vat"> BTW:</label>-->
+        <!--<input type="text" id="vat" name="vat" class="pull right" required [(ngModel)]="quotation.vat">-->
+      <!--</li>-->
       <li>
         <label for="description">Omschrijving:</label>
         <input type="text" id="description" name="description" class="pull right" required
