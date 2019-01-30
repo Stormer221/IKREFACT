@@ -5,14 +5,18 @@
   </div>
 </app-card>
 <app-card>
-  <p>invoiceID: {{invoice?.invoiceID}}</p>
-  <p>Title: {{invoice?.title}}</p>
-  <p>beschrijving: {{invoice?.description}}</p>
-  <p>aanmaak datum: {{invoice?.date}}</p>
-  <p>lever datum: {{invoice?.deliveryDate}}</p>
-  <p>Kosten: {{invoice?.price}}</p>
-  <p *ngIf="invoice?.paid">Betaald </p>
-  <p *ngIf="!invoice?.paid">Niet betaald </p>
+  <h2>Invoice ID:</h2>
+  <p>{{invoice?.invoiceID}}</p>
+  <h2>Beschrijving:</h2>
+  <p>{{invoice?.description}}</p>
+  <h2>Aanmaak Datum:</h2>
+  <p>{{invoice?.date}}</p>
+  <h2>Lever Datum:</h2>
+  <p>{{invoice?.deliveryDate}}</p>
+  <h2>Kosten:</h2>
+  <p>{{invoice?.price}}</p>
+  <h2 *ngIf="invoice?.paid">Betaald </h2>
+  <h2 *ngIf="!invoice?.paid">Niet betaald</h2>
 
 </app-card>
 <app-card>

@@ -24,7 +24,7 @@ export class InvoiceEditComponent implements OnInit {
             this.fillInvoiceForm(params);
           });
     }
-    }
+  }
 
   private fillInvoiceForm(params: Params) {
     this.invoiceService.getInvoiceById(params['invoiceID'])
@@ -42,10 +42,15 @@ export class InvoiceEditComponent implements OnInit {
   submitInvoice() {
     if (this.editInvoice) {
       this.invoiceService.updateInvoice(this.invoice).subscribe();
+      setTimeout(() => {
+
+        this.router.navigate(['/overzichten/factuur/' + this.invoice.invoiceID]);
+      }, 1000);
+
     }
     if (!this.editInvoice) {
       this.invoiceService.addInvoice(this.invoice).subscribe();
+      this.router.navigate(['../../../'], {relativeTo: this.route});
     }
-    this.router.navigate(['../../../'], {relativeTo: this.route});
   }
 }
