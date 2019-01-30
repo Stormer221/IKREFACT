@@ -34,7 +34,6 @@ export class QuotationEditComponent implements OnInit {
   }
 
   submitQuotation() {
-    console.log(this.id);
     if (this.id) {
       this.quotationService.putQuotation(this.quotation).subscribe();
       setTimeout(() => {

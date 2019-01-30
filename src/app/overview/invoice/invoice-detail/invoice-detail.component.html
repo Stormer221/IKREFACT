@@ -15,6 +15,38 @@
   <p *ngIf="invoice?.paid">Betaald </p>
   <p *ngIf="!invoice?.paid">Niet betaald </p>
 
+<app-card>
+  <table>
+    <tr class="regel">
+      <td class="headers"><h3>Factuur ID:</h3></td>
+      <td class="values">{{invoice?.invoiceID}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Beschrijving:</h3></td>
+      <td class="values">{{invoice?.description}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Aanmaak Datum:</h3></td>
+      <td class="values">{{invoice?.date}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Lever Datum:</h3></td>
+      <td class="values">{{invoice?.deliveryDate}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Levering:</h3></td>
+      <td class="values">{{invoice.price}}</td>
+    </tr>
+    <tr class="regel" *ngIf="invoice?.paid">
+      <td><h3>Betaald</h3></td>
+      <td><i class="fa fa-check"></i></td>
+    <tr class="regel" *ngIf="!invoice?.paid">
+      <td><h3>Niet betaald</h3></td>
+      <td><i class="fa fa-times"></i></td>
+    <tr class="regel" *ngIf="invoice?.paid">
+      <td><h3>Betaal Datum</h3></td>
+      <td>{{invoice.payDate}}</td>
+  </table>
 </app-card>
 <app-card>
   <div class="button-list">
