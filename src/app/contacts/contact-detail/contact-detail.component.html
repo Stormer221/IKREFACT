@@ -1,23 +1,26 @@
 <app-card>
-  <h2>Naam:</h2>
-
-  <li> {{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</li>
+  <button routerLink="/contacten"><i class="fa fa-arrow-left"></i></button>
+  <h1>{{contact?.firstName}} {{contact?.infix}} {{contact?.surname}}</h1>
+</app-card>
+<app-card>
   <div *ngFor="let addressItem of contact?.addresses; let i = index">
     <h2 *ngIf="contact?.addresses.length == 1">Adres:</h2>
-    <h2 *ngIf="contact?.addresses.length > 1">Adres {{+i+1}}:</h2>
+    <h2 *ngIf="contact?.addresses.length > 1">Adres {{+i + 1}}:</h2>
     <p>{{addressItem.street}} {{addressItem.houseNumber}}</p>
     <p>{{addressItem.zipCode}} {{addressItem.residence}} {{addressItem.country}}</p>
     <p>Beschrijving: {{addressItem.addressDescription}}</p>
   </div>
   <div *ngFor="let phoneNumberItem of contact?.phoneNumbers; let i = index">
     <h2 *ngIf="contact?.phoneNumbers.length == 1">Telefoonnummer:</h2>
-    <h2 *ngIf="contact?.phoneNumbers.length > 1">Telefoonnummer {{+i+1}}:</h2>
-    <p> {{phoneNumberItem.telephoneNumber}}    {{phoneNumberItem.phoneNumberDescription}}</p>
+    <h2 *ngIf="contact?.phoneNumbers.length > 1">Telefoonnummer {{+i + 1}}:</h2>
+    <p> {{phoneNumberItem.telephoneNumber}} </p>
+    <p>{{phoneNumberItem.phoneNumberDescription}}</p>
   </div>
   <div *ngFor="let emailItem of contact?.emails; let i = index">
     <h2 *ngIf="contact?.emails.length == 1">E-mailadres:</h2>
-    <h2 *ngIf="contact?.emails.length > 1">E-mailadres {{+i+1}}:</h2>
-    <p>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</p>
+    <h2 *ngIf="contact?.emails.length > 1">E-mailadres {{+i + 1}}:</h2>
+    <p>{{ emailItem.emailAddress}} </p>
+    <p>{{emailItem.emailDescription}}</p>
   </div>
   <div class="company-box" *ngIf="contact?.company.companyName">
     <h2>Bedrijf:</h2>
@@ -28,9 +31,9 @@
     <p>{{contact?.freelancer.relation}}</p>
   </div>
   <p class="button-list">
-    <button [routerLink]="['/factuur']">Factuur maken</button>
-    <button (click)="onEditContact()">Contact Wijzigen</button>
-    <button (click)="deleteContact()">Contact Verwijderen</button>
+    <button (click)="onEditContact()"><i class="fa fa-edit"></i>Contact Wijzigen</button>
+    <button (click)="deleteContact()"><i class="fa fa-trash"></i> Contact Verwijderen</button>
+    <button [routerLink]="['factuur']">Factuur maken</button>
     <button (click)="toQuotation()">Offerte maken</button>
   </p>
 </app-card>

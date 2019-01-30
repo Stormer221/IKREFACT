@@ -37,10 +37,14 @@ export class QuotationEditComponent implements OnInit {
     console.log(this.id);
     if (this.id) {
       this.quotationService.putQuotation(this.quotation).subscribe();
-      this.router.navigate(['/overzichten/offerte/' + this.id]);
+      setTimeout(() => {
+        this.router.navigate(['/overzichten/offerte/' + this.id]);
+      }, 1000);
     } else {
       this.quotationService.addQuotation(this.quotation);
-      this.router.navigate(['overzichten']);
+      setTimeout(() => {
+        this.router.navigate(['overzichten']);
+      }, 1000);
     }
 
 

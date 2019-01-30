@@ -47,8 +47,10 @@ export class InvoiceListComponent implements OnInit {
   }
 
   ngOnInit() {
+    setTimeout(() => {
     this.invoiceService.getInvoices()
       .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
+    }, 300);
   }
 
   downloadPDF(invoiceID: number) {

@@ -26,6 +26,10 @@
         <label for="description">Omschrijving:</label>
         <input type="text" id="description" name="description" class="pull right"  required [(ngModel)]="invoice.description">
       </li>
+      <li *ngIf="invoice.invoiceID !== null ">
+        <label for="paid">Betaald:</label>
+        <input type="checkbox" id="paid" name="paid" [(ngModel)]="invoice.paid">
+      </li>
       <li class="button-list">
         <button [disabled]="!invoiceForm.valid">Opslaan</button>
         <button (click)="toContacts()">Cancel</button>
