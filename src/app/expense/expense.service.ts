@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ExpenseModel} from './expense.model';
-import {CostItemModel} from "./costItem.model";
+import {CostItemModel} from './costItem.model';
 
 /**
  * The ExpenseService.
@@ -54,7 +54,7 @@ export class ExpenseService {
   /** POST: delete an expense from the database */
   deleteExpense(id: number): Observable<any> {
     // @ts-ignore
-    return this.http.delete<any>(this.expenseUrl + '/' + id, {responseType: 'text'})
+    return this.http.delete<any>(this.expenseUrl + '/' + id, {responseType: 'text'});
   }
 
   /** GET constItems from the server **/

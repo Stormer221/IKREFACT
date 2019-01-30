@@ -18,15 +18,14 @@
       <ng-template #up><i class="fa fa-arrow-down"></i></ng-template>
       <th class="download">Download</th>
     </tr>
-    <tr class="items"
+    <tr [class]="'items ' + (q.title ? 'pointer' : 'cursor')"
         *ngFor="let q of blankRows() | quotationfilter: searchTerm
-      | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }"
-        (click)="goToQuotationDetails(q.quotationID)">
-      <td class="title">{{q.title}}</td>
-      <td class="description">{{q.description}}</td>
-      <td class="date">{{q.date}}</td>
-      <td *ngIf="q.title != ''; else disabledbutton" class="download">
-        <button (click)="downloadPDF(q.quotationID)">Download PDF</button>
+      | paginate: { itemsPerPage: 5, id: 'quotation', currentPage: quotation_page }">
+      <td class="title" (click)="goToQuotationDetails(q.quotationID)">{{q.title}}</td>
+      <td class="description" (click)="goToQuotationDetails(q.quotationID)">{{q.description}}</td>
+      <td class="date" (click)="goToQuotationDetails(q.quotationID)">{{q.date}}</td>
+      <td *ngIf="q.title != ''; else disabledbutton" class="downloadrow">
+        <button class="downloadbtn" (click)="downloadPDF(q.quotationID)">Download PDF</button>
       </td>
       <ng-template #disabledbutton>
         <td>

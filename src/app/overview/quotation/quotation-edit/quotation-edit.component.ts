@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuotationService} from '../quotation.service';
 import {Quotation} from '../quotation.model';
 import {FormControl, FormGroup} from '@angular/forms';
@@ -10,24 +10,23 @@ import {FormControl, FormGroup} from '@angular/forms';
   styleUrls: ['./quotation-edit.component.css']
 })
 export class QuotationEditComponent implements OnInit {
-  quotation: Quotation;
-  quotationForm: FormGroup;
+  public quotation: Quotation = new Quotation();
+  public id: number = null;
 
-  constructor(private router: Router, private quotationService: QuotationService) {
+  constructor(private router: Router, private quotationService: QuotationService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    this.quotationForm = new FormGroup({
-      'title': new FormControl(),
-      'date': new FormControl(),
-      'deliverydate': new FormControl(),
-      'price': new FormControl(),
-      'description': new FormControl(),
-      'delivery': new FormControl(),
-      'concerns': new FormControl(),
-      'hours': new FormControl()
-    });
-
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['quotationID'];
+        console.log(this.id);
+        if (this.id) {
+          this.quotationService.getQuotationById(this.id)
+            .subscribe(result => this.quotation = result);
+        }
+      }
+    );
   }
 
   toContacts() {
@@ -35,9 +34,15 @@ export class QuotationEditComponent implements OnInit {
   }
 
   submitQuotation() {
-    this.quotationService.addQuotation(this.quotation);
+    console.log(this.id);
+    if (this.id) {
+      this.quotationService.putQuotation(this.quotation).subscribe();
+      this.router.navigate(['/overzichten/offerte/' + this.id]);
+    } else {
+      this.quotationService.addQuotation(this.quotation);
+      this.router.navigate(['overzichten']);
+    }
+
+
   }
-
-
-
 }
