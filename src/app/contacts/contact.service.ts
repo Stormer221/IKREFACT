@@ -19,7 +19,7 @@ export class ContactService {
   }
 
   getSingleContact(contactID: number): Observable<Contact> {
-    return this.http.get<Contact>('walbert/contacts/' + contactID);
+    return this.http.get<Contact>(this.contactsUrl + '/' + contactID);
   }
 
   addContact(contact: Contact): Observable<Contact> {
