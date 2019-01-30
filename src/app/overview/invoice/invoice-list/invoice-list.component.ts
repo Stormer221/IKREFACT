@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 })
 export class InvoiceListComponent implements OnInit {
   public invoices: InvoiceModel[] = [];
-  public empty_invoice: InvoiceModel = new InvoiceModel();
+  public invoice: InvoiceModel = new InvoiceModel('', '',
+    '', null, null, '', '', null, null);
   public page = 1;
   public sort: string;
   public desc: boolean;
@@ -35,7 +36,7 @@ export class InvoiceListComponent implements OnInit {
       this.j = 0;
       this.invoices = this.invoices.sort((a, b) => (a[field] > b[field]) ? 1 : ((b[field] > a[field]) ? -1 : 0));
       while (this.g < this.amount_rows) {
-        this.invoices.push(this.empty_invoice);
+        this.invoices.push(this.invoice);
         this.g = this.g + 1;
       }
       this.g = 0;
@@ -48,8 +49,8 @@ export class InvoiceListComponent implements OnInit {
 
   ngOnInit() {
     setTimeout(() => {
-    this.invoiceService.getInvoices()
-      .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
+      this.invoiceService.getInvoices()
+        .subscribe((invoices: InvoiceModel[]) => this.invoices = invoices);
     }, 300);
   }
 
@@ -62,7 +63,7 @@ export class InvoiceListComponent implements OnInit {
       this.rest = this.invoices.length % this.items_per_page;
       this.amount_rows = this.items_per_page - this.rest;
       while (this.i < this.amount_rows) {
-        this.invoices.push(this.empty_invoice);
+        this.invoices.push(this.invoice);
         this.i = this.i + 1;
       }
       return this.invoices;

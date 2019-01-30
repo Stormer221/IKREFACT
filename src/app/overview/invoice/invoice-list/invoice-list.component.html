@@ -28,7 +28,7 @@
       <td class="title" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.title}}</td>
       <td class="description" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.description}}</td>
       <td class="date" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.date}}</td>
-      <td class="paid" (click)="goToInvoiceDetails(invoiceElement.invoiceID)" *ngIf="invoiceElement.paid; else notPaid"><i class="fa fa-check"></i></td>
+      <td class="paid" (click)="goToInvoiceDetails(invoiceElement.invoiceID)" *ngIf="invoiceElement?.paid; else notPaid"><i class="fa fa-check"></i></td>
       <ng-template #notPaid>
         <td class="paid" (click)="goToInvoiceDetails(invoiceElement.invoiceID)"><i class="fa fa-times"></i></td>
       </ng-template>

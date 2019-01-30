@@ -11,7 +11,7 @@ export class Quotation {
   public vat: number;
 
 
-  constructor(description: string = '', date: string = '', deliverydate: string = '', price: number = 0, title: string = '',
+  constructor(description: string = '', date: string = '', deliveryDate: string = '', price: number = 0, title: string = '',
               quotationID: number = null, delivery: string = '', concerns: string = '', hours: string = '', vat: number) {
     this.description = description;
     this.date = date;

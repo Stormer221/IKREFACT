@@ -10,7 +10,8 @@ import {Contact} from '../../../contacts/contact.model';
   styleUrls: ['./invoice-edit.component.css']
 })
 export class InvoiceEditComponent implements OnInit {
-  public invoice: InvoiceModel = new InvoiceModel;
+  public invoice: InvoiceModel = new InvoiceModel('', '',
+    '', null, null, '', '', null, null);
   private editInvoice = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private invoiceService: InvoiceService) {
