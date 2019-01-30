@@ -21,7 +21,6 @@ export class InvoiceDetailComponent implements OnInit {
         (params: Params) => {
           this.invoice = this.route.snapshot.data.params;
           this.getInvoice(params);
-
         });
   }
 
@@ -29,6 +28,7 @@ export class InvoiceDetailComponent implements OnInit {
     this.invoiceService.getInvoiceById(+params['invoiceID']).subscribe(
       (invoice: InvoiceModel) => {
         this.invoice = invoice;
+        console.log(this.invoice);
       }
     );
   }
@@ -46,5 +46,6 @@ export class InvoiceDetailComponent implements OnInit {
 
   modifyInvoice() {
 
+    this.router.navigate(['wijzigen'], {relativeTo: this.route});
   }
 }

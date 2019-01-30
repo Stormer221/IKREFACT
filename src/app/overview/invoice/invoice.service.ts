@@ -42,5 +42,11 @@ export class InvoiceService {
     // @ts-ignore
     return this.http.delete<Quotation>(this.invoiceURL + '/' + id, {responseType: 'text'});
   }
+
+  updateInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
+    // @ts-ignore
+    return this.http.put<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
+
+  }
 }
 

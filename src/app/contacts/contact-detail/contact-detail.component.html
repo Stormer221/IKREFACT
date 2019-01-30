@@ -20,10 +20,12 @@
     <p>{{ emailItem.emailAddress}}    {{emailItem.emailDescription}}</p>
   </div>
   <div class="company-box" *ngIf="contact?.company.companyName">
-    <h2>Bedrijf:   {{contact?.company.companyName}}</h2>
+    <h2>Bedrijf:</h2>
+    <p>{{contact?.company.companyName}}</p>
   </div>
   <div class="freelancer-box" *ngIf="contact?.freelancer.relation">
-    <h2>Freelancer:   {{contact?.freelancer.relation}}</h2>
+    <h2>Freelancer:</h2>
+    <p>{{contact?.freelancer.relation}}</p>
   </div>
   <p class="button-list">
     <button [routerLink]="['/factuur']">Factuur maken</button>

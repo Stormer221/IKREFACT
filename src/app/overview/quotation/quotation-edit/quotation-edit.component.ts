@@ -27,6 +27,7 @@ export class QuotationEditComponent implements OnInit {
       'concerns': new FormControl(),
       'hours': new FormControl()
     });
+
   }
 
   toContacts() {
