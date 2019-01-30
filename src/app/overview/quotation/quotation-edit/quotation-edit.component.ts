@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Params, Router} from '@angular/router';
 import {QuotationService} from '../quotation.service';
 import {Quotation} from '../quotation.model';
 
@@ -9,12 +9,23 @@ import {Quotation} from '../quotation.model';
   styleUrls: ['./quotation-edit.component.css']
 })
 export class QuotationEditComponent implements OnInit {
-  quotation: Quotation;
+  public quotation: Quotation = new Quotation();
+  public id: number = null;
 
-  constructor(private router: Router, private quotationService: QuotationService) {
+  constructor(private router: Router, private quotationService: QuotationService, private route: ActivatedRoute) {
   }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.id = +params['quotationID'];
+        console.log(this.id);
+        if (this.id) {
+          this.quotationService.getQuotationById(this.id)
+            .subscribe(result => this.quotation = result);
+        }
+      }
+    );
   }
 
   toContacts() {
@@ -22,9 +33,15 @@ export class QuotationEditComponent implements OnInit {
   }
 
   submitQuotation() {
-    this.quotationService.addQuotation(this.quotation);
+    console.log(this.id);
+    if (this.id) {
+      this.quotationService.putQuotation(this.quotation).subscribe();
+      this.router.navigate(['/overzichten/offerte/' + this.id]);
+    } else {
+      this.quotationService.addQuotation(this.quotation);
+      this.router.navigate(['overzichten']);
+    }
+
+
   }
-
-
-
 }
