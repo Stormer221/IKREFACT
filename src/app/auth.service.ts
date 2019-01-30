@@ -24,7 +24,6 @@ export class AuthService {
   public getToken() {
     const token: string = localStorage.getItem('authToken');
     if (!this.permanent) {
-      this.delToken();
     }
     return token;
   }
@@ -32,6 +31,7 @@ export class AuthService {
   private setToken(user: User, permanent: boolean = false) {
     this.permanent = permanent;
     return localStorage.setItem('authToken', btoa(`${user.username}:${user.password}`));
+
   }
 
   public delToken() {
