@@ -23,7 +23,9 @@
     </tr>
     </thead>
     <tr class="items"
-        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+        *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm
+        | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }"
+        (click)="goToInvoiceDetails(invoiceElement.invoiceID)">
       <td class="title">{{invoiceElement.title}}</td>
       <td class="description">{{invoiceElement.description}}</td>
       <td class="date">{{invoiceElement.date}}</td>
