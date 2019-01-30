@@ -24,9 +24,6 @@ export class AuthService {
 
   public getToken() {
     const token: string = localStorage.getItem('authToken');
-    if (!this.permanent) {
-      // this.delToken();
-    }
     return token;
   }
 
@@ -58,5 +55,4 @@ export class AuthService {
   public logout() {
     this.delToken();
   }
-
 }
