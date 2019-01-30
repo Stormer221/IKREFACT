@@ -10,6 +10,7 @@
   <p>beschrijving: {{invoice?.description}}</p>
   <p>aanmaak datum: {{invoice?.date}}</p>
   <p>lever datum: {{invoice?.deliveryDate}}</p>
+  <p>BTW: {{invoice.vat}}</p>
   <p>Kosten: {{invoice?.price}}</p>
   <p *ngIf="invoice?.paid">Betaald </p>
   <p *ngIf="!invoice?.paid">Niet betaald </p>
