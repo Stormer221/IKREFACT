@@ -25,7 +25,7 @@
     </tr>
     <tr class="regel">
       <td class="headers"><h3>Levering:</h3></td>
-      <td class="values">{{invoice.price}}</td>
+      <td class="values">{{invoice?.price}}</td>
     </tr>
     <tr class="regel" *ngIf="invoice?.paid">
       <td><h3>Betaald</h3></td>
@@ -35,7 +35,7 @@
       <td><i class="fa fa-times"></i></td>
     <tr class="regel" *ngIf="invoice?.paid">
       <td><h3>Betaal Datum</h3></td>
-      <td>{{invoice.payDate}}</td>
+      <td>{{invoice?.payDate}}</td>
   </table>
 </app-card>
 <app-card>
