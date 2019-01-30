@@ -1,11 +1,11 @@
 import {Contact} from './contact.model';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, pipe} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable()
 export class ContactService {
-  private contactsUrl = 'walbert/contacts';
+  private contactsUrl = 'http://gefeliciflappeltaart.nl:8080/walbert/contacts';
 
   constructor(private http: HttpClient) {
   }

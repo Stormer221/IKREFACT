@@ -3,11 +3,10 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {InvoiceModel} from './invoice.model';
 import {Quotation} from '../quotation/quotation.model';
-import {InvoiceComponent} from './invoice.component';
 
 @Injectable()
 export class InvoiceService {
-  invoiceURL = '/walbert/invoices';
+  invoiceURL = 'http://gefeliciflappeltaart.nl:8080/walbert/invoices';
 
   constructor(private http: HttpClient) {
   }
