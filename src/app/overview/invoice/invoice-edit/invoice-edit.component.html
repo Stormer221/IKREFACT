@@ -19,10 +19,11 @@
         <label for="price"> Prijs:</label>
         <input type="text" id="price" name="price" class="pull right" required [(ngModel)]="invoice.price">
       </li>
-      <!--<li>-->
-      <!--<label for="vat"> BTW:</label>-->
-      <!--<input type="text" min="0" max="21" id="vat" name="vat" size="3" class="pull right" required [(ngModel)]="invoice.vat">-->
-      <!--</li>-->
+      <li>
+        <label for="vat"> BTW:</label>
+        <input type="text" min="0" max="21" id="vat" name="vat" size="3" class="pull right" required
+               [(ngModel)]="invoice.vat">
+      </li>
       <li>
         <label for="payDate">Betaaldatum:</label>
         <input type="date" id="payDate" name="payDate" class="pull right" required [(ngModel)]="invoice.payDate">
