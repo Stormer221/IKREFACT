@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ExpenseService} from "../expense/expense.service";
-import {ExpenseModel} from "../expense/expense.model";
-import {InvoiceService} from "../overview/invoice/invoice.service";
-import {InvoiceModel} from "../overview/invoice/invoice.model";
+import {ExpenseService} from '../expense/expense.service';
+import {ExpenseModel} from '../expense/expense.model';
+import {InvoiceService} from '../overview/invoice/invoice.service';
+import {InvoiceModel} from '../overview/invoice/invoice.model';
 
 @Component({
   selector: 'app-start',
@@ -10,8 +10,8 @@ import {InvoiceModel} from "../overview/invoice/invoice.model";
   styleUrls: ['./start.component.css']
 })
 export class StartComponent implements OnInit {
-  public totalExpense: number = 0;
-  public totalIncome: number = 0;
+  public totalExpense = 0;
+  public totalIncome = 0;
   public invoices: InvoiceModel[];
 
 
@@ -27,5 +27,4 @@ export class StartComponent implements OnInit {
       this.invoices.forEach((invoice: InvoiceModel) => this.totalIncome += invoice.price);
     });
   }
-
 }

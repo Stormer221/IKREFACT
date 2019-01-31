@@ -1,58 +1,48 @@
 <app-card>
   <h1>Offerte</h1>
-  <form [formGroup]="quotationForm" (ngSubmit)="submitQuotation()">
+  <form #quotationForm="ngForm" (ngSubmit)="submitQuotation()">
     <ul>
       <li>
         <label for="title">Titel:</label>
-        <input
-          type="text"
-          id="title"
-          formControlName="title"
-          class="pull right">
+        <input type="text" id="title" name="title" class="pull right" required [(ngModel)]="quotation.title">
       </li>
       <li>
         <label for="date">Datum:</label>
-        <input
-          type="date"
-          id="date"
-          formcontrolname="date"
-          class="pull right">
+        <input type="date" id="date" name="date" class="pull right" required [(ngModel)]="quotation.date">
       </li>
       <li>
         <label for="deliveryDate">Afleverdatum</label>
-        <input
-          type="date"
-          id="deliveryDate"
-          formcontrolname="deliverydate"
-          class="pull right"
-           >
+        <input type="date" id="deliveryDate" name="deliveryDate" class="pull right" required
+               [(ngModel)]="quotation.deliveryDate">
       </li>
       <li>
         <label for="price"> Prijs:</label>
-        <input
-          type="text"
-          id="price"
-          class="pull right">
+        <input type="text" id="price" name="price" class="pull right" required [(ngModel)]="quotation.price">
       </li>
+      <!--<li>-->
+      <!--<label for="vat"> BTW:</label>-->
+      <!--<input type="text" id="vat" name="vat" class="pull right" required [(ngModel)]="quotation.vat">-->
+      <!--</li>-->
       <li>
         <label for="description">Omschrijving:</label>
-        <input type="text" id="description" class="pull right">
+        <input type="text" id="description" name="description" class="pull right" required
+               [(ngModel)]="quotation.description">
       </li>
       <li>
         <label for="delivery">Levering:</label>
-        <input type="text" id="delivery" class="pull right">
+        <input type="text" id="delivery" name="delivery" class="pull right" required [(ngModel)]="quotation.delivery">
       </li>
       <li>
         <label for="concerns">Betreft:</label>
-        <input type="text" id="concerns" class="pull right">
+        <input type="text" id="concerns" name="concerns" class="pull right" required [(ngModel)]="quotation.concerns">
       </li>
       <li>
         <label for="hours">Kosten per uur:</label>
-        <input type="text" id="hours" class="pull right">
+        <input type="text" id="hours" name="hours" class="pull right" required [(ngModel)]="quotation.hours">
       </li>
       <li class="button-list">
-        <button type="submit" [disabled]="!quotationForm.valid">Opslaan</button>
-        <button (click)="toContacts()">Cancel</button>
+        <button class="btn success" type="submit" [disabled]="!quotationForm.valid"><i class="fa fa-save"></i> Opslaan</button>
+        <button class="btn warning" (click)="toContacts()"><i class="fa fa-times"></i> Cancel</button>
       </li>
     </ul>
   </form>

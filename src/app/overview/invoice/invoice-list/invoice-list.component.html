@@ -22,19 +22,18 @@
       <th class="download">Download</th>
     </tr>
     </thead>
-    <tr class="items"
+    <tr [class]="'items ' + (invoiceElement.title ? 'pointer' : 'cursor')"
         *ngFor="let invoiceElement of blankRows() | invoicefilter: searchTerm
-        | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }"
-        (click)="goToInvoiceDetails(invoiceElement.invoiceID)">
-      <td class="title">{{invoiceElement.title}}</td>
-      <td class="description">{{invoiceElement.description}}</td>
-      <td class="date">{{invoiceElement.date}}</td>
-      <td class="paid" *ngIf="invoiceElement.paid; else notPaid"><i class="fa fa-check"></i></td>
+        | paginate: { itemsPerPage: 5, id: 'invoice', currentPage: page }">
+      <td class="title" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.title}}</td>
+      <td class="description" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.description}}</td>
+      <td class="date" (click)="goToInvoiceDetails(invoiceElement.invoiceID)">{{invoiceElement.date}}</td>
+      <td class="paid" (click)="goToInvoiceDetails(invoiceElement.invoiceID)" *ngIf="invoiceElement?.paid; else notPaid"><i class="fa fa-check"></i></td>
       <ng-template #notPaid>
-        <td class="paid"><i class="fa fa-times"></i></td>
+        <td class="paid" (click)="goToInvoiceDetails(invoiceElement.invoiceID)"><i class="fa fa-times"></i></td>
       </ng-template>
-      <td *ngIf="invoiceElement.title != ''; else disabledbutton" class="download">
-        <button (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
+      <td *ngIf="invoiceElement.title != ''; else disabledbutton" class="downloadrow">
+        <button class="downloadbtn" (click)="downloadPDF(invoiceElement.invoiceID)">Download PDF</button>
       </td>
       <ng-template #disabledbutton>
         <td>

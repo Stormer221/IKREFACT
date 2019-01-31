@@ -20,13 +20,14 @@ export class ExpenseListComponent implements OnInit {
   public page = 1;
   public sort: string;
   public desc: boolean;
-  private empty_expense: ExpenseModel = new ExpenseModel();
-  private rest: number;
+  public empty_expense: ExpenseModel = new ExpenseModel();
+  public rest: number;
   private i = 0;
   private j = 0;
   private g = 0;
-  private amount_rows = 0;
-  private items_per_page = 5;
+  public amount_rows = 0;
+  public items_per_page = 5;
+  public searchTerm: string;
 
   constructor(private expenseService: ExpenseService) {
   }

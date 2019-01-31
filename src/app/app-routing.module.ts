@@ -36,6 +36,7 @@ const appRoutes: Routes = [
   {path: 'overzichten/offerte/:quotationID', component: QuotationDetailComponent, canActivate: [AuthGuardService]},
   {path: 'overzichten/factuur/:invoiceID', component: InvoiceDetailComponent, canActivate: [AuthGuardService]},
   {path: 'overzichten/factuur/:invoiceID/wijzigen', component: InvoiceEditComponent, canActivate: [AuthGuardService]},
+  {path: 'overzichten/offerte/:quotationID/wijzigen', component: QuotationEditComponent, canActivate: [AuthGuardService]},
   {path: 'not-found', component: ErrorComponent},
   {path: '**', redirectTo: '/not-found'},
 ];

@@ -28,7 +28,6 @@ export class InvoiceDetailComponent implements OnInit {
     this.invoiceService.getInvoiceById(+params['invoiceID']).subscribe(
       (invoice: InvoiceModel) => {
         this.invoice = invoice;
-        console.log(this.invoice);
       }
     );
   }
