@@ -46,7 +46,9 @@ export class ExpenseEditComponent implements OnInit {
     if (this.costItems.some(costItem => costItem.itemType === this.model.costItem)) {
       if (this.id) {
         this.expenseService.putExpense(this.model).subscribe();
+        setTimeout(() => {
         this.router.navigate(['/onkosten/' + this.id]);
+        }, 500);
       } else {
         this.expenseService.addExpense(this.model).subscribe();
         this.router.navigate(['/onkosten']);
