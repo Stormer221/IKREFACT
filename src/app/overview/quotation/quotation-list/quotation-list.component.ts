@@ -10,7 +10,8 @@ import {Router} from '@angular/router';
 })
 export class QuotationListComponent implements OnInit {
   public quotations: Quotation[] = [];
-  public quotation: Quotation = new Quotation('', '', '', null, '', null, '', '', '');
+  public quotation: Quotation = new Quotation('', '', '', null, '',
+    null, '', '', '', null);
   public searchTerm: string;
   public quotation_page = 1;
   public sort: string;
@@ -26,9 +27,11 @@ export class QuotationListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.quotationService.getQuotation()
-      .subscribe((quotations: Quotation[]) =>
-        this.quotations = quotations);
+    setTimeout(() => {
+      this.quotationService.getQuotation()
+        .subscribe((quotations: Quotation[]) =>
+          this.quotations = quotations);
+    }, 300);
   }
 
   sortBy(field: string) {

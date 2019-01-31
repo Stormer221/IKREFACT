@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {InvoiceModel} from './invoice.model';
 import {Quotation} from '../quotation/quotation.model';
+import {retry} from 'rxjs/operators';
 
 @Injectable()
 export class InvoiceService {
@@ -12,7 +13,7 @@ export class InvoiceService {
   }
 
   getInvoices(): Observable<InvoiceModel[]> {
-    return this.http.get<InvoiceModel[]>(this.invoiceURL);
+    return this.http.get<InvoiceModel[]>(this.invoiceURL).pipe(retry(4));
   }
 
   getPDF(invoiceID: number): void {
@@ -35,17 +36,17 @@ export class InvoiceService {
   }
 
   getInvoiceById(id: number): Observable<InvoiceModel> {
-    return this.http.get<InvoiceModel>(this.invoiceURL + '/' + id);
+    return this.http.get<InvoiceModel>(this.invoiceURL + '/' + id).pipe(retry(4));
   }
 
   deleteQuotation(id: number) {
     // @ts-ignore
-    return this.http.delete<Quotation>(this.invoiceURL + '/' + id, {responseType: 'text'});
+    return this.http.delete<Quotation>(this.invoiceURL + '/' + id, {responseType: 'text'}).pipe(retry(4));
   }
 
   updateInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
     // @ts-ignore
-    return this.http.put<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'});
+    return this.http.put<InvoiceModel>(this.invoiceURL, invoice, {responseType: 'text'}).pipe(retry(4));
 
   }
 }

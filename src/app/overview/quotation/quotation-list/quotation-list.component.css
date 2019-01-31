@@ -1,6 +1,11 @@
-tbody tr, thead tr th {
+.pointer {
   cursor: pointer;
 }
+
+.cursor {
+  cursor: default;
+}
+
 
 .pagination /deep/ .ngx-pagination .current {
   background-color: #018284;
@@ -67,6 +72,7 @@ td {
 
 th {
   width: 100px;
+  cursor: pointer;
 }
 
 table {
@@ -105,3 +111,12 @@ input {
 .download {
   width: 20%;
 }
+
+.downloadrow {
+  cursor: default;
+}
+
+.downloadbtn {
+  cursor: pointer;
+}
+

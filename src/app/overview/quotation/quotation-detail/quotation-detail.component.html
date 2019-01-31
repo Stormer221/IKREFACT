@@ -5,9 +5,49 @@
   </div>
 </app-card>
 <app-card>
+  <table>
+    <tr class="regel">
+      <td class="headers"><h3>Offerte ID:</h3></td>
+      <td class="values">{{quotation?.quotationID}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Beschrijving:</h3></td>
+      <td class="values">{{quotation?.description}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Aanmaak Datum:</h3></td>
+      <td class="values">{{quotation?.date}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Lever Datum:</h3></td>
+      <td class="values">{{quotation?.deliveryDate}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Levering:</h3></td>
+      <td class="values">{{quotation?.delivery}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Betreft:</h3></td>
+      <td class="values">{{quotation?.concerns}}</td>
+    </tr>
+    <!--<tr class="regel">-->
+      <!--<td class="headers"><h3>BTW:</h3></td>-->
+      <!--<td class="values">{{quotation.vat}}</td>-->
+    <!--</tr>-->
+    <tr class="regel">
+      <td class="headers"><h3>Kosten:</h3></td>
+      <td class="values">{{quotation?.price}}</td>
+    </tr>
+    <tr class="regel">
+      <td class="headers"><h3>Kosten Per Uur:</h3></td>
+      <td class="headers" class="values">{{quotation?.hours}}</td>
+    </tr>
+  </table>
+</app-card>
+<app-card>
   <div class="button-list">
     <button class="btn danger" (click)="deleteQuotations()"><i class="fa fa-trash"></i> Verwijder</button>
-    <button class="btn" (click)="modifyQuotations()"><i class="fa fa-edit"></i> Wijzig
+    <button class="btn" (click)="modifyQuotations(quotation.quotationID)"><i class="fa fa-edit"></i> Wijzig
     </button>
   </div>
 </app-card>

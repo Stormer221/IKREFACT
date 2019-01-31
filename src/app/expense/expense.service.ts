@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ExpenseModel} from './expense.model';
-import {CostItemModel} from "./costItem.model";
+import {CostItemModel} from './costItem.model';
+import {retry} from 'rxjs/operators';
 
 /**
  * The ExpenseService.
@@ -27,12 +28,12 @@ export class ExpenseService {
 
   /** GET expenses from the server */
   getExpense(): Observable<ExpenseModel[]> {
-    return this.http.get<ExpenseModel[]>(this.expenseUrl);
+    return this.http.get<ExpenseModel[]>(this.expenseUrl).pipe(retry(4));
   }
 
   /** GET expenses from the server */
   getExpenseById(id: number): Observable<ExpenseModel> {
-    return this.http.get<ExpenseModel>(this.expenseUrl + '/' + id);
+    return this.http.get<ExpenseModel>(this.expenseUrl + '/' + id).pipe(retry(4));
   }
 
   /** POST: add a new expense to the database */
@@ -48,18 +49,18 @@ export class ExpenseService {
   /** PUT: update an existing expense in the database */
   putExpense(expense: ExpenseModel): Observable<ExpenseModel> {
     // @ts-ignore
-    return this.http.put<ExpenseModel>(this.expenseUrl, expense, {responseType: 'text'});
+    return this.http.put<ExpenseModel>(this.expenseUrl, expense, {responseType: 'text'}).pipe(retry(4));
   }
 
   /** POST: delete an expense from the database */
   deleteExpense(id: number): Observable<any> {
     // @ts-ignore
-    return this.http.delete<any>(this.expenseUrl + '/' + id, {responseType: 'text'})
+    return this.http.delete<any>(this.expenseUrl + '/' + id, {responseType: 'text'}).pipe(retry(4));
   }
 
   /** GET constItems from the server **/
   getCostItem(): Observable<CostItemModel[]> {
-    return this.http.get<CostItemModel[]>(this.costItemUrl);
+    return this.http.get<CostItemModel[]>(this.costItemUrl).pipe(retry(4));
   }
 
   /** POST: add a new expense to the database */

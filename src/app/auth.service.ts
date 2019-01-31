@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {User} from './User';
 import {Router} from '@angular/router';
+import {retry} from 'rxjs/operators';
 
 /**
  * The Auth Service.
@@ -22,11 +23,7 @@ export class AuthService {
   }
 
   public getToken() {
-    const token: string = localStorage.getItem('authToken');
-    if (!this.permanent) {
-      this.delToken();
-    }
-    return token;
+    return localStorage.getItem('authToken');
   }
 
   private setToken(user: User, permanent: boolean = false) {
@@ -44,17 +41,15 @@ export class AuthService {
 
   public loginUser(user: User) {
     this.setToken(user, false);
-    this.http.get<User>(this.userURL).subscribe(result => {
+    this.http.get<User>(this.userURL).pipe(retry(4)).subscribe(result => {
       if (user.username === result.username) {
         this.setToken(user, true);
         this.router.navigate(['start']);
       }
     });
-    localStorage.removeItem('tempAuthToken');
   }
 
   public logout() {
     this.delToken();
   }
-
 }

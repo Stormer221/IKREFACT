@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {InvoiceService} from '../invoice.service';
 import {InvoiceModel} from '../invoice.model';
-import {Contact} from '../../../contacts/contact.model';
 
 @Component({
   selector: 'app-invoice-edit',
@@ -10,7 +9,8 @@ import {Contact} from '../../../contacts/contact.model';
   styleUrls: ['./invoice-edit.component.css']
 })
 export class InvoiceEditComponent implements OnInit {
-  public invoice: InvoiceModel = new InvoiceModel;
+  public invoice: InvoiceModel = new InvoiceModel('', '',
+    '', null, null, '', '', null, null);
   private editInvoice = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private invoiceService: InvoiceService) {
@@ -24,7 +24,7 @@ export class InvoiceEditComponent implements OnInit {
             this.fillInvoiceForm(params);
           });
     }
-    }
+  }
 
   private fillInvoiceForm(params: Params) {
     this.invoiceService.getInvoiceById(params['invoiceID'])
@@ -42,10 +42,15 @@ export class InvoiceEditComponent implements OnInit {
   submitInvoice() {
     if (this.editInvoice) {
       this.invoiceService.updateInvoice(this.invoice).subscribe();
+      setTimeout(() => {
+
+        this.router.navigate(['/overzichten/factuur/' + this.invoice.invoiceID]);
+      }, 1000);
+
     }
     if (!this.editInvoice) {
       this.invoiceService.addInvoice(this.invoice).subscribe();
+      this.router.navigate(['../../../'], {relativeTo: this.route});
     }
-    this.router.navigate(['../../../'], {relativeTo: this.route});
   }
 }
