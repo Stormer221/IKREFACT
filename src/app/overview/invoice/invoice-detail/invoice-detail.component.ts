@@ -38,7 +38,7 @@ export class InvoiceDetailComponent implements OnInit {
 
   deleteInvoice(id) {
     if (confirm('Weet je zeker dat je "' + this.invoice.title + '" wilt verwijderen?')) {
-      this.invoiceService.deleteQuotation(this.invoice.invoiceID).subscribe();
+      this.invoiceService.deleteInvoice(this.invoice.invoiceID).subscribe();
       this.router.navigate(['overzichten']);
     }
   }
