@@ -1,4 +1,10 @@
 <app-card>
+  <span>
+    <i class="fa fa-search"></i>
+    <input [(ngModel)]="searchTerm" placeholder="Zoeken..." type="text">
+  </span>
+  <br>
+  <br>
   <table>
     <thead>
     <tr>
@@ -12,7 +18,7 @@
     </thead>
     <tbody>
     <tr [class]="'items ' + (expense.title ? 'pointer' : 'cursor')"
-      *ngFor="let expense of blankRows() | paginate: { itemsPerPage: 5, currentPage: page }" [expense]="expense"
+      *ngFor="let expense of blankRows()| expensefilter: searchTerm| paginate: { itemsPerPage: 5, currentPage: page }" [expense]="expense"
         app-expense-list-item [routerLink]="expense.expenseID > 0 ? [expense.expenseID] : null">
     </tr>
     </tbody>

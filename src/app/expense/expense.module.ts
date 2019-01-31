@@ -11,6 +11,7 @@ import {FormsModule} from '@angular/forms';
 import {ExpenseListItemComponent} from './expense-list/expense-list-item/expense-list-item.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {HttpClientModule} from "@angular/common/http";
+import {ExpenseFilterPipe} from './expensefilter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {HttpClientModule} from "@angular/common/http";
     ExpenseListComponent,
     ExpenseListItemComponent,
     ExpenseEditComponent,
-    ExpenseDetailComponent
+    ExpenseDetailComponent,
+    ExpenseFilterPipe
   ],
   imports: [
     CommonModule,

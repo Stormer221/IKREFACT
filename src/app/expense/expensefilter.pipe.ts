@@ -2,9 +2,9 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 
 @Pipe({
-  name: 'quotationfilter'
+  name: 'expensefilter'
 })
-export class QuotationFilterPipe implements PipeTransform {
+export class ExpenseFilterPipe implements PipeTransform {
 
 
   transform(item: any, searchTerm: string): any {
@@ -12,10 +12,10 @@ export class QuotationFilterPipe implements PipeTransform {
       return item;
     }
     return item.filter(it => {
+      const costItem = it.costItem.toLowerCase().includes(searchTerm.toLowerCase());
       const title = it.title.toString().toLowerCase().includes(searchTerm.toLowerCase());
       const description = it.description.toLowerCase().includes(searchTerm.toLowerCase());
-      const date = it.date.toLowerCase().includes(searchTerm.toLowerCase());
-      return (title + description + date);
+      return (costItem + title + description);
     });
   }
 
