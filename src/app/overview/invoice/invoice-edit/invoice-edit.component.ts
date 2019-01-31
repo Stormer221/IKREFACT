@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import {InvoiceService} from '../invoice.service';
 import {InvoiceModel} from '../invoice.model';
-import {Contact} from '../../../contacts/contact.model';
 
 @Component({
   selector: 'app-invoice-edit',

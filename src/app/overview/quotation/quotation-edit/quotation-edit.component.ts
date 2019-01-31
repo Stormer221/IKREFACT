@@ -29,7 +29,7 @@ export class QuotationEditComponent implements OnInit {
   }
 
   toContacts() {
-    this.router.navigate(['/contacten']);
+    this.router.navigate(['/contacten', this.route.snapshot.params['contactID']]);
   }
 
   submitQuotation() {
