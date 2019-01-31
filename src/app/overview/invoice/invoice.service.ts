@@ -39,9 +39,9 @@ export class InvoiceService {
     return this.http.get<InvoiceModel>(this.invoiceURL + '/' + id).pipe(retry(4));
   }
 
-  deleteQuotation(id: number) {
+  deleteInvoice(id: number) {
     // @ts-ignore
-    return this.http.delete<Quotation>(this.invoiceURL + '/' + id, {responseType: 'text'}).pipe(retry(4));
+    return this.http.delete<InvoiceModel>(this.invoiceURL + '/' + id, {responseType: 'text'}).pipe(retry(4));
   }
 
   updateInvoice(invoice: InvoiceModel): Observable<InvoiceModel> {
