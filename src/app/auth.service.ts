@@ -23,8 +23,7 @@ export class AuthService {
   }
 
   public getToken() {
-    const token: string = localStorage.getItem('authToken');
-    return token;
+    return localStorage.getItem('authToken');
   }
 
   private setToken(user: User, permanent: boolean = false) {
@@ -48,8 +47,6 @@ export class AuthService {
         this.router.navigate(['start']);
       }
     });
-
-    localStorage.removeItem('tempAuthToken');
   }
 
   public logout() {
